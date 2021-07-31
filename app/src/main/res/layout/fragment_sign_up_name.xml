@@ -48,6 +48,7 @@
             android:fontFamily="@font/nanumsquare_acr"
             android:includeFontPadding="false"
             android:layout_marginTop="10dp"
+            android:textColor="@color/black"
             android:hint="이름을 입력하세요."
             android:backgroundTint="@color/main_color"
             android:textSize="15sp"
