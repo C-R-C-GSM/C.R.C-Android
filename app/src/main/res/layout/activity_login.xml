@@ -27,6 +27,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="로그인하세요."
+            android:fontFamily="@font/nanumsquare_acl"
+            android:includeFontPadding="false"
             android:textColor="@color/black"
             android:gravity="start"
             android:textSize="28sp"
@@ -36,6 +38,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="이메일"
+            android:fontFamily="@font/nanumsquare_acb"
+            android:includeFontPadding="false"
             android:textColor="@color/main_color"
             android:textSize="18sp"
             android:layout_marginTop="30dp"
@@ -43,15 +47,20 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/nanumsquare_acr"
+            android:includeFontPadding="false"
             android:layout_marginTop="10dp"
             android:hint="이메일을 입력하세요."
-            android:textSize="15dp"
+            android:backgroundTint="@color/main_color"
+            android:textSize="15sp"
             />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="이메일"
+            android:text="비밀번호"
+            android:fontFamily="@font/nanumsquare_acb"
+            android:includeFontPadding="false"
             android:textColor="@color/main_color"
             android:textSize="18sp"
             android:layout_marginTop="20dp"
@@ -60,8 +69,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:hint="이메일을 입력하세요."
-            android:textSize="15dp"
+            android:backgroundTint="@color/main_color"
+            android:hint="비밀번호를 입력하세요."
+            android:fontFamily="@font/nanumsquare_acr"
+            android:includeFontPadding="false"
+            android:textSize="15sp"
             />
 
     </LinearLayout>
