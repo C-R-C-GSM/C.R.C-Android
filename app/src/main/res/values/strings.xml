@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">CRC_Android</string>
-
+    <string name="number">number</string>
 </resources>
