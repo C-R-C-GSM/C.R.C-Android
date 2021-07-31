@@ -1,9 +1,14 @@
 <resources>
     <string name="app_name">CRC_Android</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
     <string name="number">number</string>
 
     <string name="name">name</string>
     <string name="day">2021-02-25 아침</string>
     <string name="review_text">도넛이 너무 작아서 제 큰 입이 만족하지 못했습니다. 다 른 친구는 소세지 두 개 주고 저는 하나 주셨는데 속상했 습니다. 아이스슈 너무 맛있어요. 급식에 자주 나오면 좋 겠습니다ㅎㅎ</string>
+
 
 </resources>
