@@ -65,7 +65,7 @@
         android:layout_marginLeft="@dimen/login_width_margin"
         android:layout_marginTop="140dp"
         android:layout_marginRight="@dimen/login_width_margin"
-
+        android:fontFamily="@font/nanumsquare_acb"
         android:layout_marginBottom="88dp"
         android:background="@drawable/signup_next_btn"
         android:includeFontPadding="false"
