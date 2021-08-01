@@ -2,6 +2,5 @@
 <resources>
 
     <dimen name="login_width_margin">48dp</dimen>
-    <dimen name="login_width_margin">50dp</dimen>
 
 </resources>
