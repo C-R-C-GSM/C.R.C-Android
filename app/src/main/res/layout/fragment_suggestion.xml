@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -10,26 +11,185 @@
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="114px"
-        android:layout_marginTop="52px"
+        android:layout_marginLeft="114dp"
+        android:layout_marginTop="52dp"
         android:fontFamily="@font/nanumsquare_acb"
         android:text="급식 건의 게시판"
         android:textColor="@color/black"
-        android:textSize="25sp"
+        android:textSize="23sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.39"
+        app:layout_constraintHorizontal_bias="0.118"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:layout_width="32dp"
-        android:layout_height="29dp"
-        android:layout_marginTop="20dp"
+        android:id="@+id/plus"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_marginTop="52dp"
         android:src="@drawable/plus"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.815"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toEndOf="@+id/name"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/line"
+        android:layout_width="340dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/Line"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name" />
+
+
+    <Button
+        android:id="@+id/board1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        android:background="@drawable/mainbutton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/bottommenu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/home"
+        android:layout_width="26dp"
+        android:layout_height="22dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="665dp"
+        android:background="@drawable/home"
+        app:layout_constraintBottom_toTopOf="@+id/hometext"
+        app:layout_constraintLeft_toLeftOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/hometext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/nanumsquare_acb"
+        android:text="종합현황"
+        android:textColor="@color/black"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/home" />
+
+    <ImageButton
+        android:id="@+id/student"
+        android:layout_width="26dp"
+        android:layout_height="22dp"
+        android:layout_marginLeft="120dp"
+        android:layout_marginTop="665dp"
+        android:background="@drawable/friends"
+        app:layout_constraintBottom_toTopOf="@+id/hometext"
+        app:layout_constraintLeft_toLeftOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+    <TextView
+        android:id="@+id/studenttext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="108dp"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/nanumsquare_acb"
+        android:text="학생현황"
+        android:textColor="@color/black"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/student" />
+
+    <ImageButton
+        android:id="@+id/favourite"
+        android:layout_width="26dp"
+        android:layout_height="22dp"
+        android:layout_marginLeft="192dp"
+        android:layout_marginTop="665dp"
+        android:background="@drawable/favourite"
+        app:layout_constraintBottom_toTopOf="@+id/hometext"
+        app:layout_constraintLeft_toLeftOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/favouritetext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="180dp"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/nanumsquare_acb"
+        android:text="급식리뷰"
+        android:textColor="@color/black"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/favourite" />
+
+    <ImageButton
+        android:id="@+id/comment"
+        android:layout_width="26dp"
+        android:layout_height="22dp"
+        android:layout_marginLeft="264dp"
+        android:layout_marginTop="665dp"
+        android:background="@drawable/comment"
+        app:layout_constraintBottom_toTopOf="@+id/hometext"
+        app:layout_constraintLeft_toLeftOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/commenttext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="252dp"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/nanumsquare_acb"
+        android:text="급식건의"
+        android:textColor="@color/black"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/comment" />
+
+    <ImageButton
+        android:id="@+id/inter"
+        android:layout_width="26dp"
+        android:layout_height="22dp"
+        android:layout_marginLeft="340dp"
+        android:layout_marginTop="665dp"
+        android:background="@drawable/inter"
+        app:layout_constraintBottom_toTopOf="@+id/hometext"
+        app:layout_constraintLeft_toLeftOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/intertext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="332dp"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/nanumsquare_acb"
+        android:text="더보기"
+        android:textColor="@color/black"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inter" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
