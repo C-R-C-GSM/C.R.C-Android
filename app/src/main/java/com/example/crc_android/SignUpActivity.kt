@@ -2,15 +2,35 @@ package com.example.crc_android
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import android.widget.Button
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 
 class SignUpActivity : AppCompatActivity() {
 
-    private var flag = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
+
+
+        val signUpViewModel: SignUpViewModel = ViewModelProvider(
+            this,
+            ViewModelProvider.NewInstanceFactory()
+        ).get(SignUpViewModel::class.java)
+
+        signUpViewModel.flag.observe(this, Observer {
+            Log.d("로그", "라이브데이터 flag : $it")
+            switchFragment(it, signUpViewModel)
+        })
+
+
+        val nextBtn = findViewById<Button>(R.id.signUpNextBtn)
+        nextBtn.setOnClickListener {
+            signUpViewModel.plusFlag()
+        }
 
 
         //fragment
@@ -19,34 +39,31 @@ class SignUpActivity : AppCompatActivity() {
         transaction.commit()
     }
 
-    fun nextBtnClick(view: View) {
-        switchFragment()
+
+    private fun nextBtnClick() {
+
     }
 
-    private fun switchFragment() {
+    private fun switchFragment(flag: Int, signUpViewModel: SignUpViewModel) {
         if (flag in 0..3) {
             val transaction = supportFragmentManager.beginTransaction()
 
             when (flag) {
                 0 -> {
-                    transaction.setCustomAnimations(R.anim.right_in, R.anim.left_out)
-                        .replace(R.id.sign_up_frame_layout, SignUpEmailFragment())
-                    flag++
+                    transaction.setCustomAnimations(R.anim.right_in, R.anim.right_in)
+                        .add(R.id.sign_up_frame_layout, SignUpEmailFragment())
                 }
                 1 -> {
                     transaction.setCustomAnimations(R.anim.right_in, R.anim.left_out)
                         .add(R.id.sign_up_frame_layout, SignUpPasswordFragment())
-                    flag++
                 }
                 2 -> {
                     transaction.setCustomAnimations(R.anim.right_in, R.anim.left_out)
                         .add(R.id.sign_up_frame_layout, SignUpNameFragment())
-                    flag++
                 }
                 3 -> {
                     transaction.setCustomAnimations(R.anim.right_in, R.anim.left_out)
                         .add(R.id.sign_up_frame_layout, SignUpClassFragment())
-                    flag++
                 }
             }
             transaction.addToBackStack(null)

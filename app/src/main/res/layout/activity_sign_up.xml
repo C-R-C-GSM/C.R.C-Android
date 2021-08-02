@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:orientation="vertical"
+    android:background="@color/white"
     android:gravity="center_horizontal"
     android:layout_height="match_parent"
     tools:context=".SignUpActivity">
@@ -15,4 +16,19 @@
         android:layout_height="match_parent"
         />
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/signUpNextBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="@dimen/login_width_margin"
+        android:layout_marginTop="140dp"
+        android:layout_marginRight="@dimen/login_width_margin"
+        android:fontFamily="@font/nanumsquare_acb"
+        android:layout_marginBottom="88dp"
+        android:background="@drawable/signup_next_btn"
+        android:includeFontPadding="false"
+        android:text="계속하기"
+        android:textColor="@color/white" />
 </RelativeLayout>
