@@ -2,35 +2,42 @@ package com.example.crc_android
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.TextUtils
 import android.util.Log
 import android.view.View
 import android.widget.Button
+import android.widget.Toast
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.example.crc_android.base.UtilityBase
+import com.example.crc_android.databinding.ActivitySignUpBinding
 
-class SignUpActivity : AppCompatActivity() {
+class SignUpActivity : UtilityBase.BaseActivity<ActivitySignUpBinding>(R.layout.activity_sign_up) {
 
+
+    companion object{
+        lateinit var signUpViewModel : SignUpViewModel
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sign_up)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_sign_up)
+        binding.activity = this
 
-
-        val signUpViewModel: SignUpViewModel = ViewModelProvider(
+         signUpViewModel = ViewModelProvider(
             this,
             ViewModelProvider.NewInstanceFactory()
         ).get(SignUpViewModel::class.java)
 
+
+        //fragment 순번(email -> password -> name -> 반번호)
         signUpViewModel.flag.observe(this, Observer {
             Log.d("로그", "라이브데이터 flag : $it")
-            switchFragment(it, signUpViewModel)
+
+            switchFragment(it)
         })
 
-
-        val nextBtn = findViewById<Button>(R.id.signUpNextBtn)
-        nextBtn.setOnClickListener {
-            signUpViewModel.plusFlag()
-        }
 
 
         //fragment
@@ -40,11 +47,9 @@ class SignUpActivity : AppCompatActivity() {
     }
 
 
-    private fun nextBtnClick() {
 
-    }
 
-    private fun switchFragment(flag: Int, signUpViewModel: SignUpViewModel) {
+    private fun switchFragment(flag: Int) {
         if (flag in 0..3) {
             val transaction = supportFragmentManager.beginTransaction()
 

@@ -1,34 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:background="@color/white"
-    android:gravity="center_horizontal"
-    android:layout_height="match_parent"
-    tools:context=".SignUpActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="activity"
+            type="com.example.crc_android.SignUpActivity" />
+    </data>
 
-    <FrameLayout
-        android:id="@+id/sign_up_frame_layout"
+    <RelativeLayout
         android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:gravity="center_horizontal"
         android:layout_height="match_parent"
-        />
+        tools:context=".SignUpActivity">
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/signUpNextBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="@dimen/login_width_margin"
-        android:layout_marginTop="140dp"
-        android:layout_marginRight="@dimen/login_width_margin"
-        android:fontFamily="@font/nanumsquare_acb"
-        android:layout_marginBottom="88dp"
-        android:background="@drawable/signup_next_btn"
-        android:includeFontPadding="false"
-        android:text="계속하기"
-        android:textColor="@color/white" />
-</RelativeLayout>
+
+        <FrameLayout
+            android:id="@+id/sign_up_frame_layout"
+            android:layout_width="match_parent"
+
+            android:layout_height="match_parent"
+          />
+
+    </RelativeLayout>
+</layout>
