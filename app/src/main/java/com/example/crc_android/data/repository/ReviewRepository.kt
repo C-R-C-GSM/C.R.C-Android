@@ -1,6 +1,6 @@
 package com.example.crc_android.data.repository
 
-import com.example.crc_android.data.models.ReviewRegister
+import com.example.crc_android.data.models.reviewRegister.ReviewRegister
 import com.example.crc_android.data.network.ReviewApi
 import retrofit2.Response
 import javax.inject.Inject
