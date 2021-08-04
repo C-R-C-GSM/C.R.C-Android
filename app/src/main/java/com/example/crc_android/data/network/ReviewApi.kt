@@ -1,19 +1,24 @@
 package com.example.crc_android.data.network
 
-import com.example.crc_android.data.models.ReviewRegister
+import com.example.crc_android.data.models.check.ReviewCheck
+import com.example.crc_android.data.models.reviewRegister.ReviewRegister
 import retrofit2.Response
 import retrofit2.http.Field
 import retrofit2.http.GET
+import retrofit2.http.Header
 import retrofit2.http.POST
-import retrofit2.http.Query
 
 interface ReviewApi {
 
     // 리뷰목록 확인
     @GET("review/check")
-    fun getReviewCheck() {
+    fun getReviewCheck(
+        @Header("token") token:String
 
-    }
+    ) :Response<ReviewCheck>
+
+
+
 
     @POST("review/register")
     suspend fun postReviewRegister(
