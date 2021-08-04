@@ -1,16 +1,14 @@
-package com.example.crc_android
+package com.example.crc_android.view
 
 import android.os.Bundle
 import android.text.TextUtils
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
-import com.example.crc_android.SignUpActivity.Companion.signUpViewModel
+import com.example.crc_android.R
+import com.example.crc_android.view.SignUpActivity.Companion.signUpViewModel
 import com.example.crc_android.base.UtilityBase
 import com.example.crc_android.databinding.FragmentSignUpEmailBinding
 

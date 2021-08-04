@@ -1,17 +1,14 @@
-package com.example.crc_android
+package com.example.crc_android.view
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.TextUtils
 import android.util.Log
-import android.view.View
-import android.widget.Button
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.example.crc_android.*
 import com.example.crc_android.base.UtilityBase
 import com.example.crc_android.databinding.ActivitySignUpBinding
+import com.example.crc_android.viewmodel.SignUpViewModel
 
 class SignUpActivity : UtilityBase.BaseActivity<ActivitySignUpBinding>(R.layout.activity_sign_up) {
 

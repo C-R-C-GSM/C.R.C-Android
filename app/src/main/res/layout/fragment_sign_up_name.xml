@@ -5,7 +5,7 @@
     <data>
         <variable
             name="fragment"
-            type="com.example.crc_android.SignUpNameFragment" />
+            type="com.example.crc_android.view.SignUpNameFragment" />
     </data>
 
     <RelativeLayout
@@ -13,7 +13,7 @@
         android:background="@color/white"
 
         android:layout_height="match_parent"
-        tools:context=".SignUpNameFragment">
+        tools:context=".view.SignUpNameFragment">
 
 
         <LinearLayout

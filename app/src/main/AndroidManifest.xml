@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CRC_Android">
 
-        <activity android:name=".SignUpActivity">
+        <activity android:name=".view.SignUpActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

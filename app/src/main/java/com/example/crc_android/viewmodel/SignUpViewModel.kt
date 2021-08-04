@@ -1,4 +1,4 @@
-package com.example.crc_android
+package com.example.crc_android.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
