@@ -1,13 +1,11 @@
-package com.example.crc_android.ui
+package com.example.crc_android.ui.review.review
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.crc_android.data.models.check.ReviewCheck
 import com.example.crc_android.data.models.check.ReviewData
 import com.example.crc_android.data.repository.ReviewRepository
-import com.example.crc_android.data.repository.ReviewRepository_Factory
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

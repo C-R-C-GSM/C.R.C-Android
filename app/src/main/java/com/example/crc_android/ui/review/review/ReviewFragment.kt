@@ -1,4 +1,4 @@
-package com.example.crc_android.ui.review
+package com.example.crc_android.ui.review.review
 
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
