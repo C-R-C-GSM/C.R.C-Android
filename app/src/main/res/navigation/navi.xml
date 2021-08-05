@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navi"
+    app:startDestination="@id/replyFragment">
+
+<!--   fragment 아래 형식대로  -->
+    <fragment
+        android:id="@+id/replyFragment"
+        tools:layout="@layout/fragment_reply"
+        android:name="com.example.crc_android.ui.review.ReplyFragment"
+        android:label="ReplyFragment" >
+        <action
+            android:id="@+id/action_replyFragment_to_reviewFragment"
+            app:destination="@id/reviewFragment" />
+        <argument
+            android:name="reply"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/reviewFragment"
+        tools:layout="@layout/fragment_review"
+        android:name="com.example.crc_android.ui.review.review.ReviewFragment"
+        android:label="ReviewFragment" >
+
+        <action
+            android:id="@+id/action_reviewFragment_to_replyFragment"
+            app:destination="@id/replyFragment" />
+        <argument
+            android:name="reply"
+            app:argType="string" />
+    </fragment>
+</navigation>
