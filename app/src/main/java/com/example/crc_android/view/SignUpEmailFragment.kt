@@ -14,7 +14,7 @@ import com.example.crc_android.databinding.FragmentSignUpEmailBinding
 
 
 class SignUpEmailFragment :
-    UtilityBase.BaseFragment<FragmentSignUpEmailBinding>(R.layout.fragment_sign_up_email){
+    UtilityBase.BaseFragment<FragmentSignUpEmailBinding>(R.layout.fragment_sign_up_email) {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,11 +36,14 @@ class SignUpEmailFragment :
         return binding.root
     }
 
-    fun nextBtnClick(view: View){
-        if (TextUtils.isEmpty(binding.emailEdittext.text))
-            Toast.makeText(requireContext(),"이메일을 입력해 주세요",Toast.LENGTH_SHORT).show()
-        else
+    fun nextBtnClick(view: View) {
+        if (TextUtils.isEmpty(binding.emailEdittext.text.toString()))
+            Toast.makeText(requireContext(), "이메일을 입력해 주세요", Toast.LENGTH_SHORT).show()
+        else {
+            signUpViewModel.setEmail(binding.emailEdittext.text.toString())
             signUpViewModel.plusFlag()
+        }
+
 
     }
 

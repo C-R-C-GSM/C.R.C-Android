@@ -37,6 +37,7 @@ class SignUpActivity : UtilityBase.BaseActivity<ActivitySignUpBinding>(R.layout.
 
 
 
+
         //fragment
         val transaction = supportFragmentManager.beginTransaction()
         transaction.add(R.id.sign_up_frame_layout, SignUpEmailFragment())

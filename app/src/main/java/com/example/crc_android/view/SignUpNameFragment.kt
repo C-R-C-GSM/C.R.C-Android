@@ -12,7 +12,8 @@ import com.example.crc_android.base.UtilityBase
 import com.example.crc_android.databinding.FragmentSignUpNameBinding
 
 
-class SignUpNameFragment : UtilityBase.BaseFragment<FragmentSignUpNameBinding>(R.layout.fragment_sign_up_name) {
+class SignUpNameFragment :
+    UtilityBase.BaseFragment<FragmentSignUpNameBinding>(R.layout.fragment_sign_up_name) {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,18 +26,21 @@ class SignUpNameFragment : UtilityBase.BaseFragment<FragmentSignUpNameBinding>(R
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_sign_up_name,container,false)
+        binding =
+            DataBindingUtil.inflate(inflater, R.layout.fragment_sign_up_name, container, false)
         binding.fragment = this
 
 
         return binding.root
     }
 
-    fun nextBtnClick(view: View){
-        if (TextUtils.isEmpty(binding.nameEdittext.text))
-            Toast.makeText(requireContext(),"이름을 입력해 주세요",Toast.LENGTH_SHORT).show()
-        else
+    fun nextBtnClick(view: View) {
+        if (TextUtils.isEmpty(binding.nameEdittext.text.toString()))
+            Toast.makeText(requireContext(), "이름을 입력해 주세요", Toast.LENGTH_SHORT).show()
+        else {
+            SignUpActivity.signUpViewModel.setName(binding.nameEdittext.text.toString())
             SignUpActivity.signUpViewModel.plusFlag()
+        }
 
     }
 

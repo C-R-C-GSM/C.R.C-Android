@@ -59,6 +59,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nanumsquare_acr"
                 android:includeFontPadding="false"
+                android:inputType="text"
                 android:layout_marginTop="10dp"
                 android:textColor="@color/black"
                 android:hint="이름을 입력하세요."

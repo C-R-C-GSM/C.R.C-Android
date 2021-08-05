@@ -40,6 +40,7 @@ class SignUpPasswordFragment :
             } else {
 
                 if (binding.passwordEdittext.text.toString() == binding.passwordCheckEdittext.text.toString()) {
+                    SignUpActivity.signUpViewModel.setPassword(binding.passwordCheckEdittext.text.toString())
                     SignUpActivity.signUpViewModel.plusFlag()
                 } else {
                     Toast.makeText(requireContext(), "비밀번호와 비밀번호 확인이 다릅니다", Toast.LENGTH_SHORT)
