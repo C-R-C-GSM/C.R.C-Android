@@ -12,6 +12,8 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+
+
     </style>
 
     <style name="tab_style">
@@ -26,4 +28,5 @@
         <item name="tabGravity">fill</item>
         <item name="tabMode">fixed</item>
     </style>
+
 </resources>
