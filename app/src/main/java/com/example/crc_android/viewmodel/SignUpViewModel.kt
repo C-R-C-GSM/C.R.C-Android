@@ -82,7 +82,9 @@ class SignUpViewModel : ViewModel() {
     fun plusFlag() {
         _flag.value = _flag.value?.plus(1)
     }
-
+    fun minusFlag() {
+        _flag.value = _flag.value?.minus(1)
+    }
 
      fun registerApiCall(){
 

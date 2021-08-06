@@ -44,4 +44,8 @@ class SignUpNameFragment :
 
     }
 
+    fun backBtnClick(view: View){
+        SignUpActivity.signUpViewModel.minusFlag()
+    }
+
 }

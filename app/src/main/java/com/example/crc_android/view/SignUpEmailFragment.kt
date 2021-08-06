@@ -44,7 +44,7 @@ class SignUpEmailFragment :
             signUpViewModel.plusFlag()
         }
 
-
     }
+
 
 }

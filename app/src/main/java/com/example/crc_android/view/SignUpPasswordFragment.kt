@@ -50,4 +50,8 @@ class SignUpPasswordFragment :
             }
     }
 
+    fun backBtnClick(view: View){
+        SignUpActivity.signUpViewModel.minusFlag()
+    }
+
 }

@@ -15,6 +15,17 @@
 
         tools:context=".view.SignUpClassFragment">
 
+        <ImageView
+            android:id="@+id/back_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_back"
+            android:onClick="@{fragment::backBtnClick}"
+            android:layout_alignParentTop="true"
+            android:padding="5dp"
+            android:layout_alignParentLeft="true"
+            android:layout_margin="20dp"
+            />
 
         <LinearLayout
             android:id="@+id/frame"
