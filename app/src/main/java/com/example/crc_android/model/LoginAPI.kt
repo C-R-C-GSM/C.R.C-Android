@@ -1,20 +1,19 @@
 package com.example.crc_android.model
 
-
 import com.example.crc_android.model.DTO.ResponseMessageDTO
 import retrofit2.Response
-import retrofit2.http.*
+import retrofit2.http.Field
+import retrofit2.http.FormUrlEncoded
+import retrofit2.http.POST
 
-interface RegisterAPI {
+interface LoginAPI {
     @FormUrlEncoded
 
-    @POST("register")
-    suspend fun transferRegister(
+    @POST("login")
+    suspend fun transferLogin(
 
         @Field("email") email : String,
         @Field("password") password : String,
-        @Field("name") name : String,
-        @Field("student_data") student_data : String,
 
-    ): Response<ResponseMessageDTO?>
+        ): Response<ResponseMessageDTO?>
 }

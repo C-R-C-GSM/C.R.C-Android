@@ -5,11 +5,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import com.example.crc_android.model.RegisterAPI
-import com.example.crc_android.model.ResponseMessageDTO
+import com.example.crc_android.model.DTO.ResponseMessageDTO
 import com.example.crc_android.model.RetrofitClient
-import com.example.crc_android.model.RetrofitObject
 import com.example.crc_android.view.SignUpActivity
-import retrofit2.Call
 import retrofit2.Response
 
 class SignUpViewModel : ViewModel() {
