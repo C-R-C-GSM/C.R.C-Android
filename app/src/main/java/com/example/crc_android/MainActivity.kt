@@ -46,6 +46,8 @@ class MainActivity : UtilityBase.BaseActivity<ActivityMainBinding>(R.layout.acti
     override fun onSupportNavigateUp(): Boolean {
 
         return navController.navigateUp() || super.onSupportNavigateUp()
+        setContentView(R.layout.activity_main)
+
     }
 
     private fun initNavigation() {
