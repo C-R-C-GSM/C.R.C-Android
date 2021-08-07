@@ -13,6 +13,10 @@
         android:theme="@style/Theme.CRC_Android"
         android:usesCleartextTraffic="true">
         <activity android:name=".view.LoginActivity">
+
+        android:theme="@style/Theme.CRC_Android">
+        <activity android:name=".MainActivity"></activity>
+      <activity android:name=".suggestionActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
