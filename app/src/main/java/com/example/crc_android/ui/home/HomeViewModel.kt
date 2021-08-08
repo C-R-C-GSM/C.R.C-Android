@@ -1,5 +1,6 @@
 package com.example.crc_android.ui.home
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -13,17 +14,22 @@ import javax.inject.Inject
 class HomeViewModel @Inject constructor(
     private val friendRepository: FriendRepository
 ) : ViewModel() {
-    private lateinit var _totalNumber: MutableLiveData<Int>
+    private val _totalNumber: MutableLiveData<Int> = MutableLiveData<Int>()
     val totalNumber: LiveData<Int> get() = _totalNumber
 
     fun getTotalNumber(token: String) = viewModelScope.launch {
         val data = friendRepository.totalFriend(token)
         if (data.isSuccessful) {
+            Log.d(TAG, "getTotalNumber: 성공")
+            Log.d(TAG, "getTotalNumber: ${data.body()?.total_num}")
             _totalNumber.value = data.body()?.total_num
         }
     }
 
     init {
         _totalNumber.value = 0
+    }
+    companion object{
+        const val TAG="HomeViewModel"
     }
 }
