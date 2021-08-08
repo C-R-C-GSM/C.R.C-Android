@@ -14,8 +14,13 @@
         android:theme="@style/Theme.CRC_Android">
         <activity android:name=".MainActivity"/>
 
+        <activity android:name=".registractionActivity"></activity>
+        <activity android:name=".MainActivity">
+
+
 
         <activity android:name=".view.LoginActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
