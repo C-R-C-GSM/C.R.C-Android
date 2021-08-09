@@ -9,7 +9,7 @@ interface FriendApi {
 
 
     @GET("check/total")
-   suspend fun getFriendTotal(
-          @Query("token") token : String
+    suspend fun getFriendTotal(
+        @Query("token") token : String
     ) : Response<FriendTotalData>
 }
