@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
@@ -73,8 +75,8 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="130dp"
                 android:layout_marginLeft="130dp"
-                android:text="@string/number"
-                app:totalFriend="@{viewmodel.totalNumber}" />
+                android:text="230"
+              />
 
 
         </LinearLayout>
@@ -105,9 +107,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
+                tools:text="0"
                 android:layout_marginStart="149dp"
                 android:layout_marginLeft="149dp"
                 android:gravity="right"
+                app:totalFriend="@{viewmodel.enterNumber}"
                 android:text="@string/number"
                 android:textColor="@color/main_color" />
 
@@ -141,7 +145,9 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="130dp"
                 android:layout_marginLeft="130dp"
-                android:text="@string/number" />
+                android:text="@string/number"
+                app:totalFriend="@{viewmodel.noEntryNumber}"
+                tools:text="230" />
 
 
         </LinearLayout>
