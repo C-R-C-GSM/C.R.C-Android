@@ -12,7 +12,6 @@
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         android:layout_marginTop="54dp"
         android:fontFamily="@font/nanumsquare_acb"
         android:text="급식 건의 등록"
@@ -41,7 +40,7 @@
 
 
     <ImageButton
-        android:scaleX="-1f"
+        android:scaleX="-1"
         android:id="@+id/leftarrow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

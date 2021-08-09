@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    >
 
 
     <TextView
@@ -45,15 +46,15 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
-     android:id="@+id/scrollView1"
-     android:layout_width="match_parent"
-     android:layout_height="match_parent"
-     android:layout_marginTop="115dp"
-     android:layout_marginBottom="100dp"
-     app:layout_constraintBottom_toBottomOf="parent"
-     app:layout_constraintLeft_toLeftOf="parent"
-     app:layout_constraintRight_toRightOf="parent"
-     app:layout_constraintTop_toTopOf="parent" />
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="115dp"
+        android:layout_marginBottom="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <androidx.cardview.widget.CardView
