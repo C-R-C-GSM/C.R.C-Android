@@ -23,6 +23,7 @@ class HomeViewModel @Inject constructor(
     private val _noEntryNumber: MutableLiveData<Int> = MutableLiveData<Int>()
     val noEntryNumber: LiveData<Int> get() = _noEntryNumber
 
+  
 
     fun getTotalNumber(token: String) = viewModelScope.launch {
         val data = friendRepository.totalFriend(token)
@@ -46,5 +47,6 @@ class HomeViewModel @Inject constructor(
     companion object {
         const val TAG = "HomeViewModel"
     }
-}
 
+   
+}
