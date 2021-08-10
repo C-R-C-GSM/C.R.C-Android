@@ -14,7 +14,7 @@
 
         android:layout_marginTop="54dp"
         android:fontFamily="@font/nanumsquare_acb"
-        android:text="급식 내놔 등록"
+        android:text="급식 건의 등록"
         android:textColor="@color/black"
         android:textSize="23sp"
         app:layout_constraintEnd_toEndOf="parent"
