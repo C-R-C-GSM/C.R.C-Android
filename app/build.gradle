@@ -2,10 +2,11 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
-    id 'dagger.hilt.android.plugin'
     id "androidx.navigation.safeargs"
 
 }
+apply plugin: 'dagger.hilt.android.plugin'
+
 
 android {
     compileSdkVersion 30
@@ -44,14 +45,7 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    kapt {
-        javacOptions {
-            // These options are normally set automatically via the Hilt Gradle plugin, but we
-            // set them manually to workaround a bug in the Kotlin 1.5.20
-            option("-Adagger.fastInit=ENABLED")
-            option("-Adagger.hilt.android.internal.disableAndroidSuperclassValidation=true")
-        }
-    }
+
 
 
     buildFeatures {

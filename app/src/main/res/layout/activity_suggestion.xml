@@ -27,7 +27,7 @@
         android:layout_width="22dp"
         android:layout_height="22dp"
         android:layout_marginTop="54dp"
-        android:background="@drawable/plus"
+        android:background="@drawable/ic_arrow_back"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/name"
         app:layout_constraintTop_toTopOf="parent" />
@@ -104,7 +104,7 @@
             android:layout_height="21dp"
             android:layout_marginLeft="295dp"
             android:layout_marginTop="22dp"
-            android:background="@drawable/leftarrow"
+            android:background="@drawable/ic_arrow_back"
             app:layout_constraintLeft_toLeftOf="@id/board1"
             app:layout_constraintTop_toTopOf="@id/board1" />
 
@@ -165,7 +165,7 @@
             android:layout_height="21dp"
             android:layout_marginLeft="295dp"
             android:layout_marginTop="22dp"
-            android:background="@drawable/leftarrow"
+            android:background="@drawable/ic_arrow_back"
             app:layout_constraintLeft_toLeftOf="@id/board2"
             app:layout_constraintTop_toTopOf="@id/board2" />
 
@@ -220,7 +220,7 @@
             android:layout_height="21dp"
             android:layout_marginLeft="295dp"
             android:layout_marginTop="22dp"
-            android:background="@drawable/leftarrow"
+            android:background="@drawable/ic_arrow_back"
             app:layout_constraintLeft_toLeftOf="@id/board3"
             app:layout_constraintTop_toTopOf="@id/board3" />
 

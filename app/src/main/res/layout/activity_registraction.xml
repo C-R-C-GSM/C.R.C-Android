@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -15,7 +14,7 @@
 
         android:layout_marginTop="54dp"
         android:fontFamily="@font/nanumsquare_acb"
-        android:text="급식 건의 등록"
+        android:text="급식 내놔 등록"
         android:textColor="@color/black"
         android:textSize="23sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -41,14 +40,13 @@
 
 
     <ImageButton
-        android:scaleX="-1f"
         android:id="@+id/leftarrow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="32dp"
         android:layout_marginTop="60dp"
         android:background="#00ff0000"
-        android:src="@drawable/leftarrow"
+        android:src="@drawable/ic_arrow_back"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
