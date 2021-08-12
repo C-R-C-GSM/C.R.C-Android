@@ -127,13 +127,23 @@
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/friend_recyclerview"
-            android:layout_width="match_parent"
+            android:id="@+id/friend_enter_recyclerview"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="39dp"
+            android:layout_marginStart="18dp"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-            tools:layout_editor_absoluteX="20dp"
             tools:listitem="@layout/friend_list_enter" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/friend_no_enter_ecyclerview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+            android:layout_marginEnd="40dp"
+            app:layout_constraintTop_toTopOf="@+id/friend_enter_recyclerview"
+            tools:listitem="@layout/friend_list_no_entry_enter" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
