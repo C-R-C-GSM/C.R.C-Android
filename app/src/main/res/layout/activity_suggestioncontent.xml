@@ -6,25 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".RegistractionActivity">
 
-    <TextView
-        android:id="@+id/name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="54dp"
-        android:fontFamily="@font/nanumsquare_acb"
-        android:gravity="center_horizontal"
-        android:text="급식 건의 등록"
-        android:textColor="@color/black"
-        android:textSize="23sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
 
     <Button
         android:layout_width="50dp"
         android:layout_height="35dp"
-        android:layout_marginStart="64dp"
+        android:layout_marginStart="255dp"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="54dp"
         android:background="#00ff0000"
@@ -33,8 +19,8 @@
         android:text="완료"
         android:textColor="@color/main_color"
         android:textSize="18dp"
+        app:layout_constraintLeft_toLeftOf="@+id/prevcontent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toEndOf="@id/name"
         app:layout_constraintTop_toTopOf="parent" />
 
 
@@ -51,6 +37,7 @@
 
 
     <TextView
+        android:id="@+id/prevcontent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="53dp"
@@ -59,7 +46,7 @@
         android:background="#00ff0000"
         android:fontFamily="@font/nanumsquare_acb"
         android:padding="0dp"
-        android:text="급식 건의"
+        android:text="급식 건의 게시판"
         android:textColor="@color/black"
         android:textSize="19sp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -75,40 +62,42 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
-    <EditText
-        android:id="@+id/nickname"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="250dp"
-        android:background="@drawable/registedit"
-        android:hint="    닉네임을 입력하세요"
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="162dp"
+        android:fontFamily="@font/nanumsquare_acb"
+        android:text="급식 건의 제목"
+        android:textColor="@color/black"
+        android:textSize="25dp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/title"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="310dp"
-        android:background="@drawable/registedit"
-        android:hint="    제목을 입력하세요"
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="164dp"
+        android:layout_marginTop="215dp"
+        android:fontFamily="@font/nanumsquare_acb"
+        android:text="2021-02-25"
+        android:textColor="@color/text_color"
+        android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
-    <EditText
-        android:id="@+id/content"
-        android:layout_width="300dp"
-        android:layout_height="108dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="370dp"
-        android:background="@drawable/registedit"
-        android:gravity="top"
-        android:hint="    내용을 입력하세요"
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="180dp"
+        android:layout_marginTop="260dp"
+        android:fontFamily="@font/nanumsquare_acb"
+        android:text="닉네임"
+        android:textColor="@color/text_color"
+        android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
