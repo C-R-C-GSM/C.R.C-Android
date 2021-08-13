@@ -4,6 +4,8 @@
     package="com.example.crc_android">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".App"
         android:usesCleartextTraffic="true"
@@ -16,11 +18,16 @@
         android:theme="@style/Theme.CRC_Android"
         tools:targetApi="m">
         <activity android:name=".ui.FriendFragment">
+
+        <activity android:name=".view.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".view.SignUpActivity">
+
         </activity>
     </application>
 

@@ -24,4 +24,11 @@ interface FriendApi {
     suspend fun getFriendThree(
         @Header("Token") token: String
     ): Response<FriendUserData>
+  
+    @GET("check/total")
+   suspend fun getFriendTotal(
+           token : String
+    ) : Response<FriendTotalData>
+
 }
+
