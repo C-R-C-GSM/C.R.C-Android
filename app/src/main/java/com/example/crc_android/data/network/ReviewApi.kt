@@ -12,7 +12,7 @@ interface ReviewApi {
 
     // 리뷰목록 확인
     @GET("review/check")
-    fun getReviewCheck(
+    suspend fun getReviewCheck(
         @Header("token") token:String
 
     ) :Response<ReviewCheck>

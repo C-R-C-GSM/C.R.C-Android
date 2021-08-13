@@ -9,4 +9,11 @@
   <component name="SuppressionsComponent">
     <option name="suppComments" value="[]" />
   </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.14666666666666667" />
+      </ProjectState>
+    </option>
+  </component>
 </project>
