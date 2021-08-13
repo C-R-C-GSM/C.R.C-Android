@@ -9,8 +9,8 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.example.crc_android.R
 import com.example.crc_android.view.SignUpActivity.Companion.signUpViewModel
-import com.example.crc_android.base.UtilityBase
 import com.example.crc_android.databinding.FragmentSignUpEmailBinding
+import com.example.movie.base.UtilityBase
 
 
 class SignUpEmailFragment :

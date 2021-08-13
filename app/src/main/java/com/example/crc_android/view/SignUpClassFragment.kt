@@ -13,12 +13,12 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.liveData
 import com.example.crc_android.R
-import com.example.crc_android.base.UtilityBase
 import com.example.crc_android.databinding.FragmentSignUpClassBinding
 import com.example.crc_android.model.RegisterAPI
 import com.example.crc_android.model.RetrofitClient
 import com.example.crc_android.model.RetrofitObject
 import com.example.crc_android.view.SignUpActivity.Companion.signUpViewModel
+import com.example.movie.base.UtilityBase
 
 import retrofit2.Response
 import retrofit2.Retrofit
