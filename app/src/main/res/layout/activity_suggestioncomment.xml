@@ -13,7 +13,7 @@
         android:layout_marginTop="54dp"
         android:fontFamily="@font/nanumsquare_acb"
         android:gravity="center_horizontal"
-        android:text="급식 건의 등록"
+        android:text="답글 달기"
         android:textColor="@color/black"
         android:textSize="23sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,7 +22,7 @@
 
 
     <Button
-        android:id="@+id/update"
+        android:id="@+id/add1"
         android:layout_width="50dp"
         android:layout_height="35dp"
         android:layout_marginStart="64dp"
@@ -78,36 +78,11 @@
 
 
     <EditText
-        android:id="@+id/nickname"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="250dp"
-        android:background="@drawable/registedit"
-        android:hint="    닉네임을 입력하세요"
-        android:textColorHint="@color/black"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/title"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="310dp"
-        android:background="@drawable/registedit"
-        android:hint="    제목을 입력하세요"
-        android:textColorHint="@color/black"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <EditText
         android:id="@+id/content"
         android:layout_width="300dp"
-        android:layout_height="108dp"
+        android:layout_height="208dp"
         android:layout_marginStart="60dp"
-        android:layout_marginTop="370dp"
+        android:layout_marginTop="270dp"
         android:background="@drawable/registedit"
         android:gravity="top"
         android:hint="    내용을 입력하세요"
