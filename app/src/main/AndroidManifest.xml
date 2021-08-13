@@ -17,6 +17,8 @@
 
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
+        
+        <activity android:name=".MainActivity"></activity>
 
         <activity android:name=".SuggestionActivity">
             <intent-filter>

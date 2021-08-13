@@ -10,8 +10,8 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.example.crc_android.base.UtilityBase
 import com.example.crc_android.databinding.ActivityMainBinding
+import com.example.movie.base.UtilityBase
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -33,7 +33,7 @@ class MainActivity : UtilityBase.BaseActivity<ActivityMainBinding>(R.layout.acti
             setOf(
                 R.id.homeFragment,
 
-            )
+                )
         )
 
         initNavigation()
@@ -57,16 +57,13 @@ class MainActivity : UtilityBase.BaseActivity<ActivityMainBinding>(R.layout.acti
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
             // fragment id 가 아닐 시 bottom navigation 안뜸
-            if ( destination.id == R.id.homeFragment) {
+            if (destination.id == R.id.homeFragment) {
                 navi.visibility = View.VISIBLE
             } else {
                 navi.visibility = View.GONE
             }
         }
     }
-
-
-
 
 
 }

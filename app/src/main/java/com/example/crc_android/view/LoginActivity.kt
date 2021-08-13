@@ -11,12 +11,12 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.crc_android.R
-import com.example.crc_android.base.UtilityBase
 import com.example.crc_android.databinding.ActivityLoginBinding
 import com.example.crc_android.model.RetrofitObject
 import com.example.crc_android.util.AES256
 import com.example.crc_android.viewmodel.LoginViewModel
 import com.example.crc_android.viewmodel.SignUpViewModel
+import com.example.movie.base.UtilityBase
 
 class LoginActivity : UtilityBase.BaseActivity<ActivityLoginBinding>(R.layout.activity_login) {
     lateinit var loginViewModel: LoginViewModel
