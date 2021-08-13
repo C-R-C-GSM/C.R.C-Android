@@ -12,11 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CRC_Android"
         android:usesCleartextTraffic="true">
-        <activity android:name=".view.LoginActivity">
+        <activity android:name=".view.LoginActivity"></activity>
 
-        android:theme="@style/Theme.CRC_Android">
         <activity android:name=".MainActivity"></activity>
-      <activity android:name=".suggestionActivity">
+      <activity android:name=".SuggestionActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,7 +25,6 @@
         <activity android:name=".view.SignUpActivity">
 
         </activity>
-        <activity android:name=".MainActivity"></activity>
     </application>
 
 </manifest>
