@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
@@ -13,6 +14,7 @@ import com.example.crc_android.R
 import com.example.crc_android.base.UtilityBase
 import com.example.crc_android.databinding.ActivityLoginBinding
 import com.example.crc_android.model.RetrofitObject
+import com.example.crc_android.util.AES256
 import com.example.crc_android.viewmodel.LoginViewModel
 import com.example.crc_android.viewmodel.SignUpViewModel
 
@@ -60,7 +62,10 @@ class LoginActivity : UtilityBase.BaseActivity<ActivityLoginBinding>(R.layout.ac
         if(message == "Issue Token and Login Success"){
             Toast.makeText(this,"로그인에 성공했습니다",Toast.LENGTH_SHORT).show()
             if (token != null) {
-                RetrofitObject.TOKEN = token
+                RetrofitObject.TOKEN = AES256.aesEncode(token).toString()
+                Log.d("로그","인코딩 후 : ${RetrofitObject.TOKEN}")
+                RetrofitObject.TOKEN = AES256.aesDecode(RetrofitObject.TOKEN).toString()
+                Log.d("로그","디코딩 후 : ${RetrofitObject.TOKEN}")
             }
             successLogin()
         }else if (message == "cannot connect db"){
