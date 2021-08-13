@@ -11,8 +11,7 @@ import com.example.crc_android.R
 import com.example.crc_android.view.SignUpActivity.Companion.signUpViewModel
 import com.example.crc_android.base.UtilityBase
 import com.example.crc_android.databinding.FragmentSignUpEmailBinding
-import java.util.regex.Matcher
-import java.util.regex.Pattern
+import com.example.movie.base.UtilityBase
 
 
 class SignUpEmailFragment :
