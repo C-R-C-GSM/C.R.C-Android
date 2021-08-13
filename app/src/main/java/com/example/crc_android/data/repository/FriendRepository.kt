@@ -1,6 +1,5 @@
 package com.example.crc_android.data.repository
 
-
 import com.example.crc_android.data.models.FriendTotalData
 import com.example.crc_android.data.network.FriendApi
 import retrofit2.Response

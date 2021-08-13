@@ -7,9 +7,7 @@ object HomeBindingAdapter{
 
     @BindingAdapter("app:totalFriend")
     @JvmStatic
-    fun totalFriend( text:TextView,data: Int,){
-
-        if(data.toString().isNotEmpty())
+    fun totalFriend(data: Int, text:TextView){
         text.text=data.toString()
     }
 }
