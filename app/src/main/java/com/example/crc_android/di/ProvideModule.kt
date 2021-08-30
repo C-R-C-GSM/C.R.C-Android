@@ -1,10 +1,7 @@
 package com.example.crc_android.di
 
-<<<<<<< HEAD
 import android.content.ContentValues
 import android.util.Log
-=======
->>>>>>> origin/develop
 import com.example.crc_android.data.network.FriendApi
 import dagger.Module
 import dagger.Provides
@@ -16,7 +13,6 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object ProvideModule {
-<<<<<<< HEAD
     @Provides
     @Singleton
     fun provideApiService(retrofit: Retrofit): FriendApi {
@@ -24,7 +20,6 @@ object ProvideModule {
         return retrofit.create(FriendApi::class.java)
     }
 
-=======
 
     @Provides
     @Singleton
@@ -32,5 +27,4 @@ object ProvideModule {
     fun provideApiService(retrofit: Retrofit): FriendApi {
         return retrofit.create(FriendApi::class.java)
     }
->>>>>>> origin/develop
 }
