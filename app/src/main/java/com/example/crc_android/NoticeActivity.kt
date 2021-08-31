@@ -47,7 +47,10 @@ class NoticeActivity : AppCompatActivity() {
 
     }
     private fun setRetrofit() {
-        val retrofit = RetrofitHelper.getInstance()
+            val retrofit = Retrofit.Builder()
+                .baseUrl("http://ec2-3-34-189-53.ap-northeast-2.compute.amazonaws.com:3000/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
 
         val service = retrofit.create(NOTICE::class.java)
         val call: Call<NoticeToken> = service.getnoticetoken("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXkiOjM3LCJyb2xlIjowLCJpYXQiOjE2Mjk4NDY4NTQsImV4cCI6MTYyOTg1MDQ1NCwiaXNzIjoiQy5SLkNfU0VSVkVSIn0.NsrgLDyvtiAuKeTvxTx3r7X9A4i94afveic2iBiXLMg")

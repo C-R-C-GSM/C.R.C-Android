@@ -11,7 +11,7 @@ class ViewmoreActivity : AppCompatActivity() {
         setContentView(R.layout.activity_viewmore)
 
         noticeBtn.setOnClickListener {
-            val noticeBtn = Intent(this,NoticeActivity::class.java )
+            val noticeBtn = Intent(this,AdminnoticeActivity::class.java )
             startActivity(noticeBtn)
             finish()
         }

@@ -78,7 +78,7 @@
 
 
     <EditText
-        android:id="@+id/nickname"
+        android:id="@+id/title"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginStart="60dp"
@@ -98,6 +98,7 @@
         android:layout_marginTop="310dp"
         android:background="@drawable/registedit"
         android:gravity="top"
+        android:paddingTop="20dp"
         android:hint="    내용을 입력하세요"
         android:textColorHint="@color/black"
         app:layout_constraintStart_toStartOf="parent"

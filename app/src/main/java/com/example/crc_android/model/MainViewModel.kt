@@ -12,5 +12,10 @@ class MainViewModel: ViewModel(){
         newlist.add(blog)
         lst.value =newlist
     }
+    fun remove(blog: RegistNotice){
+        newlist.remove(blog)
+        lst.value = newlist
+
+    }
 }
 
