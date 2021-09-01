@@ -21,68 +21,55 @@ class FriendViewModel @Inject constructor(
     private var _friendEnterItem = MutableLiveData<List<Data>>()
     val friendEnterItem: LiveData<List<Data>> get() = _friendEnterItem
 
-    private var _friendNoEntryEnterItem = MutableLiveData<List<Data>>()
-    val friendNoEntryEnterItem: LiveData<List<Data>> get() = _friendNoEntryEnterItem
 
-    suspend fun getFriendOne(token: String) = viewModelScope.launch {
-        val data = friendRepository.getFriendOne(token)
-        if (data.isSuccessful) {
 
-            if (data.body() != null) {
 
-                data.body()?.data?.filter { it.student_check == 1 }?.apply {
-                    _friendEnterItem.postValue(this)
-                    Log.d(TAG, "getFriendOne check == 1: ${this[0].student_name}")
-                }
-                data.body()?.data?.filter { it.student_check == 0 }?.apply {
-                    _friendNoEntryEnterItem.postValue(this)
-                    Log.d(TAG, "getFriendOne check == 0: ${this[0].student_name}")
+    suspend fun getFriendOne(token: String, student_check: Int) = viewModelScope.launch {
+        friendRepository.getFriendOne(token).let { response ->
+            if (response.isSuccessful) {
+
+                when (student_check) {
+                    1 -> _friendEnterItem.value = response.body()?.data
+                    0 -> _friendEnterItem.value = response.body()?.data
                 }
 
 
             }
+
         }
+
 
     }
 
 
-    suspend fun getFriendTwo(token: String) = viewModelScope.launch {
-        val data = friendRepository.getFriendTwo(token)
-        if (data.isSuccessful) {
+    suspend fun getFriendTwo(token: String, student_check: Int) = viewModelScope.launch {
+        friendRepository.getFriendTwo(token).let { response ->
+            if (response.isSuccessful) {
 
-            if (data.body() != null) {
-
-                data.body()?.data?.filter { it.student_check == 1 }?.apply {
-                    _friendEnterItem.postValue(this)
-                    Log.d(TAG, "getFriendOne check == 1: ${this[0].student_name}")
-                }
-                data.body()?.data?.filter { it.student_check == 0 }?.apply {
-                    _friendNoEntryEnterItem.postValue(this)
-                    Log.d(TAG, "getFriendOne check == 0: ${this[0].student_name}")
+                when (student_check) {
+                    1 -> _friendEnterItem.value = response.body()?.data
+                    0 -> _friendEnterItem.value = response.body()?.data
                 }
 
 
             }
+
         }
 
     }
-    suspend fun getFriendThree(token: String) = viewModelScope.launch {
-        val data = friendRepository.getFriendThree(token)
-        if (data.isSuccessful) {
 
-            if (data.body() != null) {
+    suspend fun getFriendThree(token: String,student_check:Int) = viewModelScope.launch {
+        friendRepository.getFriendThree(token).let { response ->
+            if (response.isSuccessful) {
 
-                data.body()?.data?.filter { it.student_check == 1 }?.apply {
-                    _friendEnterItem.postValue(this)
-                    Log.d(TAG, "getFriendOne check == 1: ${this[0].student_name}")
-                }
-                data.body()?.data?.filter { it.student_check == 0 }?.apply {
-                    _friendNoEntryEnterItem.postValue(this)
-                    Log.d(TAG, "getFriendOne check == 0: ${this[0].student_name}")
+                when (student_check) {
+                    1 -> _friendEnterItem.value = response.body()?.data
+                    0 -> _friendEnterItem.value = response.body()?.data
                 }
 
 
             }
+
         }
 
     }
