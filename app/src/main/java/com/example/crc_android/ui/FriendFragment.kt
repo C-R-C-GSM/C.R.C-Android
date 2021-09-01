@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.crc_android.R
 import com.example.crc_android.adapter.ChooseEnter
 import com.example.crc_android.adapter.FriendAdapter
+import com.example.crc_android.data.models.Data
 import com.example.crc_android.databinding.FragmentFriendBinding
 import com.example.movie.base.UtilityBase
 import dagger.hilt.android.AndroidEntryPoint
@@ -20,13 +21,23 @@ import kotlinx.coroutines.launch
 class FriendFragment : UtilityBase.BaseActivity<FragmentFriendBinding>(R.layout.fragment_friend) {
     private val viewModel: FriendViewModel by viewModels()
 
-    private lateinit var friendAdapter: FriendAdapter
-    private lateinit var friendAdapter1: FriendAdapter
+     val TAG="FriendFragment"
+
+    private val friendEnterAdapter: FriendAdapter by lazy {
+        FriendAdapter(ChooseEnter.ENTER)
+    }
+
+    private val friendNoEnterAdapter: FriendAdapter by lazy {
+        FriendAdapter(ChooseEnter.NO_ENTER)
+    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding.fragment = this
+
+        setAdapter(friendEnterAdapter, binding.friendEnterRecyclerview)
+        setAdapter(friendNoEnterAdapter, binding.friendNoEnterEcyclerview)
         buttonSelect(binding.oneBtn)
     }
 
@@ -43,31 +54,12 @@ class FriendFragment : UtilityBase.BaseActivity<FragmentFriendBinding>(R.layout.
 
                 lifecycleScope.launch {
 
-
-                    viewModel.getFriendOne("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXkiOjMyLCJyb2xlIjowLCJpYXQiOjE2Mjg3NzY0NTEsImV4cCI6MTYyODc4MDA1MSwiaXNzIjoiQy5SLkNfU0VSVkVSIn0.smtbHP8hA4TYXiCGo8fX6iKrj0ECu28XNmr6uFHujfM")
-
-
+                    observeFriend("", 1)
 
                     viewModel.friendEnterItem.observe(this@FriendFragment, { data ->
-                        if (data != null) {
-                            Log.d(TAG, "Enter: ${data[0].student_name} :${data[0].student_data}")
-                            friendAdapter = FriendAdapter(ChooseEnter.ENTER)
-                            setAdapter(friendAdapter, binding.friendEnterRecyclerview)
-                            friendAdapter.setData(data)
-                        }
+                        observeStudentCheck(data, data[0].student_check)
                     })
-                    viewModel.friendNoEntryEnterItem.observe(this@FriendFragment, { data ->
-                        if (data != null) {
-                            Log.d(
-                                TAG,
-                                "noEntryEnter: ${data[0].student_name} : ${data[0].student_data} "
-                            )
-                            friendAdapter1 = FriendAdapter(ChooseEnter.NO_ENTER)
-                            setAdapter(friendAdapter1, binding.friendNoEnterEcyclerview)
-                            friendAdapter1.setData(data)
-                        }
 
-                    })
 
                 }
             }
@@ -81,28 +73,12 @@ class FriendFragment : UtilityBase.BaseActivity<FragmentFriendBinding>(R.layout.
 
 
                 lifecycleScope.launch {
-                    viewModel.getFriendTwo("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXkiOjMyLCJyb2xlIjowLCJpYXQiOjE2Mjg3NzY0NTEsImV4cCI6MTYyODc4MDA1MSwiaXNzIjoiQy5SLkNfU0VSVkVSIn0.smtbHP8hA4TYXiCGo8fX6iKrj0ECu28XNmr6uFHujfM")
 
+                    observeFriend("", 2)
                     viewModel.friendEnterItem.observe(this@FriendFragment, { data ->
-                        if (data != null) {
-                            Log.d(TAG, "Enter: ${data[0].student_name} :${data[0].student_data}")
-                            friendAdapter = FriendAdapter(ChooseEnter.ENTER)
-                            setAdapter(friendAdapter, binding.friendEnterRecyclerview)
-                            friendAdapter.setData(data)
-                        }
+                            observeStudentCheck(data, data[0].student_check)
                     })
-                    viewModel.friendNoEntryEnterItem.observe(this@FriendFragment, { data ->
-                        if (data != null) {
-                            Log.d(
-                                TAG,
-                                "noEntryEnter: ${data[0].student_name} : ${data[0].student_data} "
-                            )
-                            friendAdapter1 = FriendAdapter(ChooseEnter.NO_ENTER)
-                            setAdapter(friendAdapter1, binding.friendNoEnterEcyclerview)
-                            friendAdapter1.setData(data)
-                        }
 
-                    })
 
                 }
             }
@@ -116,53 +92,68 @@ class FriendFragment : UtilityBase.BaseActivity<FragmentFriendBinding>(R.layout.
 
                 lifecycleScope.launch {
 
-                    viewModel.getFriendThree("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXkiOjMyLCJyb2xlIjowLCJpYXQiOjE2Mjg3NzY0NTEsImV4cCI6MTYyODc4MDA1MSwiaXNzIjoiQy5SLkNfU0VSVkVSIn0.smtbHP8hA4TYXiCGo8fX6iKrj0ECu28XNmr6uFHujfM")
+                    observeFriend("", 3)
                     viewModel.friendEnterItem.observe(this@FriendFragment, { data ->
-                        if (data != null) {
-                            Log.d(TAG, "Enter: ${data[0].student_name} :${data[0].student_data}")
-                            friendAdapter = FriendAdapter(ChooseEnter.ENTER)
-                            setAdapter(friendAdapter, binding.friendEnterRecyclerview)
-                            friendAdapter.setData(data)
-                        }
-                    })
 
-                    viewModel.friendNoEntryEnterItem.observe(this@FriendFragment, { data ->
-                        if (data != null) {
-                            Log.d(
-                                TAG,
-                                "noEntryEnter: ${data[0].student_name} : ${data[0].student_data} "
-                            )
-                            friendAdapter1 = FriendAdapter(ChooseEnter.NO_ENTER)
-                            setAdapter(friendAdapter1, binding.friendNoEnterEcyclerview)
-                            friendAdapter1.setData(data)
-                        }
+                        Log.d(TAG, "buttonSelect: ${data[0].student_check}")
+                        observeStudentCheck(data, data[0].student_check)
 
                     })
+
+
                 }
             }
         }
     }
 
+    private fun observeStudentCheck(data: List<Data>, number: Int) {
+        when (number) {
+            0 -> {
+                data.filter { it.student_check == 0 }.apply {
+                    friendNoEnterAdapter.setData(data)
+                }
+            }
+            1 -> {
+                data.filter { it.student_check == 1 }.apply {
+                    friendEnterAdapter.setData(data)
+                }
+            }
 
-    private fun setAdapter(adapter: RecyclerView.Adapter<*>, recyclerView: RecyclerView) {
+        }
+
+    }
+
+
+    private fun setAdapter(adapter: FriendAdapter, recyclerView: RecyclerView) {
         when (recyclerView) {
             binding.friendEnterRecyclerview -> {
 
-                binding.friendEnterRecyclerview.adapter = adapter
-                binding.friendEnterRecyclerview.layoutManager =
-                    LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-                binding.friendEnterRecyclerview.setHasFixedSize(false)
+                binding.friendEnterRecyclerview.apply {
+                    this.adapter = adapter
+                    this.layoutManager =
+                        LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+                    binding.friendEnterRecyclerview.setHasFixedSize(false)
+                }
             }
             binding.friendNoEnterEcyclerview -> {
-                binding.friendNoEnterEcyclerview.adapter = adapter
-                binding.friendNoEnterEcyclerview.layoutManager =
-                    LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-                binding.friendNoEnterEcyclerview.setHasFixedSize(false)
+                binding.friendNoEnterEcyclerview.apply {
+                    this.adapter = adapter
+                    this.layoutManager =
+                        LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+                    this.setHasFixedSize(false)
+                }
             }
         }
     }
 
-    companion object {
-        const val TAG = "FriendFragment"
+    private suspend fun observeFriend(token: String, number: Int) {
+
+        when (number) {
+            1 -> viewModel.getFriendOne(token, number)
+            2 -> viewModel.getFriendTwo(token, number)
+            3 -> viewModel.getFriendThree(token, number)
+        }
     }
+
+
 }
