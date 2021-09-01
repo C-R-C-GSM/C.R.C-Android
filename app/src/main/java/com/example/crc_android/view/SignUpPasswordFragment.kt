@@ -9,8 +9,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.example.crc_android.R
-import com.example.crc_android.base.UtilityBase
 import com.example.crc_android.databinding.FragmentSignUpPasswordBinding
+import com.example.movie.base.UtilityBase
 
 class SignUpPasswordFragment :
     UtilityBase.BaseFragment<FragmentSignUpPasswordBinding>(R.layout.fragment_sign_up_password) {

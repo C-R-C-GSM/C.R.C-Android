@@ -7,9 +7,9 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.crc_android.*
-import com.example.crc_android.base.UtilityBase
 import com.example.crc_android.databinding.ActivitySignUpBinding
 import com.example.crc_android.viewmodel.SignUpViewModel
+import com.example.movie.base.UtilityBase
 
 class SignUpActivity : UtilityBase.BaseActivity<ActivitySignUpBinding>(R.layout.activity_sign_up) {
 

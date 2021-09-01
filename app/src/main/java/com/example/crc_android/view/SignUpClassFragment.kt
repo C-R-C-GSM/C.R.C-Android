@@ -13,12 +13,12 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.liveData
 import com.example.crc_android.R
-import com.example.crc_android.base.UtilityBase
 import com.example.crc_android.databinding.FragmentSignUpClassBinding
 import com.example.crc_android.model.RegisterAPI
 import com.example.crc_android.model.RetrofitClient
 import com.example.crc_android.model.RetrofitObject
 import com.example.crc_android.view.SignUpActivity.Companion.signUpViewModel
+import com.example.movie.base.UtilityBase
 
 import retrofit2.Response
 import retrofit2.Retrofit
@@ -51,8 +51,8 @@ class SignUpClassFragment :
     }
 
      fun nextBtnClick() {
-        if (TextUtils.isEmpty(binding.classEdittext.text.toString()))
-            Toast.makeText(requireContext(), "학년, 반, 번호를 입력해 주세요", Toast.LENGTH_SHORT).show()
+        if (TextUtils.isEmpty(binding.classEdittext.text.toString()) || binding.classEdittext.text.toString().length<4)
+            Toast.makeText(requireContext(), "학년, 반, 번호를 정확히 입력해 주세요", Toast.LENGTH_SHORT).show()
         else {
             signUpViewModel.setClassNumber(binding.classEdittext.text.toString())
 

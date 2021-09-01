@@ -8,8 +8,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.example.crc_android.R
-import com.example.crc_android.base.UtilityBase
 import com.example.crc_android.databinding.FragmentSignUpNameBinding
+import com.example.movie.base.UtilityBase
 
 
 class SignUpNameFragment :

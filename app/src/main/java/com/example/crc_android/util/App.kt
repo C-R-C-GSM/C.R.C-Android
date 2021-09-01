@@ -1,4 +1,4 @@
-package com.example.crc_android
+package com.example.crc_android.util
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

@@ -105,6 +105,7 @@
             android:layout_marginLeft="295dp"
             android:layout_marginTop="22dp"
             android:background="@drawable/leftarrow"
+
             app:layout_constraintLeft_toLeftOf="@id/board1"
             app:layout_constraintTop_toTopOf="@id/board1" />
 
@@ -165,7 +166,9 @@
             android:layout_height="21dp"
             android:layout_marginLeft="295dp"
             android:layout_marginTop="22dp"
+
             android:background="@drawable/leftarrow"
+
             app:layout_constraintLeft_toLeftOf="@id/board2"
             app:layout_constraintTop_toTopOf="@id/board2" />
 
@@ -220,7 +223,6 @@
             android:layout_height="21dp"
             android:layout_marginLeft="295dp"
             android:layout_marginTop="22dp"
-            android:background="@drawable/leftarrow"
             app:layout_constraintLeft_toLeftOf="@id/board3"
             app:layout_constraintTop_toTopOf="@id/board3" />
 
