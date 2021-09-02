@@ -12,20 +12,20 @@ import com.example.crc_android.AdminnoticeActivity
 import com.example.crc_android.R
 
 class MyAdapter(val context: Context):
-        RecyclerView.Adapter<MyAdapter.MyViewHolder>(){
-            class MyViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
-                public var itemtitle : TextView = itemView.findViewById(R.id.sampletext1)
-                public var itemdate : TextView = itemView.findViewById(R.id.sampledate1)
+    RecyclerView.Adapter<MyAdapter.MyViewHolder>(){
+    class MyViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
+        public var itemtitle : TextView = itemView.findViewById(R.id.sampletext1)
+        public var itemdate : TextView = itemView.findViewById(R.id.sampledate1)
 
-                val arrow1: ImageView = itemView.findViewById(R.id.arrow1)
+        val arrow1: ImageView = itemView.findViewById(R.id.arrow1)
 
 
-            }
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val cardView = LayoutInflater.from(parent.context)
             .inflate(R.layout.card_notice,parent,false)
-    return MyViewHolder(cardView)
+        return MyViewHolder(cardView)
 
     }
 
@@ -48,4 +48,4 @@ class MyAdapter(val context: Context):
     override fun getItemCount(): Int {
         return 7
     }
-        }
+}

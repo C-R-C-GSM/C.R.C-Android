@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="data"
+            type="com.example.crc_android.data.RegistNotice" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -22,7 +24,7 @@
             android:id="@+id/sampletext1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="급식리뷰 등록 주의사항"
+            android:text="@{data.title}"
             android:textColor="@color/black"
             android:textSize="12dp"
             android:fontFamily="@font/nanumsquare_acb"
