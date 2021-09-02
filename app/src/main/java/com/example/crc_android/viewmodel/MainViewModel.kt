@@ -2,24 +2,24 @@ package com.example.crc_android.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.crc_android.Data
 import com.example.crc_android.data.RegistNotice
 
 class MainViewModel: ViewModel(){
     var lst = MutableLiveData<ArrayList<RegistNotice>>()
-    var newlist = ArrayList<RegistNotice>()
 
     fun add(blog:RegistNotice){
-        newlist.add(blog)
-        lst.value = newlist
+        Data.dataList.add(blog)
+        lst.value = Data.dataList
     }
 
     fun remove(blog: RegistNotice){
-        newlist.remove(blog)
-        lst.value = newlist
+        Data.dataList.remove(blog)
+        lst.value = Data.dataList
     }
 
     fun get(){
-        lst.value = newlist
+        lst.value = Data.dataList
     }
 }
 

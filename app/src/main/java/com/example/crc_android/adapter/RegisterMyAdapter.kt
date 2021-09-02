@@ -7,6 +7,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.crc_android.data.RegistNotice
 import com.example.crc_android.databinding.CardNoticeBinding
 import com.example.crc_android.viewmodel.MainViewModel
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 class RegisterMyAdapter(
     val viewModel:MainViewModel,
@@ -26,7 +29,9 @@ class RegisterMyAdapter(
 
     inner class ViewHolder(val binding : CardNoticeBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(note:RegistNotice){
-            binding.sampletext1.text = note.title
+            binding.data = note
+            val date = Date(note.time)
+            binding.sampledate1.text = SimpleDateFormat("yyyy-MM-dd").format(date)
         }
     }
 

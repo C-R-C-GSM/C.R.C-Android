@@ -13,12 +13,10 @@ import com.example.crc_android.data.NoticeToken
 import com.example.crc_android.data.RegistNotice
 import com.example.crc_android.databinding.ActivityNoticeregistBinding
 import com.example.crc_android.viewmodel.MainViewModel
-import kotlinx.android.synthetic.main.activity_noticeregist.*
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.*
 import java.util.concurrent.TimeUnit
-import kotlin.math.log
 
 class NoticeregistActivity : AppCompatActivity() {
     lateinit var binding: ActivityNoticeregistBinding
@@ -43,23 +41,24 @@ class NoticeregistActivity : AppCompatActivity() {
 
         binding.update.setOnClickListener {
             addData()
-            finish()
         }
     }
 
 
-    fun addData() {
+    private fun addData() {
         val title = binding.title.text.toString()
         val content = binding.content.text.toString()
-        Log.d(TAG, "addData: 테스트")
-        if (title.isNullOrBlank() && content.isNullOrBlank()) {
-            Toast.makeText(this, "Enter value!", Toast.LENGTH_LONG).show()
+        Log.d(TAG, "addData: 테스트 $title $content")
+        if ((title.isBlank() || content.isBlank())) {
+            Toast.makeText(this,"문자가 없어용~~~",Toast.LENGTH_SHORT).show()
+            Log.d(TAG, "addData: $title")
         } else {
             var blog = RegistNotice(title, content)
             viewModel.add(blog)
-            Log.d(TAG, "addData: $title")
             binding.title.text.clear()
             binding.content.text.clear()
+            finish()
+
         }
     }
 

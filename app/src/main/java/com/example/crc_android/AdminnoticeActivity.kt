@@ -59,6 +59,8 @@ class AdminnoticeActivity : AppCompatActivity() {
     private fun initialiseAdapter() {
         binding.recyclerviewAdminmain.layoutManager = viewManager
         observeData()
+        viewModel.get()
+        binding.recyclerviewAdminmain.adapter?.notifyDataSetChanged()
     }
 
     override fun onResume() {

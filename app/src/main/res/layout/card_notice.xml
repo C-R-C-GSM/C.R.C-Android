@@ -37,7 +37,6 @@
             android:id="@+id/sampledate1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="2021-02-25"
             android:textColor="@color/text_color"
             android:textSize="12dp"
             android:fontFamily="@font/nanumsquare_acb"
