@@ -1,9 +1,5 @@
 package com.example.crc_android.di
 
-import android.content.ContentValues
-import android.util.Log
-
-import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -24,7 +20,6 @@ object NetworkModule {
     @Provides
     @Singleton
     fun provideHttpClient(): OkHttpClient {
-        Log.d(ContentValues.TAG, "provideHttpClient: ")
         return OkHttpClient.Builder()
             //서버로부터의 응답까지의 시간이 읽기 시간 초과보다 크면 요청 실패로 판단한다.
             .readTimeout(15, TimeUnit.SECONDS)
@@ -45,9 +40,8 @@ object NetworkModule {
         okHttpClient: OkHttpClient,
         gsonConverterFactory: GsonConverterFactory
     ): Retrofit {
-        Log.d(ContentValues.TAG, "provideRetrofitInstance: ")
         return Retrofit.Builder()
-            .baseUrl( "http://ec2-3-35-81-230.ap-northeast-2.compute.amazonaws.com:3000/")
+            .baseUrl( "http://ec2-3-34-189-53.ap-northeast-2.compute.amazonaws.com:3000/")
             .client(okHttpClient)
             //json 변화기 Factory
             .client(provideHttpClient())
@@ -58,7 +52,6 @@ object NetworkModule {
     @Provides
     @Singleton
     fun provideConverterFactory(): GsonConverterFactory {
-        Log.d(ContentValues.TAG, "provideConverterFactory: ")
         return GsonConverterFactory.create()
     }
 
@@ -66,8 +59,6 @@ object NetworkModule {
 
     // 서버로 부터 받아온 데이터 log 찍기
     private fun getLoggingInterceptor(): HttpLoggingInterceptor =
-        HttpLoggingInterceptor().apply { var level = HttpLoggingInterceptor.Level.BODY }
-        HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.BODY }
         HttpLoggingInterceptor().apply {  level = HttpLoggingInterceptor.Level.BODY }
 
 
