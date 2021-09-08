@@ -21,10 +21,10 @@ object ProvideModule {
     }
 
 
-    @Provides
+     @Provides
     @Singleton
 
-    fun provideApiService(retrofit: Retrofit): FriendApi {
-        return retrofit.create(FriendApi::class.java)
+    fun provideApiService(retrofit: Retrofit): ReviewApi {
+        return retrofit.create(ReviewApi::class.java)
     }
 }
