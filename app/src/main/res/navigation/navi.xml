@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+<<<<<<< HEAD
+    xmlns:tools="http://schemas.homeFragment.com/tools"
+    app:startDestination="@id/homeFragment"
+ >
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.crc_android.ui.home.HomeFragment"
+        tools:layout="@layout/fragment_home"
+        android:label="">
+
+    </fragment>
+
+
+=======
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navi"
     app:startDestination="@id/replyFragment">
@@ -31,4 +46,5 @@
             android:name="reply"
             app:argType="string" />
     </fragment>
+>>>>>>> origin/develop
 </navigation>

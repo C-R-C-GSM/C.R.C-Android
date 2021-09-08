@@ -3,8 +3,8 @@ package com.example.crc_android.ui.review
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.crc_android.R
-import com.example.crc_android.base.UtilityBase
 import com.example.crc_android.databinding.FragmentReplyBinding
+import com.example.movie.base.UtilityBase
 
 class ReplyFragment : UtilityBase.BaseFragment<FragmentReplyBinding>(R.layout.fragment_reply) {
 
