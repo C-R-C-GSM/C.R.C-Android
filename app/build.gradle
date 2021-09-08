@@ -1,9 +1,12 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
+    
     id 'dagger.hilt.android.plugin'
     id "androidx.navigation.safeargs"
     id 'kotlin-android-extensions'
+
     id 'kotlin-kapt'
 
 }
@@ -21,6 +24,7 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+ 
 
     dataBinding {
         enabled = true
@@ -42,11 +46,8 @@ android {
 
     }
 
-
-
-
-
 }
+
 
 dependencies {
     implementation "androidx.recyclerview:recyclerview-selection:1.1.0-rc03"

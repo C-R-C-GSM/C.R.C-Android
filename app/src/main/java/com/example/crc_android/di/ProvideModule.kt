@@ -1,5 +1,6 @@
 package com.example.crc_android.di
 
+import com.example.crc_android.data.network.ReviewApi
 import android.content.ContentValues
 import android.util.Log
 import com.example.crc_android.data.network.FriendApi
@@ -13,6 +14,7 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object ProvideModule {
+
     @Provides
     @Singleton
     fun provideApiService(retrofit: Retrofit): FriendApi {
@@ -23,8 +25,8 @@ object ProvideModule {
 
      @Provides
     @Singleton
-
     fun provideApiService(retrofit: Retrofit): ReviewApi {
         return retrofit.create(ReviewApi::class.java)
     }
 }
+
