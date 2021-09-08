@@ -25,7 +25,6 @@ object NetworkModule {
     @Provides
     @Singleton
     fun provideHttpClient(): OkHttpClient {
-        Log.d(ContentValues.TAG, "provideHttpClient: ")
         return OkHttpClient.Builder()
             //서버로부터의 응답까지의 시간이 읽기 시간 초과보다 크면 요청 실패로 판단한다.
             .readTimeout(15, TimeUnit.SECONDS)
@@ -46,7 +45,6 @@ object NetworkModule {
         okHttpClient: OkHttpClient,
         gsonConverterFactory: GsonConverterFactory
     ): Retrofit {
-        Log.d(ContentValues.TAG, "provideRetrofitInstance: ")
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
             .client(okHttpClient)
@@ -60,7 +58,6 @@ object NetworkModule {
     @Provides
     @Singleton
     fun provideConverterFactory(): GsonConverterFactory {
-        Log.d(ContentValues.TAG, "provideConverterFactory: ")
         return GsonConverterFactory.create()
     }
 
@@ -72,4 +69,5 @@ object NetworkModule {
 
 
 }
+
 
