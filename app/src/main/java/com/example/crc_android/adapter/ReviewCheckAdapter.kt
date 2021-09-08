@@ -3,12 +3,13 @@ package com.example.crc_android.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.crc_android.R
-import com.example.crc_android.data.models.check.ReviewCheck
 import com.example.crc_android.data.models.check.ReviewData
 import com.example.crc_android.databinding.ReviewItemRowBinding
+import com.example.crc_android.ui.review.review.ReviewFragmentDirections
 
 class ReviewCheckAdapter : RecyclerView.Adapter<ReviewCheckAdapter.ReviewCheckHolder>() {
     private val reviewList = mutableListOf<ReviewData>()
@@ -39,7 +40,15 @@ class ReviewCheckAdapter : RecyclerView.Adapter<ReviewCheckAdapter.ReviewCheckHo
 
 
     override fun onBindViewHolder(holder: ReviewCheckHolder, position: Int) {
-        holder.bind(reviewList[position])
+        val item = reviewList[position]
+        holder.bind(item)
+        holder.binding.reviewContact.setOnClickListener {
+            val action =
+                ReviewFragmentDirections.actionReviewFragmentToReplyFragment(
+                    item.reviewid.toString()
+                )
+            it.findNavController().navigate(action)
+        }
     }
 
     override fun getItemCount() = reviewList.size
@@ -58,6 +67,7 @@ class ReviewCheckAdapter : RecyclerView.Adapter<ReviewCheckAdapter.ReviewCheckHo
         notifyDataSetChanged()
     }
 }
+
 class ReviewDiffUtil(
     private val oldList: List<ReviewData>,
     private val newList: List<ReviewData>
@@ -75,8 +85,7 @@ class ReviewDiffUtil(
 
 
     override fun getChangePayload(oldItemPosition: Int, newItemPosition: Int): Any? {
-        val oldItem = oldList[oldItemPosition]
-        val newItem = newList[newItemPosition]
+
 
         return getChangePayload(
             oldItemPosition,
