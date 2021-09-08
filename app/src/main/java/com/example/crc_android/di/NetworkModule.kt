@@ -1,5 +1,6 @@
 package com.example.crc_android.di
 
+import com.example.crc_android.util.Util.Companion.BASE_URL
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -41,7 +42,7 @@ object NetworkModule {
         gsonConverterFactory: GsonConverterFactory
     ): Retrofit {
         return Retrofit.Builder()
-            .baseUrl( "http://ec2-3-35-81-230.ap-northeast-2.compute.amazonaws.com:3000/")
+            .baseUrl(BASE_URL)
             .client(okHttpClient)
             //json 변화기 Factory
             .client(provideHttpClient())
