@@ -1,6 +1,6 @@
-package com.example.crc_android.repository
+package com.example.crc_android.data.repository
 
-import com.example.crc_android.repository.datasource.LoginDataSource
+import com.example.crc_android.data.repository.datasource.LoginDataSource
 import javax.inject.Inject
 
 class LoginRepository @Inject constructor(

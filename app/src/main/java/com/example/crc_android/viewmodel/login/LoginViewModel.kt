@@ -1,8 +1,8 @@
-package com.example.crc_android.viewmodel
+package com.example.crc_android.viewmodel.login
 
 import androidx.lifecycle.*
-import com.example.crc_android.model.dto.ResponseMessageDTO
-import com.example.crc_android.repository.LoginRepository
+import com.example.crc_android.data.network.model.ResponseMessageDTO
+import com.example.crc_android.data.repository.LoginRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import retrofit2.Response

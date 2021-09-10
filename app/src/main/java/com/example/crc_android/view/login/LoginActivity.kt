@@ -12,10 +12,10 @@ import androidx.lifecycle.Observer
 import com.example.crc_android.R
 import com.example.crc_android.base.UtilityBase
 import com.example.crc_android.databinding.ActivityLoginBinding
-import com.example.crc_android.model.RetrofitObject
+import com.example.crc_android.data.network.util.RetrofitObject
 import com.example.crc_android.util.AES256
 import com.example.crc_android.view.register.RegisterActivity
-import com.example.crc_android.viewmodel.LoginViewModel
+import com.example.crc_android.viewmodel.login.LoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

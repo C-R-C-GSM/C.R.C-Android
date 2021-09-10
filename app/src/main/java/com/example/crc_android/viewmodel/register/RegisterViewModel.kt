@@ -1,12 +1,12 @@
-package com.example.crc_android.viewmodel
+package com.example.crc_android.viewmodel.register
 
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.crc_android.model.dto.ResponseMessageDTO
-import com.example.crc_android.repository.RegisterRepository
+import com.example.crc_android.data.network.model.ResponseMessageDTO
+import com.example.crc_android.data.repository.RegisterRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import retrofit2.Response

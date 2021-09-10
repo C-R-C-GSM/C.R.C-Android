@@ -12,7 +12,7 @@ import com.example.crc_android.view.register.fragment.RegisterClassFragment
 import com.example.crc_android.view.register.fragment.RegisterEmailFragment
 import com.example.crc_android.view.register.fragment.RegisterNameFragment
 import com.example.crc_android.view.register.fragment.RegisterPasswordFragment
-import com.example.crc_android.viewmodel.RegisterViewModel
+import com.example.crc_android.viewmodel.register.RegisterViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
