@@ -10,10 +10,10 @@ interface RegisterApi {
     @POST("register")
     suspend fun transferRegister(
 
-        @Field("email") email : String,
-        @Field("password") password : String,
-        @Field("name") name : String,
-        @Field("student_data") student_data : String,
+        @Field("email") email : String?,
+        @Field("password") password : String?,
+        @Field("name") name : String?,
+        @Field("student_data") student_data : String?,
 
     ): Response<ResponseMessageDTO?>
 }

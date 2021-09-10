@@ -1,26 +1,24 @@
 package com.example.crc_android.view
 
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.crc_android.*
 import com.example.crc_android.base.UtilityBase
 import com.example.crc_android.databinding.ActivitySignUpBinding
 import com.example.crc_android.viewmodel.RegisterViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class RegisterActivity : UtilityBase.BaseActivity<ActivitySignUpBinding>(R.layout.activity_sign_up) {
-
-
-    companion object {
-        lateinit var signUpViewModel: RegisterViewModel
-    }
+    private val registerViewModel by viewModels<RegisterViewModel>()
 
     override fun onBackPressed() {
         Toast.makeText(this,"뒤로가기 아이콘을 클릭해 주세요",Toast.LENGTH_SHORT).show()
-
     }
 
 
@@ -28,27 +26,31 @@ class RegisterActivity : UtilityBase.BaseActivity<ActivitySignUpBinding>(R.layou
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_sign_up)
         binding.activity = this
+        observeViewModel()
+    }
 
-        signUpViewModel = ViewModelProvider(
-            this,
-            ViewModelProvider.NewInstanceFactory()
-        ).get(RegisterViewModel::class.java)
+    private fun observeViewModel(){
+        //다음으로 가기 클릭시
+        registerViewModel.flag.observe(this, Observer {
+            switchFragment(it)
+        })
 
-
-        //fragment 순번(email -> password -> name -> 반번호)
-  /*      signUpViewModel.flag.observe(this, Observer {
-            Log.d("로그", "라이브데이터 flag : $it")
-            if (it >=0){
-                switchFragment(it)
-            }else{
-                Toast.makeText(this,"더이상 뒤로갈수 없습니다",Toast.LENGTH_SHORT).show()
+        //회원가입 성공시
+        registerViewModel.registerResponse.observe(this, Observer {
+            if (it.isSuccessful){
+                if (it.body()?.message == "register sucess")
+                finish()
             }
-        })*/
+        })
 
-
+        //회원가입 가장 처음 이메일 부분에서 뒤로가기 클릭시
+        registerViewModel.firstBackBtn.observe(this, Observer {
+            finish()
+        })
     }
 
 
+    //fragment 순번(email -> password -> name -> 반번호)
     private fun switchFragment(flag: Int) {
         if (flag in 0..3) {
             val transaction = supportFragmentManager.beginTransaction()
@@ -56,22 +58,22 @@ class RegisterActivity : UtilityBase.BaseActivity<ActivitySignUpBinding>(R.layou
             when (flag) {
                 0 -> {
                     transaction
-                        .replace(R.id.sign_up_frame_layout, SignUpEmailFragment())
+                        .replace(R.id.sign_up_frame_layout, RegisterEmailFragment())
 
                 }
                 1 -> {
                     transaction
-                        .replace(R.id.sign_up_frame_layout, SignUpPasswordFragment())
+                        .replace(R.id.sign_up_frame_layout, RegisterPasswordFragment())
 
                 }
                 2 -> {
                     transaction
-                        .replace(R.id.sign_up_frame_layout, SignUpNameFragment())
+                        .replace(R.id.sign_up_frame_layout, RegisterNameFragment())
 
                 }
                 3 -> {
                     transaction
-                        .replace(R.id.sign_up_frame_layout, SignUpClassFragment())
+                        .replace(R.id.sign_up_frame_layout, RegisterClassFragment())
 
                 }
             }
