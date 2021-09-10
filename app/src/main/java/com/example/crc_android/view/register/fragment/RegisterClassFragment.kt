@@ -40,16 +40,20 @@ class RegisterClassFragment :
     }
 
     fun nextBtnClick(view: View) {
-            registerViewModel.setClassNumber(binding.classEdittext.text.toString())
+        registerViewModel.setClassNumber(binding.classEdittext.text.toString())
+
     }
 
     private fun observeViewModel() {
-/*        registerViewModel.classNumber.observe(requireActivity(), Observer {
-            registerViewModel.registerApiCall()
+        registerViewModel.classNumber.observe(requireActivity(), Observer {
+            if (it != "null"){
+                binding.progressBar.visibility = View.VISIBLE
+            }
         })
-        */
+
         registerViewModel.registerResponse.observe(requireActivity(), Observer {
             if (it.isSuccessful) {
+                binding.progressBar.visibility = View.GONE
                 when (it.body()?.message) {
                     "register sucess" -> Toast.makeText(
                         requireContext(),
@@ -74,11 +78,14 @@ class RegisterClassFragment :
 
         registerViewModel.errorMessage.observe(requireActivity(), Observer {
             when (it) {
-                "plz input classNumber" -> Toast.makeText(
-                    requireContext(),
-                    "학년, 반, 번호를 정확히 입력해 주세요",
-                    Toast.LENGTH_SHORT
-                ).show()
+                "plz input classNumber" -> {
+                    Toast.makeText(
+                        requireContext(),
+                        "학년, 반, 번호를 정확히 입력해 주세요",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    binding.progressBar.visibility = View.GONE
+                }
 
             }
         })
