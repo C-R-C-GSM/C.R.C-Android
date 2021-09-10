@@ -80,6 +80,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:backgroundTint="@color/main_color"
+                android:inputType="textPassword"
                 android:hint="비밀번호를 입력하세요."
                 android:fontFamily="@font/nanumsquare_acr"
                 android:includeFontPadding="false"

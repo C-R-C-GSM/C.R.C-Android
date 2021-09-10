@@ -51,6 +51,8 @@ class LoginActivity : UtilityBase.BaseActivity<ActivityLoginBinding>(R.layout.ac
                 when (it.body()?.message) {
                     "Issue Token and Login Success" -> {
                         Toast.makeText(this, "로그인에 성공했습니다", Toast.LENGTH_SHORT).show()
+                        RetrofitObject.TOKEN = it.body()?.Token?.let { it1 -> AES256.aesEncode(it1).toString() }.toString()
+                        Log.d("로그", "인코딩 후 : ${RetrofitObject.TOKEN}")
                         successLogin()
                     }
                     "cannot connect db" -> Toast.makeText(this, "DB에 연결할 수 없습니다", Toast.LENGTH_SHORT).show()
@@ -59,8 +61,7 @@ class LoginActivity : UtilityBase.BaseActivity<ActivityLoginBinding>(R.layout.ac
                     "token error" -> Toast.makeText(this, "토큰 오류가 발생했습니다", Toast.LENGTH_SHORT).show()
                     else -> Toast.makeText(this, "알수없는 오류가 발생했습니다", Toast.LENGTH_SHORT).show()
                 }
-                RetrofitObject.TOKEN = it.body()?.Token?.let { it1 -> AES256.aesEncode(it1).toString() }.toString()
-                Log.d("로그", "인코딩 후 : ${RetrofitObject.TOKEN}")
+
             /*    RetrofitObject.TOKEN = AES256.aesDecode(RetrofitObject.TOKEN).toString()
                 Log.d("로그", "디코딩 후 : ${RetrofitObject.TOKEN}")*/
             }else Toast.makeText(this, "로그인에 실패하였습니다", Toast.LENGTH_SHORT).show()
