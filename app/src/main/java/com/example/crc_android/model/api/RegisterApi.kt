@@ -1,13 +1,12 @@
-package com.example.crc_android.model
+package com.example.crc_android.model.api
 
 
-import com.example.crc_android.model.DTO.ResponseMessageDTO
+import com.example.crc_android.model.dto.ResponseMessageDTO
 import retrofit2.Response
 import retrofit2.http.*
 
-interface RegisterAPI {
+interface RegisterApi {
     @FormUrlEncoded
-
     @POST("register")
     suspend fun transferRegister(
 

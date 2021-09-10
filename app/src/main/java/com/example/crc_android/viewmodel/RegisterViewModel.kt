@@ -3,14 +3,12 @@ package com.example.crc_android.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.liveData
-import com.example.crc_android.model.RegisterAPI
-import com.example.crc_android.model.DTO.ResponseMessageDTO
-import com.example.crc_android.model.RetrofitClient
-import com.example.crc_android.view.SignUpActivity
+import com.example.crc_android.model.dto.ResponseMessageDTO
+import dagger.hilt.android.lifecycle.HiltViewModel
 import retrofit2.Response
+import javax.inject.Inject
 
-class SignUpViewModel : ViewModel() {
+class RegisterViewModel : ViewModel() {
 
 
     //회원가입 순서
@@ -86,12 +84,12 @@ class SignUpViewModel : ViewModel() {
 
      fun registerApiCall(){
 
-        registerResponse = liveData {
+   /*     registerResponse = liveData {
             SignUpActivity.signUpViewModel.apply {
-                val retService = RetrofitClient().getService().create(RegisterAPI::class.java)
+                val retService = RetrofitClient().getService().create(RegisterApi::class.java)
                 val response = retService.transferRegister(
-        /*            RetrofitObject.ACCEPT,
-                    RetrofitObject.CONTENT_TYPE,*/
+                    RetrofitObject.ACCEPT,
+                    RetrofitObject.CONTENT_TYPE,
                     email.value.toString(),
                     password.value.toString(),
                     name.value.toString(),
@@ -101,7 +99,7 @@ class SignUpViewModel : ViewModel() {
                 emit(response)
             }
 
-        }
+        }*/
 
     }
 }

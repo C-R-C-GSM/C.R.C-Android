@@ -38,14 +38,14 @@ class SignUpNameFragment :
         if (TextUtils.isEmpty(binding.nameEdittext.text.toString()))
             Toast.makeText(requireContext(), "이름을 입력해 주세요", Toast.LENGTH_SHORT).show()
         else {
-            SignUpActivity.signUpViewModel.setName(binding.nameEdittext.text.toString())
-            SignUpActivity.signUpViewModel.plusFlag()
+            RegisterActivity.signUpViewModel.setName(binding.nameEdittext.text.toString())
+            RegisterActivity.signUpViewModel.plusFlag()
         }
 
     }
 
     fun backBtnClick(view: View){
-        SignUpActivity.signUpViewModel.minusFlag()
+        RegisterActivity.signUpViewModel.minusFlag()
     }
 
 }

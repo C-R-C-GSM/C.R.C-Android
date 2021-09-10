@@ -9,13 +9,13 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.crc_android.*
 import com.example.crc_android.base.UtilityBase
 import com.example.crc_android.databinding.ActivitySignUpBinding
-import com.example.crc_android.viewmodel.SignUpViewModel
+import com.example.crc_android.viewmodel.RegisterViewModel
 
-class SignUpActivity : UtilityBase.BaseActivity<ActivitySignUpBinding>(R.layout.activity_sign_up) {
+class RegisterActivity : UtilityBase.BaseActivity<ActivitySignUpBinding>(R.layout.activity_sign_up) {
 
 
     companion object {
-        lateinit var signUpViewModel: SignUpViewModel
+        lateinit var signUpViewModel: RegisterViewModel
     }
 
     override fun onBackPressed() {
@@ -32,18 +32,18 @@ class SignUpActivity : UtilityBase.BaseActivity<ActivitySignUpBinding>(R.layout.
         signUpViewModel = ViewModelProvider(
             this,
             ViewModelProvider.NewInstanceFactory()
-        ).get(SignUpViewModel::class.java)
+        ).get(RegisterViewModel::class.java)
 
 
         //fragment 순번(email -> password -> name -> 반번호)
-        signUpViewModel.flag.observe(this, Observer {
+  /*      signUpViewModel.flag.observe(this, Observer {
             Log.d("로그", "라이브데이터 flag : $it")
             if (it >=0){
                 switchFragment(it)
             }else{
                 Toast.makeText(this,"더이상 뒤로갈수 없습니다",Toast.LENGTH_SHORT).show()
             }
-        })
+        })*/
 
 
     }

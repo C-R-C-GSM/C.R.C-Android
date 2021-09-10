@@ -1,4 +1,4 @@
-package com.example.crc_android.model.DTO
+package com.example.crc_android.model.dto
 
 data class ResponseMessageDTO(
     val success : String,

@@ -1,14 +1,13 @@
-package com.example.crc_android.model
+package com.example.crc_android.model.api
 
-import com.example.crc_android.model.DTO.ResponseMessageDTO
+import com.example.crc_android.model.dto.ResponseMessageDTO
 import retrofit2.Response
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.POST
 
-interface LoginAPI {
+interface LoginApi {
     @FormUrlEncoded
-
     @POST("login")
     suspend fun transferLogin(
 

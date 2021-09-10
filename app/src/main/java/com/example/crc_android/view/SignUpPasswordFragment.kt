@@ -2,7 +2,6 @@ package com.example.crc_android.view
 
 import android.os.Bundle
 import android.text.TextUtils
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -40,8 +39,8 @@ class SignUpPasswordFragment :
             } else {
 
                 if (binding.passwordEdittext.text.toString() == binding.passwordCheckEdittext.text.toString()) {
-                    SignUpActivity.signUpViewModel.setPassword(binding.passwordCheckEdittext.text.toString())
-                    SignUpActivity.signUpViewModel.plusFlag()
+                    RegisterActivity.signUpViewModel.setPassword(binding.passwordCheckEdittext.text.toString())
+                    RegisterActivity.signUpViewModel.plusFlag()
                 } else {
                     Toast.makeText(requireContext(), "비밀번호와 비밀번호 확인이 다릅니다", Toast.LENGTH_SHORT)
                         .show()
@@ -51,7 +50,7 @@ class SignUpPasswordFragment :
     }
 
     fun backBtnClick(view: View){
-        SignUpActivity.signUpViewModel.minusFlag()
+        RegisterActivity.signUpViewModel.minusFlag()
     }
 
 }

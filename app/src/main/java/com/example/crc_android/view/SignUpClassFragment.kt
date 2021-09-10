@@ -1,33 +1,24 @@
 package com.example.crc_android.view
 
-import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
-import androidx.lifecycle.liveData
 import com.example.crc_android.R
 import com.example.crc_android.base.UtilityBase
 import com.example.crc_android.databinding.FragmentSignUpClassBinding
-import com.example.crc_android.model.RegisterAPI
-import com.example.crc_android.model.RetrofitClient
-import com.example.crc_android.model.RetrofitObject
-import com.example.crc_android.view.SignUpActivity.Companion.signUpViewModel
-
-import retrofit2.Response
-import retrofit2.Retrofit
+import com.example.crc_android.model.api.RegisterApi
+import com.example.crc_android.view.RegisterActivity.Companion.signUpViewModel
 
 
 class SignUpClassFragment :
     UtilityBase.BaseFragment<FragmentSignUpClassBinding>(R.layout.fragment_sign_up_class) {
 
-    private lateinit var retService: RegisterAPI
+    private lateinit var retService: RegisterApi
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
