@@ -36,7 +36,10 @@ class LoginViewModel @Inject constructor(
             _errorMessage.value = "empty"
         else viewModelScope.launch {
             loginRepository.loginApi(email, password).let { response ->
-                _loginResponse.value = response
+                if (response.isSuccessful){
+                    _loginResponse.value = response
+
+                }
             }
         }
     }

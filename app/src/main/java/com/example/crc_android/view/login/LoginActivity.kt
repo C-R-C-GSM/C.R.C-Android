@@ -43,7 +43,7 @@ class LoginActivity : UtilityBase.BaseActivity<ActivityLoginBinding>(R.layout.ac
 
     private fun observeViewModel() {
         loginViewModel.loginResponse.observe(this, Observer {
-            if (it.isSuccessful) {
+
                 when (it.body()?.message) {
                     "Issue Token and Login Success" -> {
                         Toast.makeText(this, "로그인에 성공했습니다", Toast.LENGTH_SHORT).show()
@@ -59,16 +59,14 @@ class LoginActivity : UtilityBase.BaseActivity<ActivityLoginBinding>(R.layout.ac
                     "token error" -> Toast.makeText(this, "토큰 오류가 발생했습니다", Toast.LENGTH_SHORT).show()
                     else -> Toast.makeText(this, "알수없는 오류가 발생했습니다", Toast.LENGTH_SHORT).show()
                 }
-
             /*    RetrofitObject.TOKEN = AES256.aesDecode(RetrofitObject.TOKEN).toString()
                 Log.d("로그", "디코딩 후 : ${RetrofitObject.TOKEN}")*/
-            }else Toast.makeText(this, "로그인에 실패하였습니다", Toast.LENGTH_SHORT).show()
         })
 
         loginViewModel.errorMessage.observe(this, Observer {
             when(it){
                 "empty" -> Toast.makeText(this, "필수항목을 입력해 주세요", Toast.LENGTH_SHORT).show()
-
+                "call error" -> Toast.makeText(this, "네트워크를 확인해 주세요", Toast.LENGTH_SHORT).show()
             }
         })
     }
