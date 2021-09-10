@@ -1,8 +1,7 @@
 package com.example.crc_android.data.repository
 
-import com.example.crc_android.data.models.Data
-import com.example.crc_android.data.models.FriendUserData
-import com.example.crc_android.data.network.FriendApi
+import com.example.crc_android.data.network.model.FriendUserData
+import com.example.crc_android.data.network.api.FriendApi
 import retrofit2.Response
 import javax.inject.Inject
 

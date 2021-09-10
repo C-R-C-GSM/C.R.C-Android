@@ -1,4 +1,4 @@
-package com.example.crc_android.data.models
+package com.example.crc_android.data.network.model
 
 data class Data(
     val student_check: Int,

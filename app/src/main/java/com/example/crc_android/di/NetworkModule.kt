@@ -1,6 +1,6 @@
 package com.example.crc_android.di
 
-import com.example.crc_android.utils.Constants.Companion.BASE_URL
+import com.example.crc_android.util.Constants.Companion.BASE_URL
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

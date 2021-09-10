@@ -1,6 +1,6 @@
 package com.example.crc_android.di
 
-import com.example.crc_android.data.network.FriendApi
+import com.example.crc_android.data.network.api.FriendApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

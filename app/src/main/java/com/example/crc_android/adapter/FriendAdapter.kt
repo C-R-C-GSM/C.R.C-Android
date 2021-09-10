@@ -1,14 +1,12 @@
 package com.example.crc_android.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.crc_android.R
-import com.example.crc_android.data.models.Data
-import com.example.crc_android.data.models.FriendUserData
+import com.example.crc_android.data.network.model.Data
 import com.example.crc_android.databinding.FriendListEnterBinding
 import com.example.crc_android.databinding.FriendListNoEntryEnterBinding
 
@@ -96,13 +94,15 @@ class FriendAdapter(private val chooseEnter: ChooseEnter) :
         }
     }
 
-    fun setData(friendData: List<Data>) {
+    fun setData(friendData: List<Data>?) {
 
-        val movieDiffUtil = MovieDiffUtil(friendList, friendData)
-        val diffUtilResult = movieDiffUtil.let { DiffUtil.calculateDiff(it) }
-        friendList = friendData as MutableList<Data>
-        diffUtilResult.dispatchUpdatesTo(this)
-        notifyDataSetChanged()
+        if (friendData?.isNotEmpty() == true) {
+            val movieDiffUtil = MovieDiffUtil(friendList, friendData)
+            val diffUtilResult = movieDiffUtil.let { DiffUtil.calculateDiff(it) }
+            friendList = friendData as MutableList<Data>
+            diffUtilResult.dispatchUpdatesTo(this)
+            notifyDataSetChanged()
+        }
     }
 
 

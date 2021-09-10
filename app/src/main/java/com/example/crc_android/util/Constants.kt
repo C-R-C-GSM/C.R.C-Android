@@ -1,4 +1,4 @@
-package com.example.crc_android.utils
+package com.example.crc_android.util
 
 class Constants {
 
