@@ -1,4 +1,4 @@
-package com.example.crc_android.view
+package com.example.crc_android.view.register.fragment
 
 import android.content.Intent
 import android.os.Bundle
@@ -54,7 +54,7 @@ class RegisterClassFragment :
         registerViewModel.registerResponse.observe(requireActivity(), Observer {
             if (it.isSuccessful){
                 when(it.body()?.message){
-                    "register sucess" -> Toast.makeText(requireContext(),"회원가입에 성공했습니다",Toast.LENGTH_SHORT).show()
+                    "register sucess" -> Toast.makeText(requireContext(),"회원가입에 성공했습니다, 이메일을 확인해주세요!",Toast.LENGTH_LONG).show()
                     "email already existed" -> Toast.makeText(requireContext(),"이미 존재하는 이메일 입니다",Toast.LENGTH_SHORT).show()
                     "invalid email address" -> Toast.makeText(requireContext(),"잘못된 이메일 주소 입니다",Toast.LENGTH_SHORT).show()
                     else -> Toast.makeText(requireContext(),"알수없는 오류가 발생했습니다",Toast.LENGTH_SHORT).show()

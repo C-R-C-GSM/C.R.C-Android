@@ -1,15 +1,17 @@
-package com.example.crc_android.view
+package com.example.crc_android.view.register
 
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.crc_android.*
 import com.example.crc_android.base.UtilityBase
 import com.example.crc_android.databinding.ActivitySignUpBinding
+import com.example.crc_android.view.register.fragment.RegisterClassFragment
+import com.example.crc_android.view.register.fragment.RegisterEmailFragment
+import com.example.crc_android.view.register.fragment.RegisterNameFragment
+import com.example.crc_android.view.register.fragment.RegisterPasswordFragment
 import com.example.crc_android.viewmodel.RegisterViewModel
 import dagger.hilt.android.AndroidEntryPoint
 

@@ -1,4 +1,4 @@
-package com.example.crc_android.view
+package com.example.crc_android.view.register.fragment
 
 import android.os.Bundle
 import android.text.TextUtils

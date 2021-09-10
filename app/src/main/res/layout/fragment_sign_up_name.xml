@@ -5,7 +5,7 @@
     <data>
         <variable
             name="fragment"
-            type="com.example.crc_android.view.RegisterNameFragment" />
+            type="com.example.crc_android.view.register.fragment.RegisterNameFragment" />
     </data>
 
     <RelativeLayout
@@ -13,7 +13,7 @@
         android:background="@color/white"
 
         android:layout_height="match_parent"
-        tools:context=".view.RegisterNameFragment">
+        tools:context=".view.register.fragment.RegisterNameFragment">
         <ImageView
             android:id="@+id/back_btn"
             android:layout_width="wrap_content"

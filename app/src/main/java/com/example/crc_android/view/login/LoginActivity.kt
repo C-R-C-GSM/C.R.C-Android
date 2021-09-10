@@ -1,4 +1,4 @@
-package com.example.crc_android.view
+package com.example.crc_android.view.login
 
 import android.content.Intent
 import android.os.Bundle
@@ -14,6 +14,7 @@ import com.example.crc_android.base.UtilityBase
 import com.example.crc_android.databinding.ActivityLoginBinding
 import com.example.crc_android.model.RetrofitObject
 import com.example.crc_android.util.AES256
+import com.example.crc_android.view.register.RegisterActivity
 import com.example.crc_android.viewmodel.LoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -55,6 +56,7 @@ class LoginActivity : UtilityBase.BaseActivity<ActivityLoginBinding>(R.layout.ac
                         Log.d("로그", "인코딩 후 : ${RetrofitObject.TOKEN}")
                         successLogin()
                     }
+                    "no auth login try" -> Toast.makeText(this, "이메일을 확인하여 수락해 주세요", Toast.LENGTH_SHORT).show()
                     "cannot connect db" -> Toast.makeText(this, "DB에 연결할 수 없습니다", Toast.LENGTH_SHORT).show()
                     "cannot find this email" -> Toast.makeText(this, "이 이메일을 찾을 수 없습니다", Toast.LENGTH_SHORT).show()
                     "wrong password" -> Toast.makeText(this, "잘못된 비밀번호 입니다", Toast.LENGTH_SHORT).show()

@@ -6,7 +6,7 @@
     <data>
         <variable
             name="fragment"
-            type="com.example.crc_android.view.RegisterEmailFragment" />
+            type="com.example.crc_android.view.register.fragment.RegisterEmailFragment" />
     </data>
 
     <RelativeLayout
@@ -16,7 +16,7 @@
         android:background="@color/white"
 
         android:layout_height="match_parent"
-        tools:context=".view.RegisterEmailFragment">
+        tools:context=".view.register.fragment.RegisterEmailFragment">
         <ImageView
             android:id="@+id/back_btn"
             android:layout_width="wrap_content"

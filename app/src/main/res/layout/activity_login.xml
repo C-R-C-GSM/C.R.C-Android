@@ -6,7 +6,7 @@
     <data>
         <variable
             name="activity"
-            type="com.example.crc_android.view.LoginActivity" />
+            type="com.example.crc_android.view.login.LoginActivity" />
     </data>
 
     <RelativeLayout
@@ -14,7 +14,7 @@
         android:orientation="vertical"
         android:gravity="center_horizontal"
         android:layout_height="match_parent"
-        tools:context=".view.LoginActivity">
+        tools:context=".view.login.LoginActivity">
 
         <LinearLayout
             android:id="@+id/frame"
