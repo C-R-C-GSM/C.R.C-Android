@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.crc_android.data.network.model.ResponseMessageDTO
+import com.example.crc_android.data.model.dto.ResponseMessageDTO
 import com.example.crc_android.data.repository.RegisterRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch

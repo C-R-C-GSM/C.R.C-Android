@@ -1,7 +1,7 @@
 package com.example.crc_android.viewmodel.login
 
 import androidx.lifecycle.*
-import com.example.crc_android.data.network.model.ResponseMessageDTO
+import com.example.crc_android.data.model.dto.ResponseMessageDTO
 import com.example.crc_android.data.repository.LoginRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
