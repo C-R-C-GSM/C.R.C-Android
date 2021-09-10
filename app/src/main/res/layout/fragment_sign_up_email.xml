@@ -6,7 +6,7 @@
     <data>
         <variable
             name="fragment"
-            type="com.example.crc_android.view.SignUpEmailFragment" />
+            type="com.example.crc_android.view.register.fragment.RegisterEmailFragment" />
     </data>
 
     <RelativeLayout
@@ -16,8 +16,18 @@
         android:background="@color/white"
 
         android:layout_height="match_parent"
-        tools:context=".view.SignUpEmailFragment">
-
+        tools:context=".view.register.fragment.RegisterEmailFragment">
+        <ImageView
+            android:id="@+id/back_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_back"
+            android:onClick="@{fragment::backBtnClick}"
+            android:layout_alignParentTop="true"
+            android:padding="5dp"
+            android:layout_alignParentLeft="true"
+            android:layout_margin="20dp"
+            />
         <LinearLayout
             android:id="@+id/frame"
             android:layout_width="match_parent"

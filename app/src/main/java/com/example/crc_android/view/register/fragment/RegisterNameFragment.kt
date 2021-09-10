@@ -1,4 +1,4 @@
-package com.example.crc_android.view
+package com.example.crc_android.view.register.fragment
 
 import android.os.Bundle
 import android.text.TextUtils
@@ -7,13 +7,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.activityViewModels
 import com.example.crc_android.R
 import com.example.crc_android.base.UtilityBase
 import com.example.crc_android.databinding.FragmentSignUpNameBinding
+import com.example.crc_android.viewmodel.RegisterViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
-
-class SignUpNameFragment :
+@AndroidEntryPoint
+class RegisterNameFragment :
     UtilityBase.BaseFragment<FragmentSignUpNameBinding>(R.layout.fragment_sign_up_name) {
+    private val registerViewModel by activityViewModels<RegisterViewModel>()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,14 +42,14 @@ class SignUpNameFragment :
         if (TextUtils.isEmpty(binding.nameEdittext.text.toString()))
             Toast.makeText(requireContext(), "이름을 입력해 주세요", Toast.LENGTH_SHORT).show()
         else {
-            SignUpActivity.signUpViewModel.setName(binding.nameEdittext.text.toString())
-            SignUpActivity.signUpViewModel.plusFlag()
+            registerViewModel.setName(binding.nameEdittext.text.toString())
+            registerViewModel.plusFlag()
         }
 
     }
 
     fun backBtnClick(view: View){
-        SignUpActivity.signUpViewModel.minusFlag()
+        registerViewModel.minusFlag()
     }
 
 }

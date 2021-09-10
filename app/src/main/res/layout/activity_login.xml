@@ -6,7 +6,7 @@
     <data>
         <variable
             name="activity"
-            type="com.example.crc_android.view.LoginActivity" />
+            type="com.example.crc_android.view.login.LoginActivity" />
     </data>
 
     <RelativeLayout
@@ -14,7 +14,7 @@
         android:orientation="vertical"
         android:gravity="center_horizontal"
         android:layout_height="match_parent"
-        tools:context=".view.LoginActivity">
+        tools:context=".view.login.LoginActivity">
 
         <LinearLayout
             android:id="@+id/frame"
@@ -80,6 +80,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:backgroundTint="@color/main_color"
+                android:inputType="textPassword"
                 android:hint="비밀번호를 입력하세요."
                 android:fontFamily="@font/nanumsquare_acr"
                 android:includeFontPadding="false"

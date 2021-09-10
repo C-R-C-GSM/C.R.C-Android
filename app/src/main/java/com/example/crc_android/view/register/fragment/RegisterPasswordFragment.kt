@@ -1,19 +1,23 @@
-package com.example.crc_android.view
+package com.example.crc_android.view.register.fragment
 
 import android.os.Bundle
 import android.text.TextUtils
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.activityViewModels
 import com.example.crc_android.R
 import com.example.crc_android.base.UtilityBase
 import com.example.crc_android.databinding.FragmentSignUpPasswordBinding
+import com.example.crc_android.viewmodel.RegisterViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
-class SignUpPasswordFragment :
+@AndroidEntryPoint
+class RegisterPasswordFragment :
     UtilityBase.BaseFragment<FragmentSignUpPasswordBinding>(R.layout.fragment_sign_up_password) {
+    private val registerViewModel by activityViewModels<RegisterViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,8 +44,8 @@ class SignUpPasswordFragment :
             } else {
 
                 if (binding.passwordEdittext.text.toString() == binding.passwordCheckEdittext.text.toString()) {
-                    SignUpActivity.signUpViewModel.setPassword(binding.passwordCheckEdittext.text.toString())
-                    SignUpActivity.signUpViewModel.plusFlag()
+                    registerViewModel.setPassword(binding.passwordCheckEdittext.text.toString())
+                    registerViewModel.plusFlag()
                 } else {
                     Toast.makeText(requireContext(), "비밀번호와 비밀번호 확인이 다릅니다", Toast.LENGTH_SHORT)
                         .show()
@@ -50,8 +54,8 @@ class SignUpPasswordFragment :
             }
     }
 
-    fun backBtnClick(view: View){
-        SignUpActivity.signUpViewModel.minusFlag()
+    fun backBtnClick(view: View) {
+        registerViewModel.minusFlag()
     }
 
 }
