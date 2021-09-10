@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
 import com.example.crc_android.R
 import com.example.crc_android.base.UtilityBase
 import com.example.crc_android.databinding.FragmentSignUpPasswordBinding
@@ -32,26 +33,37 @@ class RegisterPasswordFragment :
         binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_sign_up_password, container, false)
         binding.fragment = this
+        observeViewModel()
         return binding.root
     }
 
-    fun nextBtnClick(view: View) {
-        if (TextUtils.isEmpty(binding.passwordEdittext.text))
-            Toast.makeText(requireContext(), "비밀번호를 입력해 주세요", Toast.LENGTH_SHORT).show()
-        else
-            if (TextUtils.isEmpty(binding.passwordCheckEdittext.text)) {
-                Toast.makeText(requireContext(), "비밀번호 확인을 입력해 주세요", Toast.LENGTH_SHORT).show()
-            } else {
-
-                if (binding.passwordEdittext.text.toString() == binding.passwordCheckEdittext.text.toString()) {
-                    registerViewModel.setPassword(binding.passwordCheckEdittext.text.toString())
-                    registerViewModel.plusFlag()
-                } else {
-                    Toast.makeText(requireContext(), "비밀번호와 비밀번호 확인이 다릅니다", Toast.LENGTH_SHORT)
-                        .show()
-                }
-
+    private fun observeViewModel() {
+        registerViewModel.errorMessage.observe(requireActivity(), Observer {
+            when (it) {
+                "plz input password" -> Toast.makeText(
+                    requireContext(),
+                    "비밀번호를 입력해 주세요",
+                    Toast.LENGTH_SHORT
+                ).show()
+                "plz input checkPassword" -> Toast.makeText(
+                    requireContext(),
+                    "비밀번호 확인을 입력해 주세요",
+                    Toast.LENGTH_SHORT
+                ).show()
+                "password, checkPassword not same" -> Toast.makeText(
+                    requireContext(),
+                    "비밀번호와 비밀번호 확인이 다릅니다",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
+        })
+    }
+
+    fun nextBtnClick(view: View) {
+        registerViewModel.setPassword(
+            password = binding.passwordEdittext.text.toString(),
+            checkPassword = binding.passwordCheckEdittext.text.toString()
+        )
     }
 
     fun backBtnClick(view: View) {
