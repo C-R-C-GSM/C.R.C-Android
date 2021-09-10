@@ -27,9 +27,7 @@ class LoginActivity : UtilityBase.BaseActivity<ActivityLoginBinding>(R.layout.ac
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
         binding.activity = this
             observeViewModel()
-
     }
-
 
     fun createAuthBtnClick(view: View) {
         val intent = Intent(this, RegisterActivity::class.java)
@@ -52,6 +50,7 @@ class LoginActivity : UtilityBase.BaseActivity<ActivityLoginBinding>(R.layout.ac
                 when (it.body()?.message) {
                     "Issue Token and Login Success" -> {
                         Toast.makeText(this, "로그인에 성공했습니다", Toast.LENGTH_SHORT).show()
+                        Log.d("로그", "인코딩 전 토큰 : ${it.body()!!.Token}")
                         RetrofitObject.TOKEN = it.body()?.Token?.let { it1 -> AES256.aesEncode(it1).toString() }.toString()
                         Log.d("로그", "인코딩 후 : ${RetrofitObject.TOKEN}")
                         successLogin()
@@ -69,8 +68,6 @@ class LoginActivity : UtilityBase.BaseActivity<ActivityLoginBinding>(R.layout.ac
             }else Toast.makeText(this, "로그인에 실패하였습니다", Toast.LENGTH_SHORT).show()
         })
     }
-
-
 
     private fun successLogin() {
         //로그인 성공후 행동

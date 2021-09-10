@@ -84,7 +84,6 @@ class RegisterViewModel @Inject constructor(
 
     fun registerApiCall() =
         viewModelScope.launch {
-            Log.d("로그","call regiserapicall : "+_email.value +_password.value + name.value + classNumber.value)
             repository.registerApi(_email.value, _password.value, _name.value, _classNumber.value).let { response ->
              _registerResponse.value = response
             }

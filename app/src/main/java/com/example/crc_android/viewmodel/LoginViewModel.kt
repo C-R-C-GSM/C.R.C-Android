@@ -12,7 +12,6 @@ import javax.inject.Inject
 class LoginViewModel @Inject constructor(
     private val loginRepository: LoginRepository
 ) : ViewModel() {
-    //lateinit var loginResponse: LiveData<Response<ResponseMessageDTO>>
 
     val loginResponse : LiveData<Response<ResponseMessageDTO?>> get() = _loginResponse
     private val _loginResponse = MutableLiveData<Response<ResponseMessageDTO?>>()
@@ -25,41 +24,9 @@ class LoginViewModel @Inject constructor(
     val password get() = _password
     private val _password: MutableLiveData<String> = MutableLiveData<String>()
 
-
-    fun setEmail(email: String) {
-        this._email.value = email
-    }
-
-    fun setPassword(password: String) {
-        this._password.value = password
-    }
-
-
     fun loginApiCall(email: String, password: String) = viewModelScope.launch {
         loginRepository.loginApi(email, password).let { response ->
             _loginResponse.value = response
         }
     }
-/*    {
-
-        loginResponse = liveData {
-
-            val retService = RetrofitClient().getService().create(LoginApi::class.java)
-            val response = retService.transferLogin(
-                email.value.toString(),
-                password.value.toString()
-            ) as Response<ResponseMessageDTO>
-
-            emit(response)
-
-
-        }
-
-    }*/
-/*
-    class Factory (val application: Application) : ViewModelProvider.Factory {
-        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-            return LoginViewModel(application) as T
-        }
-    }*/
 }
