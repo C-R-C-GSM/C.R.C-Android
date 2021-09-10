@@ -1,8 +1,8 @@
 package com.example.crc_android.di
 
-import com.example.crc_android.model.RetrofitObject
-import com.example.crc_android.model.api.LoginApi
-import com.example.crc_android.model.api.RegisterApi
+import com.example.crc_android.data.network.util.RetrofitObject
+import com.example.crc_android.data.network.api.LoginApi
+import com.example.crc_android.data.network.api.RegisterApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

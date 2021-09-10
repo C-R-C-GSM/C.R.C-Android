@@ -11,7 +11,7 @@ import androidx.fragment.app.activityViewModels
 import com.example.crc_android.R
 import com.example.crc_android.base.UtilityBase
 import com.example.crc_android.databinding.FragmentSignUpPasswordBinding
-import com.example.crc_android.viewmodel.RegisterViewModel
+import com.example.crc_android.viewmodel.register.RegisterViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

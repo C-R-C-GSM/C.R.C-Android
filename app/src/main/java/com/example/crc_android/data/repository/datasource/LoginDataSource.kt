@@ -1,6 +1,6 @@
-package com.example.crc_android.repository.datasource
+package com.example.crc_android.data.repository.datasource
 
-import com.example.crc_android.model.api.LoginApi
+import com.example.crc_android.data.network.api.LoginApi
 import javax.inject.Inject
 
 class LoginDataSource @Inject constructor(

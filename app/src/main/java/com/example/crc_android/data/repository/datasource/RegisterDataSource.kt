@@ -1,6 +1,6 @@
-package com.example.crc_android.repository.datasource
+package com.example.crc_android.data.repository.datasource
 
-import com.example.crc_android.model.api.RegisterApi
+import com.example.crc_android.data.network.api.RegisterApi
 import javax.inject.Inject
 
 class RegisterDataSource @Inject constructor(

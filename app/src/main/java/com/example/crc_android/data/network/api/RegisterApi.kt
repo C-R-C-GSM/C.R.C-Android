@@ -1,7 +1,7 @@
-package com.example.crc_android.model.api
+package com.example.crc_android.data.network.api
 
 
-import com.example.crc_android.model.dto.ResponseMessageDTO
+import com.example.crc_android.data.network.model.ResponseMessageDTO
 import retrofit2.Response
 import retrofit2.http.*
 
