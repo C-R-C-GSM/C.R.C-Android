@@ -1,8 +1,8 @@
 package com.example.crc_android.ui
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
+import android.widget.Button
 import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.crc_android.R
 import com.example.crc_android.adapter.ChooseEnter
 import com.example.crc_android.adapter.FriendAdapter
-import com.example.crc_android.data.models.Data
+import com.example.crc_android.data.network.model.Data
 import com.example.crc_android.databinding.FragmentFriendBinding
 import com.example.movie.base.UtilityBase
 import dagger.hilt.android.AndroidEntryPoint
@@ -21,7 +21,6 @@ import kotlinx.coroutines.launch
 class FriendFragment : UtilityBase.BaseActivity<FragmentFriendBinding>(R.layout.fragment_friend) {
     private val viewModel: FriendViewModel by viewModels()
 
-     val TAG="FriendFragment"
 
     private val friendEnterAdapter: FriendAdapter by lazy {
         FriendAdapter(ChooseEnter.ENTER)
@@ -41,64 +40,52 @@ class FriendFragment : UtilityBase.BaseActivity<FragmentFriendBinding>(R.layout.
         buttonSelect(binding.oneBtn)
     }
 
+
+    // findItem을 가져오고 student_check 가 0,1 인지 판단하여 adapter를 refresh 해준다.
+    private fun observeFindItemGet(){
+        viewModel.friendEnterItem.observe(this@FriendFragment, { data ->
+            observeStudentCheck(data, data[0].student_check)
+        })
+    }
+
     fun buttonSelect(button: View) {
-        val a = ContextCompat.getColor(this, R.color.black)
-        val b = ContextCompat.getColor(this, R.color.button_text_color)
+
         when (button) {
 
             binding.oneBtn -> {
 
-                binding.oneBtn.setTextColor(a)
-                binding.twoBtn.setTextColor(b)
-                binding.threeBtn.setTextColor(b)
+                btnTextChangeColor(ONE, binding.oneBtn, binding.twoBtn, binding.threeBtn)
 
                 lifecycleScope.launch {
 
-                    observeFriend("", 1)
-
-                    viewModel.friendEnterItem.observe(this@FriendFragment, { data ->
-                        observeStudentCheck(data, data[0].student_check)
-                    })
-
+                    observeFriend(1)
+                    observeFindItemGet()
 
                 }
             }
             binding.twoBtn -> {
 
 
-                binding.oneBtn.setTextColor(b)
-                binding.twoBtn.setTextColor(a)
-                binding.threeBtn.setTextColor(b)
-
+                btnTextChangeColor(TWO, binding.oneBtn, binding.twoBtn, binding.threeBtn)
 
 
                 lifecycleScope.launch {
 
-                    observeFriend("", 2)
-                    viewModel.friendEnterItem.observe(this@FriendFragment, { data ->
-                            observeStudentCheck(data, data[0].student_check)
-                    })
-
+                    observeFriend(2)
+                    observeFindItemGet()
 
                 }
             }
             binding.threeBtn -> {
 
-                binding.oneBtn.setTextColor(b)
-                binding.twoBtn.setTextColor(b)
-                binding.threeBtn.setTextColor(a)
+                btnTextChangeColor(THREE, binding.oneBtn, binding.twoBtn, binding.threeBtn)
 
 
 
                 lifecycleScope.launch {
 
-                    observeFriend("", 3)
-                    viewModel.friendEnterItem.observe(this@FriendFragment, { data ->
-
-                        Log.d(TAG, "buttonSelect: ${data[0].student_check}")
-                        observeStudentCheck(data, data[0].student_check)
-
-                    })
+                    observeFriend(3)
+                    observeFindItemGet()
 
 
                 }
@@ -106,15 +93,40 @@ class FriendFragment : UtilityBase.BaseActivity<FragmentFriendBinding>(R.layout.
         }
     }
 
-    private fun observeStudentCheck(data: List<Data>, number: Int) {
+    private fun btnTextChangeColor(
+        number: Int,
+        oneText: Button,
+        twoText: Button,
+        threeText: Button
+    ) {
+        when (number) {
+            ONE -> {
+                oneText.setTextColor(ContextCompat.getColor(this, R.color.black))
+                twoText.setTextColor(ContextCompat.getColor(this, R.color.button_text_color))
+                threeText.setTextColor(ContextCompat.getColor(this, R.color.button_text_color))
+            }
+            TWO -> {
+                oneText.setTextColor(ContextCompat.getColor(this, R.color.button_text_color))
+                twoText.setTextColor(ContextCompat.getColor(this, R.color.black))
+                threeText.setTextColor(ContextCompat.getColor(this, R.color.button_text_color))
+            }
+            THREE -> {
+                oneText.setTextColor(ContextCompat.getColor(this, R.color.button_text_color))
+                twoText.setTextColor(ContextCompat.getColor(this, R.color.button_text_color))
+                threeText.setTextColor(ContextCompat.getColor(this, R.color.black))
+            }
+        }
+    }
+
+    private fun observeStudentCheck(data: List<Data>?, number: Int?) {
         when (number) {
             0 -> {
-                data.filter { it.student_check == 0 }.apply {
+                data?.filter { it.student_check == 0 }.apply {
                     friendNoEnterAdapter.setData(data)
                 }
             }
             1 -> {
-                data.filter { it.student_check == 1 }.apply {
+                data?.filter { it.student_check == 1 }.apply {
                     friendEnterAdapter.setData(data)
                 }
             }
@@ -132,7 +144,7 @@ class FriendFragment : UtilityBase.BaseActivity<FragmentFriendBinding>(R.layout.
                     this.adapter = adapter
                     this.layoutManager =
                         LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-                    binding.friendEnterRecyclerview.setHasFixedSize(false)
+                    this.setHasFixedSize(false)
                 }
             }
             binding.friendNoEnterEcyclerview -> {
@@ -146,13 +158,19 @@ class FriendFragment : UtilityBase.BaseActivity<FragmentFriendBinding>(R.layout.
         }
     }
 
-    private suspend fun observeFriend(token: String, number: Int) {
+    private suspend fun observeFriend(number: Int) {
 
         when (number) {
-            1 -> viewModel.getFriendOne(token, number)
-            2 -> viewModel.getFriendTwo(token, number)
-            3 -> viewModel.getFriendThree(token, number)
+            ONE -> viewModel.getFriendOne("", number)
+            TWO -> viewModel.getFriendTwo("", number)
+            THREE -> viewModel.getFriendThree("", number)
         }
+    }
+
+    companion object {
+        const val ONE = 1
+        const val TWO = 2
+        const val THREE = 3
     }
 
 
