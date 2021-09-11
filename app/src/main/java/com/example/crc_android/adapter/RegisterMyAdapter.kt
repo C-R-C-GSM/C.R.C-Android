@@ -25,6 +25,7 @@ class RegisterMyAdapter(
         val holder = ViewHolder(binding)
         return holder
 
+        
     }
 
     inner class ViewHolder(val binding : CardNoticeBinding) : RecyclerView.ViewHolder(binding.root){
