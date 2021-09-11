@@ -39,29 +39,59 @@ class RegisterClassFragment :
         return binding.root
     }
 
-     fun nextBtnClick(view: View) {
-        if (TextUtils.isEmpty(binding.classEdittext.text.toString()) || binding.classEdittext.text.toString().length<4)
-            Toast.makeText(requireContext(), "학년, 반, 번호를 정확히 입력해 주세요", Toast.LENGTH_SHORT).show()
-        else {
-            registerViewModel.setClassNumber(binding.classEdittext.text.toString())
-            registerViewModel.registerApiCall()
-        }
+    fun nextBtnClick(view: View) {
+        registerViewModel.setClassNumber(binding.classEdittext.text.toString())
+
     }
 
-    private fun observeViewModel(){
+    private fun observeViewModel() {
+        registerViewModel.classNumber.observe(requireActivity(), Observer {
+            if (it != "null"){
+                binding.progressBar.visibility = View.VISIBLE
+            }
+        })
+
         registerViewModel.registerResponse.observe(requireActivity(), Observer {
-            if (it.isSuccessful){
-                when(it.body()?.message){
-                    "register sucess" -> Toast.makeText(requireContext(),"회원가입에 성공했습니다, 이메일을 확인해주세요!",Toast.LENGTH_LONG).show()
-                    "email already existed" -> Toast.makeText(requireContext(),"이미 존재하는 이메일 입니다",Toast.LENGTH_SHORT).show()
-                    "invalid email address" -> Toast.makeText(requireContext(),"잘못된 이메일 주소 입니다",Toast.LENGTH_SHORT).show()
-                    else -> Toast.makeText(requireContext(),"알수없는 오류가 발생했습니다",Toast.LENGTH_SHORT).show()
+            if (it.isSuccessful) {
+                binding.progressBar.visibility = View.GONE
+                when (it.body()?.message) {
+                    "register sucess" -> Toast.makeText(
+                        requireContext(),
+                        "회원가입에 성공했습니다, 이메일을 확인해주세요!",
+                        Toast.LENGTH_LONG
+                    ).show()
+                    "email already existed" -> Toast.makeText(
+                        requireContext(),
+                        "이미 존재하는 이메일 입니다",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    "invalid email address" -> Toast.makeText(
+                        requireContext(),
+                        "잘못된 이메일 주소 입니다",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    else -> Toast.makeText(requireContext(), "알수없는 오류가 발생했습니다", Toast.LENGTH_SHORT)
+                        .show()
                 }
-            } else Toast.makeText(requireContext(),"회원가입에 실패했습니다",Toast.LENGTH_SHORT).show()
+            } else Toast.makeText(requireContext(), "회원가입에 실패했습니다", Toast.LENGTH_SHORT).show()
+        })
+
+        registerViewModel.errorMessage.observe(requireActivity(), Observer {
+            when (it) {
+                "plz input classNumber" -> {
+                    Toast.makeText(
+                        requireContext(),
+                        "학년, 반, 번호를 정확히 입력해 주세요",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    binding.progressBar.visibility = View.GONE
+                }
+
+            }
         })
     }
 
-    fun backBtnClick(view: View){
+    fun backBtnClick(view: View) {
         registerViewModel.minusFlag()
     }
 }

@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
 import com.example.crc_android.R
 import com.example.crc_android.base.UtilityBase
 import com.example.crc_android.databinding.FragmentSignUpNameBinding
@@ -33,22 +34,28 @@ class RegisterNameFragment :
         binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_sign_up_name, container, false)
         binding.fragment = this
-
-
+        observeViewModel()
         return binding.root
     }
 
-    fun nextBtnClick(view: View) {
-        if (TextUtils.isEmpty(binding.nameEdittext.text.toString()))
-            Toast.makeText(requireContext(), "이름을 입력해 주세요", Toast.LENGTH_SHORT).show()
-        else {
-            registerViewModel.setName(binding.nameEdittext.text.toString())
-            registerViewModel.plusFlag()
-        }
+    private fun observeViewModel() {
+        registerViewModel.errorMessage.observe(requireActivity(), Observer {
+            when (it) {
+                "plz input name" -> Toast.makeText(
+                    requireContext(),
+                    "이름을 입력해 주세요",
+                    Toast.LENGTH_SHORT
+                ).show()
 
+            }
+        })
     }
 
-    fun backBtnClick(view: View){
+    fun nextBtnClick(view: View) {
+        registerViewModel.setName(binding.nameEdittext.text.toString())
+    }
+
+    fun backBtnClick(view: View) {
         registerViewModel.minusFlag()
     }
 

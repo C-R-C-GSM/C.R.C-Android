@@ -1,11 +1,13 @@
 package com.example.crc_android.viewmodel.register
 
+import android.text.TextUtils
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.crc_android.data.network.model.ResponseMessageDTO
+import com.example.crc_android.data.model.dto.ResponseMessageDTO
 import com.example.crc_android.data.repository.RegisterRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -20,6 +22,10 @@ class RegisterViewModel @Inject constructor(
     //회원가입 순서
     val flag: LiveData<Int> get() = _flag
     private val _flag = MutableLiveData<Int>()
+
+    //텍스트 공백인지 체크 등
+    val errorMessage: LiveData<String> get() = _errorMessage
+    private val _errorMessage = MutableLiveData<String>()
 
     //처음 회원가입 이메일 부분에서 뒤로가기 클릭
     val firstBackBtn: LiveData<Boolean> get() = _firstBackBtn
@@ -55,19 +61,51 @@ class RegisterViewModel @Inject constructor(
 
 
     fun setEmail(email: String) {
-        this._email.value = email
+        if (TextUtils.isEmpty(email))
+            _errorMessage.value = "plz input email"
+        else {
+            if (useRegex(email)) {
+                this._email.value = email
+                plusFlag()
+            } else _errorMessage.value = "plz input gsm email"
+
+        }
+
     }
 
-    fun setPassword(password: String) {
-        this._password.value = password
+    fun setPassword(password: String, checkPassword: String) {
+        if (TextUtils.isEmpty(password))
+            _errorMessage.value = "plz input password"
+        else
+            if (TextUtils.isEmpty(checkPassword)) {
+                _errorMessage.value = "plz input checkPassword"
+            } else {
+                if (password == checkPassword) {
+                    this._password.value = password
+                    plusFlag()
+                } else {
+                    _errorMessage.value = "password, checkPassword not same"
+                }
+            }
     }
 
     fun setName(name: String) {
-        this._name.value = name
+        if (TextUtils.isEmpty(name)) {
+            _errorMessage.value = "plz input name"
+        } else {
+            this._name.value = name
+            plusFlag()
+        }
     }
 
     fun setClassNumber(classNumber: String) {
-        this._classNumber.value = classNumber
+        if (TextUtils.isEmpty(classNumber) || classNumber.length < 4) {
+            _errorMessage.value = "plz input classNumber"
+        } else {
+            this._classNumber.value = classNumber
+            registerApiCall()
+        }
+
     }
 
     fun plusFlag() {
@@ -78,15 +116,24 @@ class RegisterViewModel @Inject constructor(
         _flag.value = _flag.value?.minus(1)
     }
 
-    fun setFirstBackBtn(){
+    fun setFirstBackBtn() {
         _firstBackBtn.value = true
     }
 
     fun registerApiCall() =
         viewModelScope.launch {
-            Log.d("로그","call regiserapicall : "+_email.value +_password.value + name.value + classNumber.value)
-            repository.registerApi(_email.value, _password.value, _name.value, _classNumber.value).let { response ->
-             _registerResponse.value = response
-            }
+            repository.registerApi(_email.value, _password.value, _name.value, _classNumber.value)
+                .let { response ->
+                    _registerResponse.value = response
+                }
         }
+
+    //이메일 정규식 필터
+    private fun useRegex(input: String): Boolean {
+        val regex = Regex(
+            pattern = "^[a-zA-Z][0-9][0-9][0-9][0-9][0-9]+@[a-zA-Z]sm\\.hs\\.kr\$",
+            options = setOf(RegexOption.IGNORE_CASE)
+        )
+        return regex.matches(input)
+    }
 }

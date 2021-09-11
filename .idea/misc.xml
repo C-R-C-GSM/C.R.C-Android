@@ -3,10 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/apple/AndroidStudioProjects/C.R.C-Android/app/src/main/res/layout/activity_login.xml" value="0.3932291666666667" />
-        <entry key="..\:/Users/apple/AndroidStudioProjects/C.R.C-Android/app/src/main/res/layout/fragment_sign_up_class.xml" value="0.15729166666666666" />
-        <entry key="..\:/Users/apple/AndroidStudioProjects/C.R.C-Android/app/src/main/res/layout/fragment_sign_up_email.xml" value="0.15729166666666666" />
-        <entry key="..\:/Users/apple/AndroidStudioProjects/C.R.C-Android/app/src/main/res/layout/fragment_sign_up_password.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/apple/StudioProjects/C.R.C-Android/app/src/main/res/layout/activity_suggestioncomment.xml" value="0.32155797101449274" />
+        <entry key="..\:/Users/apple/StudioProjects/C.R.C-Android/app/src/main/res/layout/fragment_sign_up_class.xml" value="0.13722826086956522" />
       </map>
     </option>
   </component>
@@ -18,5 +16,12 @@
   </component>
   <component name="SuppressionsComponent">
     <option name="suppComments" value="[]" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.14666666666666667" />
+      </ProjectState>
+    </option>
   </component>
 </project>

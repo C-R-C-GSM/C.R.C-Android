@@ -1,9 +1,12 @@
 package com.example.crc_android.viewmodel.login
 
+import android.text.TextUtils
+import android.widget.Toast
 import androidx.lifecycle.*
-import com.example.crc_android.data.network.model.ResponseMessageDTO
+import com.example.crc_android.data.model.dto.ResponseMessageDTO
 import com.example.crc_android.data.repository.LoginRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import retrofit2.Response
 import javax.inject.Inject
@@ -12,10 +15,13 @@ import javax.inject.Inject
 class LoginViewModel @Inject constructor(
     private val loginRepository: LoginRepository
 ) : ViewModel() {
-    //lateinit var loginResponse: LiveData<Response<ResponseMessageDTO>>
 
     val loginResponse : LiveData<Response<ResponseMessageDTO?>> get() = _loginResponse
     private val _loginResponse = MutableLiveData<Response<ResponseMessageDTO?>>()
+
+    //텍스트 공백인지 체크 등
+    val errorMessage : LiveData<String> get() = _errorMessage
+    private val _errorMessage = MutableLiveData<String>()
 
     //login email
     val email get() = _email
@@ -25,41 +31,16 @@ class LoginViewModel @Inject constructor(
     val password get() = _password
     private val _password: MutableLiveData<String> = MutableLiveData<String>()
 
+    fun loginApiCall(email: String, password: String) {
+        if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password))
+            _errorMessage.value = "empty"
+        else viewModelScope.launch {
+            loginRepository.loginApi(email, password).let { response ->
+                if (response.isSuccessful){
+                    _loginResponse.value = response
 
-    fun setEmail(email: String) {
-        this._email.value = email
-    }
-
-    fun setPassword(password: String) {
-        this._password.value = password
-    }
-
-
-    fun loginApiCall(email: String, password: String) = viewModelScope.launch {
-        loginRepository.loginApi(email, password).let { response ->
-            _loginResponse.value = response
+                }
+            }
         }
     }
-/*    {
-
-        loginResponse = liveData {
-
-            val retService = RetrofitClient().getService().create(LoginApi::class.java)
-            val response = retService.transferLogin(
-                email.value.toString(),
-                password.value.toString()
-            ) as Response<ResponseMessageDTO>
-
-            emit(response)
-
-
-        }
-
-    }*/
-/*
-    class Factory (val application: Application) : ViewModelProvider.Factory {
-        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-            return LoginViewModel(application) as T
-        }
-    }*/
 }
