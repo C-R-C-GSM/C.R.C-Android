@@ -64,16 +64,6 @@ object NetworkModule {
 
 
 
-    // 서버로 부터 받아온 데이터 log 찍기
-    private fun getLoggingInterceptor(): HttpLoggingInterceptor =
-        HttpLoggingInterceptor().apply { var level = HttpLoggingInterceptor.Level.BODY }
-
-    @Provides
-    @Singleton
-    fun provideConverterFactory(): GsonConverterFactory {
-        return GsonConverterFactory.create()
-    }
-
     @Provides
     @Singleton
     fun provideSignInApiService(retrofit: Retrofit): LoginApi {
