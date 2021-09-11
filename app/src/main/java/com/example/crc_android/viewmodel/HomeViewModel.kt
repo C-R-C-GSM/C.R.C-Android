@@ -1,4 +1,4 @@
-package com.example.crc_android.view.home
+package com.example.crc_android.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.LiveData
