@@ -1,21 +1,23 @@
 package com.example.crc_android.view.home
 
-import android.util.Log
 import androidx.activity.viewModels
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.lifecycleScope
+import androidx.fragment.app.viewModels
 import com.example.crc_android.R
 import com.example.crc_android.base.UtilityBase
 import com.example.crc_android.databinding.FragmentHomeBinding
+import com.example.crc_android.viewmodel.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class HomeFragment : UtilityBase.BaseActivity<FragmentHomeBinding>(R.layout.fragment_home) {
+class HomeFragment : UtilityBase.BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
 
     private val viewModel: HomeViewModel by viewModels()
-    override fun FragmentHomeBinding.onCreate() {
+    override fun FragmentHomeBinding.onCreateView() {
         observeTotalFriend()
+    }
+
+    override fun FragmentHomeBinding.onViewCreated() {
     }
 
     private fun observeTotalFriend() {
