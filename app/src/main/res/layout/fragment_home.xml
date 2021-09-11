@@ -8,7 +8,7 @@
 
         <variable
             name="viewmodel"
-            type="com.example.crc_android.viewmodel.HomeViewModel" />
+            type="com.example.crc_android.viewmodel.home.HomeViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
