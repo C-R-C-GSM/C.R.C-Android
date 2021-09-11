@@ -3,7 +3,6 @@ package com.example.crc_android.util
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
 
-
 @HiltAndroidApp
 class App : Application(){
     private lateinit var dataStore : DataStoreModule
