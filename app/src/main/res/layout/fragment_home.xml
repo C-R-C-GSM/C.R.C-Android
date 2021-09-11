@@ -8,7 +8,7 @@
 
         <variable
             name="viewmodel"
-            type="com.example.crc_android.ui.home.HomeViewModel" />
+            type="com.example.crc_android.view.home.HomeViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -104,6 +104,7 @@
                 app:drawableLeftCompat="@drawable/user" />
 
             <TextView
+                android:id="@+id/enter_number_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
@@ -111,8 +112,6 @@
                 android:layout_marginStart="149dp"
                 android:layout_marginLeft="149dp"
                 android:gravity="right"
-                app:totalFriend="@{viewmodel.enterNumber}"
-                android:text="@string/number"
                 android:textColor="@color/main_color" />
 
 
@@ -140,13 +139,12 @@
                 app:drawableLeftCompat="@drawable/no_entry_sign" />
 
             <TextView
+                android:id="@+id/noEnter_number_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="130dp"
                 android:layout_marginLeft="130dp"
-                android:text="@string/number"
-                app:totalFriend="@{viewmodel.noEntryNumber}"
                 tools:text="230" />
 
 
