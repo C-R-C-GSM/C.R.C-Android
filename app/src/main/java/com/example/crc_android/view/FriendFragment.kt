@@ -1,4 +1,4 @@
-package com.example.crc_android.ui
+package com.example.crc_android.view
 
 import android.os.Bundle
 import android.view.View
@@ -13,6 +13,7 @@ import com.example.crc_android.adapter.ChooseEnter
 import com.example.crc_android.adapter.FriendAdapter
 import com.example.crc_android.data.network.model.Data
 import com.example.crc_android.databinding.FragmentFriendBinding
+import com.example.crc_android.viewmodel.friend.FriendViewModel
 import com.example.movie.base.UtilityBase
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch

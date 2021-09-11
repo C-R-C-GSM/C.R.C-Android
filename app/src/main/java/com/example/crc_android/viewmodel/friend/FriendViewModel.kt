@@ -1,4 +1,4 @@
-package com.example.crc_android.ui
+package com.example.crc_android.viewmodel.friend
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

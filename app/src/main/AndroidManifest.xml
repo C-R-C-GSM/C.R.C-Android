@@ -5,7 +5,7 @@
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <application
-        android:name=".App"
+        android:name=".util.App"
         android:usesCleartextTraffic="true"
 
         android:allowBackup="true"
@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CRC_Android"
         tools:targetApi="m">
-        <activity android:name=".ui.FriendFragment">
+        <activity android:name=".view.FriendFragment">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
