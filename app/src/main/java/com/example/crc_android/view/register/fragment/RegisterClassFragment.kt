@@ -30,7 +30,6 @@ class RegisterClassFragment :
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_sign_up_class, container, false)
         binding.fragment = this
@@ -46,34 +45,9 @@ class RegisterClassFragment :
 
     private fun observeViewModel() {
         registerViewModel.classNumber.observe(requireActivity(), Observer {
-            if (it != "null"){
+            if (it != "null") {
                 binding.progressBar.visibility = View.VISIBLE
             }
-        })
-
-        registerViewModel.registerResponse.observe(requireActivity(), Observer {
-            if (it.isSuccessful) {
-                binding.progressBar.visibility = View.GONE
-                when (it.body()?.message) {
-                    "register sucess" -> Toast.makeText(
-                        requireContext(),
-                        "회원가입에 성공했습니다, 이메일을 확인해주세요!",
-                        Toast.LENGTH_LONG
-                    ).show()
-                    "email already existed" -> Toast.makeText(
-                        requireContext(),
-                        "이미 존재하는 이메일 입니다",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    "invalid email address" -> Toast.makeText(
-                        requireContext(),
-                        "잘못된 이메일 주소 입니다",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    else -> Toast.makeText(requireContext(), "알수없는 오류가 발생했습니다", Toast.LENGTH_SHORT)
-                        .show()
-                }
-            } else Toast.makeText(requireContext(), "회원가입에 실패했습니다", Toast.LENGTH_SHORT).show()
         })
 
         registerViewModel.errorMessage.observe(requireActivity(), Observer {
@@ -86,6 +60,32 @@ class RegisterClassFragment :
                     ).show()
                     binding.progressBar.visibility = View.GONE
                 }
+                "register sucess" -> Toast.makeText(
+                    requireContext(),
+                    "회원가입에 성공했습니다, 이메일을 확인해주세요!",
+                    Toast.LENGTH_LONG
+                ).show()
+                "email already existed" -> Toast.makeText(
+                    requireContext(),
+                    "이미 존재하는 이메일 입니다",
+                    Toast.LENGTH_SHORT
+                ).show()
+                "invalid email address" -> Toast.makeText(
+                    requireContext(),
+                    "잘못된 이메일 주소 입니다",
+                    Toast.LENGTH_SHORT
+                ).show()
+                "idk error" -> Toast.makeText(
+                    requireContext(),
+                    "알수없는 오류가 발생했습니다",
+                    Toast.LENGTH_SHORT
+                ).show()
+
+                "register fail" -> Toast.makeText(
+                    requireContext(),
+                    "회원가입에 실패했습니다",
+                    Toast.LENGTH_SHORT
+                ).show()
 
             }
         })

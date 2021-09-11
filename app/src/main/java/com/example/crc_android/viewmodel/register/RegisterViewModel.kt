@@ -124,7 +124,14 @@ class RegisterViewModel @Inject constructor(
         viewModelScope.launch {
             repository.registerApi(_email.value, _password.value, _name.value, _classNumber.value)
                 .let { response ->
-                    _registerResponse.value = response
+                    if (response.isSuccessful){
+                        when(response.body()?.message){
+                            "register sucess" -> _errorMessage.value = "register sucess"
+                            "email already existed" -> _errorMessage.value = "email already existed"
+                            "invalid email address" ->  _errorMessage.value = "invalid email address"
+                            else -> _errorMessage.value = "idk error"
+                        }
+                    }else _errorMessage.value = "register fail"
                 }
         }
 
