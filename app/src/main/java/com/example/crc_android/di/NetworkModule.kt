@@ -45,7 +45,7 @@ object NetworkModule {
     ): Retrofit {
         Log.d(ContentValues.TAG, "provideRetrofitInstance: ")
         return Retrofit.Builder()
-            .baseUrl( "http://ec2-3-35-81-230.ap-northeast-2.compute.amazonaws.com:3000/")
+            .baseUrl( "http://ec2-3-34-189-53.ap-northeast-2.compute.amazonaws.com:3000/")
             .client(okHttpClient)
             //json 변화기 Factory
             .client(provideHttpClient())
