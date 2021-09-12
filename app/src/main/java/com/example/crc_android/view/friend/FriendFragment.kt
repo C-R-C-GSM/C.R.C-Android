@@ -1,10 +1,11 @@
-package com.example.crc_android.view
+package com.example.crc_android.view.friend
 
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -19,7 +20,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class FriendFragment : UtilityBase.BaseActivity<FragmentFriendBinding>(R.layout.fragment_friend) {
+class FriendFragment : UtilityBase.BaseFragment<FragmentFriendBinding>(R.layout.fragment_friend) {
     private val viewModel: FriendViewModel by viewModels()
 
 
@@ -102,19 +103,19 @@ class FriendFragment : UtilityBase.BaseActivity<FragmentFriendBinding>(R.layout.
     ) {
         when (number) {
             ONE -> {
-                oneText.setTextColor(ContextCompat.getColor(this, R.color.black))
-                twoText.setTextColor(ContextCompat.getColor(this, R.color.button_text_color))
-                threeText.setTextColor(ContextCompat.getColor(this, R.color.button_text_color))
+                oneText.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+                twoText.setTextColor(ContextCompat.getColor(requireContext(), R.color.button_text_color))
+                threeText.setTextColor(ContextCompat.getColor(requireContext(), R.color.button_text_color))
             }
             TWO -> {
-                oneText.setTextColor(ContextCompat.getColor(this, R.color.button_text_color))
-                twoText.setTextColor(ContextCompat.getColor(this, R.color.black))
-                threeText.setTextColor(ContextCompat.getColor(this, R.color.button_text_color))
+                oneText.setTextColor(ContextCompat.getColor(requireContext(), R.color.button_text_color))
+                twoText.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+                threeText.setTextColor(ContextCompat.getColor(requireContext(), R.color.button_text_color))
             }
             THREE -> {
-                oneText.setTextColor(ContextCompat.getColor(this, R.color.button_text_color))
-                twoText.setTextColor(ContextCompat.getColor(this, R.color.button_text_color))
-                threeText.setTextColor(ContextCompat.getColor(this, R.color.black))
+                oneText.setTextColor(ContextCompat.getColor(requireContext(), R.color.button_text_color))
+                twoText.setTextColor(ContextCompat.getColor(requireContext(), R.color.button_text_color))
+                threeText.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
             }
         }
     }

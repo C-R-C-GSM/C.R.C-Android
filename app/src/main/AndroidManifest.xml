@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CRC_Android"
         tools:targetApi="m">
-        <activity android:name=".view.FriendFragment">
+        <activity android:name=".view.friend.FriendFragment">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

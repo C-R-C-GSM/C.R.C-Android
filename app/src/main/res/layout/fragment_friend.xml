@@ -7,7 +7,7 @@
 
         <variable
             name="fragment"
-            type="com.example.crc_android.view.FriendFragment" />
+            type="com.example.crc_android.view.friend.FriendFragment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
