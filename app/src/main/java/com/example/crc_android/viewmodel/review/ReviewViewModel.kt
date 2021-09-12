@@ -1,11 +1,11 @@
-package com.example.crc_android.ui.review.review
+package com.example.crc_android.viewmodel.review
 
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.crc_android.data.models.check.ReviewData
+import com.example.crc_android.data.network.model.check.ReviewData
 import com.example.crc_android.data.network.model.ReviewPostRequest
 import com.example.crc_android.data.network.model.ReviewReplyRequest
 import com.example.crc_android.data.repository.ReviewRepository

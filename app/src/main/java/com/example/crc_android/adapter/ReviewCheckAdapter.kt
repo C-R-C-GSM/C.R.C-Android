@@ -7,7 +7,7 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.crc_android.R
-import com.example.crc_android.data.models.check.ReviewData
+import com.example.crc_android.data.network.model.check.ReviewData
 import com.example.crc_android.databinding.ReviewItemRowBinding
 import com.example.crc_android.ui.review.review.ReviewFragmentDirections
 

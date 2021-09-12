@@ -8,6 +8,7 @@ import com.example.crc_android.R
 import com.example.crc_android.base.UtilityBase
 import com.example.crc_android.data.network.model.ReviewPostRequest
 import com.example.crc_android.databinding.FragmentReviewRegisterBinding
+import com.example.crc_android.viewmodel.review.ReviewViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

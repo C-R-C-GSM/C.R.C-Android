@@ -1,4 +1,4 @@
-package com.example.crc_android.data.models.reviewRegister
+package com.example.crc_android.data.network.model.reviewRegister
 
 data class Data(
     val student_check: Int,

@@ -9,7 +9,7 @@
     <fragment
         android:id="@+id/replyFragment"
         tools:layout="@layout/fragment_reply"
-        android:name="com.example.crc_android.ui.review.ReplyFragment"
+        android:name="com.example.crc_android.ui.review.review.ReplyFragment"
         android:label="ReplyFragment" >
         <action
             android:id="@+id/action_replyFragment_to_reviewFragment"

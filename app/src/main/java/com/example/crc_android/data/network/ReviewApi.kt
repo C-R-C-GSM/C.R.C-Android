@@ -1,7 +1,7 @@
 package com.example.crc_android.data.network
 
-import com.example.crc_android.data.models.check.ReviewCheck
-import com.example.crc_android.data.models.reviewRegister.ReviewRegister
+import com.example.crc_android.data.network.model.check.ReviewCheck
+import com.example.crc_android.data.network.model.reviewRegister.ReviewRegister
 import com.example.crc_android.data.network.model.ReviewPostRequest
 import com.example.crc_android.data.network.model.ReviewReplyRequest
 import retrofit2.Response

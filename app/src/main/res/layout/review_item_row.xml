@@ -7,7 +7,7 @@
 
         <variable
             name="item"
-            type="com.example.crc_android.data.models.check.ReviewData" />
+            type="com.example.crc_android.data.network.model.check.ReviewData" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

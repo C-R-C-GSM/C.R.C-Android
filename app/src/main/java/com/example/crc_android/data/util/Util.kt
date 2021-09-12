@@ -1,4 +1,4 @@
-package com.example.crc_android.util
+package com.example.crc_android.data.util
 
 class Util{
     companion object{

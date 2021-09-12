@@ -9,6 +9,7 @@ import com.example.crc_android.R
 import com.example.crc_android.adapter.ReviewCheckAdapter
 import com.example.crc_android.base.UtilityBase
 import com.example.crc_android.databinding.FragmentReviewBinding
+import com.example.crc_android.viewmodel.review.ReviewViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 

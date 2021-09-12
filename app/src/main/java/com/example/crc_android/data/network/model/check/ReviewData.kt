@@ -1,4 +1,4 @@
-package com.example.crc_android.data.models.check
+package com.example.crc_android.data.network.model.check
 
 data class ReviewData(
     val content: String,

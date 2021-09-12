@@ -2,7 +2,6 @@ package com.example.crc_android.ui.review
 
 import android.text.Editable
 import android.text.TextUtils
-import android.util.Log
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -11,7 +10,8 @@ import com.example.crc_android.R
 import com.example.crc_android.base.UtilityBase
 import com.example.crc_android.data.network.model.ReviewReplyRequest
 import com.example.crc_android.databinding.FragmentReplyBinding
-import com.example.crc_android.ui.review.review.ReviewViewModel
+import com.example.crc_android.ui.review.review.ReplyFragmentArgs
+import com.example.crc_android.viewmodel.review.ReviewViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -20,7 +20,6 @@ class ReplyFragment : UtilityBase.BaseFragment<FragmentReplyBinding>(R.layout.fr
     override fun FragmentReplyBinding.onCreateView() {
         dataPassing(binding.replyEditText.text)
         previousUi()
-        Log.d("TAG", "onCreateView: ${args.reviewId}")
 
     }
 
