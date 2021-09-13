@@ -71,7 +71,7 @@ class FriendAdapter(private val chooseEnter: ChooseEnter) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when (chooseEnter) {
-             ChooseEnter.ENTER -> FriendViewHolder.from(parent)
+            ChooseEnter.ENTER -> FriendViewHolder.from(parent)
             ChooseEnter.NO_ENTER ->{ FriendNoEnterViewHolder.from(parent)
             }
 

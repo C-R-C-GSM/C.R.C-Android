@@ -1,7 +1,8 @@
 package com.example.crc_android.data.repository
 
-import com.example.crc_android.data.network.model.FriendUserData
 import com.example.crc_android.data.network.api.FriendApi
+import com.example.crc_android.data.network.model.FriendTotalData
+import com.example.crc_android.data.network.model.FriendUserData
 import retrofit2.Response
 import javax.inject.Inject
 
@@ -16,4 +17,8 @@ class FriendRepository @Inject constructor(
 
     suspend fun getFriendThree(token: String): Response<FriendUserData> =
         friendApi.getFriendThree(token)
+
+    suspend fun totalFriend(token: String): Response<FriendTotalData> {
+        return friendApi.getFriendTotal(token)
+    }
 }
