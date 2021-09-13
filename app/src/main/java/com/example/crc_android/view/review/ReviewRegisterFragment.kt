@@ -3,11 +3,14 @@ package com.example.crc_android.view.review
 import android.text.TextUtils
 import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.asLiveData
 import androidx.navigation.fragment.findNavController
 import com.example.crc_android.R
 import com.example.crc_android.base.UtilityBase
 import com.example.crc_android.data.network.model.ReviewPostRequest
+import com.example.crc_android.data.network.model.ReviewReplyRequest
 import com.example.crc_android.databinding.FragmentReviewRegisterBinding
+import com.example.crc_android.viewmodel.login.LoginViewModel
 import com.example.crc_android.viewmodel.review.ReviewViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -16,6 +19,8 @@ class ReviewRegisterFragment :
     UtilityBase.BaseFragment<FragmentReviewRegisterBinding>(R.layout.fragment_review_register) {
 
     private val viewModel by viewModels<ReviewViewModel>()
+
+    private val loginViewModel: LoginViewModel by viewModels()
     override fun FragmentReviewRegisterBinding.onCreateView() {
         textUtilTest()
     }
@@ -37,6 +42,16 @@ class ReviewRegisterFragment :
         }
     }
 
+    private fun observeToken(reviewPostRequest: ReviewPostRequest) {
+
+        loginViewModel.readToken.asLiveData().observe(viewLifecycleOwner) {
+            viewModel.reviewRegister(
+                it.token,
+                reviewPostRequest
+            )
+        }
+    }
+
     fun requestPostRegister() {
 
         val reviewPostRequest = ReviewPostRequest(
@@ -45,11 +60,8 @@ class ReviewRegisterFragment :
             binding.nicknameEdit.text.toString(),
             "", ""
         )
+        observeToken(reviewPostRequest)
 
-        viewModel.reviewRegister(
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXkiOjI1LCJyb2xlIjowLCJpYXQiOjE2MzEwNzcyNzksImV4cCI6MTYzMTA4MDg3OSwiaXNzIjoiQy5SLkNfU0VSVkVSIn0.pY8Qd_1umboN0DFlkxHnn0xC3iDkx-D8vxIOhsJc-Wg",
-            reviewPostRequest
-        )
     }
 }
 
