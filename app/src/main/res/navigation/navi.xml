@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navi">
+<!--    app:startDestination="@id/reviewFragment">-->
+
+<!--&lt;!&ndash;   fragment 아래 형식대로  &ndash;&gt;-->
+<!--    <fragment-->
+<!--        android:id="@+id/replyFragment"-->
+<!--        tools:layout="@layout/fragment_reply"-->
+<!--        android:name="com.example.crc_android.ui.review.review.ReplyFragment"-->
+<!--        android:label="ReplyFragment" >-->
+<!--        <action-->
+<!--            android:id="@+id/action_replyFragment_to_reviewFragment"-->
+<!--            app:destination="@id/reviewFragment" />-->
+<!--        <argument-->
+<!--            android:name="reviewId"-->
+<!--            app:argType="string" />-->
+<!--        <action-->
+<!--            android:id="@+id/action_replyFragment_to_reviewFragment2"-->
+<!--            app:destination="@id/reviewFragment" />-->
+<!--    </fragment>-->
+<!--    <fragment-->
+<!--        android:id="@+id/reviewFragment"-->
+<!--        tools:layout="@layout/fragment_review"-->
+<!--        android:name="com.example.crc_android.ui.review.review.ReviewFragment"-->
+<!--        android:label="ReviewFragment" >-->
+
+<!--        <action-->
+<!--            android:id="@+id/action_reviewFragment_to_replyFragment"-->
+<!--            app:destination="@id/replyFragment" />-->
+
+<!--        <action-->
+<!--            android:id="@+id/action_reviewFragment_to_reviewRegister"-->
+<!--            app:destination="@id/reviewRegister" />-->
+<!--    </fragment>-->
+<!--    <fragment-->
+<!--        android:id="@+id/reviewRegister"-->
+<!--        tools:layout="@layout/fragment_review_register"-->
+<!--        android:name="com.example.crc_android.ui.review.review.ReviewRegisterFragment"-->
+<!--        android:label="ReviewRegister" >-->
+<!--        <action-->
+<!--            android:id="@+id/action_reviewRegister_to_reviewFragment"-->
+<!--            app:destination="@id/reviewFragment" />-->
+<!--    </fragment>-->
+</navigation>
