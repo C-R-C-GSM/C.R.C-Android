@@ -5,13 +5,13 @@
         android:id="@+id/homeFragment"
         android:icon="@drawable/home"
         android:title="종합현황" />
-
-    <item
-        android:id="@+id/reviewFragment"
-        android:icon="@drawable/friend"
-        android:title="학생현황" />
     <item
         android:id="@+id/friendFragment"
         android:icon="@drawable/favourite"
+        android:title="학생현황" />
+    <item
+        android:id="@+id/reviewFragment"
+        android:icon="@drawable/friend"
         android:title="급식리뷰" />
+
 </menu>

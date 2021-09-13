@@ -27,8 +27,8 @@ class MainActivity : UtilityBase.BaseActivity<ActivityMainBinding>(R.layout.acti
         val appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.homeFragment,
-                R.id.friendFragment,
-                R.id.reviewFragment
+                R.id.reviewFragment,
+                R.id.friendFragment
             )
         )
 

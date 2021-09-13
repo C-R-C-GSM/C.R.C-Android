@@ -17,6 +17,17 @@
     </fragment>
 
 
+
+
+    <fragment
+        android:id="@+id/friendFragment"
+        tools:layout="@layout/fragment_friend"
+        android:name="com.example.crc_android.view.friend.FriendFragment"
+        android:label="" >
+        <action
+            android:id="@+id/action_friendFragment_to_reviewFragment"
+            app:destination="@id/reviewFragment" />
+    </fragment>
     <fragment
         android:id="@+id/reviewFragment"
         tools:layout="@layout/fragment_review"
@@ -28,16 +39,6 @@
         <action
             android:id="@+id/action_reviewFragment_to_replyFragment"
             app:destination="@id/replyFragment" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/friendFragment"
-        tools:layout="@layout/fragment_friend"
-        android:name="com.example.crc_android.view.friend.FriendFragment"
-        android:label="" >
-        <action
-            android:id="@+id/action_friendFragment_to_reviewFragment"
-            app:destination="@id/reviewFragment" />
     </fragment>
     <fragment
         android:id="@+id/reviewRegisterFragment"
