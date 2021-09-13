@@ -10,14 +10,18 @@
         android:id="@+id/homeFragment"
         tools:layout="@layout/fragment_home"
         android:name="com.example.crc_android.view.home.HomeFragment"
-        android:label="HomeFragment" />
+        android:label="" >
+        <action
+            android:id="@+id/action_homeFragment_to_friendFragment"
+            app:destination="@id/friendFragment" />
+    </fragment>
 
 
     <fragment
         android:id="@+id/reviewFragment"
         tools:layout="@layout/fragment_review"
         android:name="com.example.crc_android.view.review.ReviewFragment"
-        android:label="ReviewFragment" >
+        android:label="" >
         <action
             android:id="@+id/action_reviewFragment_to_reviewRegisterFragment2"
             app:destination="@id/reviewRegisterFragment" />
@@ -30,12 +34,16 @@
         android:id="@+id/friendFragment"
         tools:layout="@layout/fragment_friend"
         android:name="com.example.crc_android.view.friend.FriendFragment"
-        android:label="FriendFragment" />
+        android:label="" >
+        <action
+            android:id="@+id/action_friendFragment_to_reviewFragment"
+            app:destination="@id/reviewFragment" />
+    </fragment>
     <fragment
         android:id="@+id/reviewRegisterFragment"
         tools:layout="@layout/fragment_review_register"
         android:name="com.example.crc_android.view.review.ReviewRegisterFragment"
-        android:label="ReviewRegisterFragment" >
+        android:label="" >
         <action
             android:id="@+id/action_reviewRegisterFragment_to_reviewFragment"
             app:destination="@id/reviewFragment" />
