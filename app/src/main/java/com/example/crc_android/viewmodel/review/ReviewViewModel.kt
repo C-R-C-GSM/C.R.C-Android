@@ -35,19 +35,19 @@ class ReviewViewModel @Inject constructor(
             Log.d("TAG", "getReviewCheck: $e")
         }
     }
-    fun reviewRegister(token:String,reviewPostRequest: ReviewPostRequest)=viewModelScope.launch {
-        reviewRepository.postReviewRegister(token,reviewPostRequest).let{
-            if (it.isSuccessful){
-                Log.d("TAG", "reviewRegister: 성공")
-            }
-        }
-    }
-
-    fun reviewReply(token:String,reviewReplyRequest: ReviewReplyRequest)=viewModelScope.launch {
-        reviewRepository.postReviewReply(token,reviewReplyRequest).let{
-            Log.d("TAG", "reviewReply: 성공")
-
-
-        }
-    }
+//    fun reviewRegister(token:String,reviewPostRequest: ReviewPostRequest)=viewModelScope.launch {
+//        reviewRepository.postReviewRegister(token,reviewPostRequest).let{
+//            if (it.isSuccessful){
+//                Log.d("TAG", "reviewRegister: 성공")
+//            }
+//        }
+//    }
+//
+//    fun reviewReply(token:String,reviewReplyRequest: ReviewReplyRequest)=viewModelScope.launch {
+//        reviewRepository.postReviewReply(token,reviewReplyRequest).let{
+//            Log.d("TAG", "reviewReply: 성공")
+//
+//
+//        }
+//    }
 }

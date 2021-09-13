@@ -64,3 +64,4 @@ class ReviewFragment : UtilityBase.BaseFragment<FragmentReviewBinding>(R.layout.
     }
 
 }
+

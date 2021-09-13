@@ -1,6 +1,9 @@
 package com.example.crc_android.di
 
+import android.content.ContentValues
+import android.util.Log
 import com.example.crc_android.data.network.ReviewApi
+import com.example.crc_android.data.network.api.FriendApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -11,11 +14,19 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object ProvideModule {
+    @Provides
+    @Singleton
+    fun provideApiService(retrofit: Retrofit): FriendApi {
+        Log.d(ContentValues.TAG, "provideApiService: ")
+        return retrofit.create(FriendApi::class.java)
+    }
+
 
     @Provides
     @Singleton
-
-    fun provideApiService(retrofit: Retrofit): ReviewApi {
+    fun provideApiReviewService(retrofit: Retrofit): ReviewApi {
+        Log.d(ContentValues.TAG, "provideApiService: ")
         return retrofit.create(ReviewApi::class.java)
     }
+
 }

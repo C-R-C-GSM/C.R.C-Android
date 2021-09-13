@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="fragment"
+            type="com.example.crc_android.view.register.fragment.RegisterEmailFragment" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:background="@color/white"
+
+        android:layout_height="match_parent"
+        tools:context=".view.register.fragment.RegisterEmailFragment">
+        <ImageView
+            android:id="@+id/back_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_back"
+            android:onClick="@{fragment::backBtnClick}"
+            android:layout_alignParentTop="true"
+            android:padding="5dp"
+            android:layout_alignParentLeft="true"
+            android:layout_margin="20dp"
+            />
+        <LinearLayout
+            android:id="@+id/frame"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="114dp"
+            android:layout_marginRight="@dimen/login_width_margin"
+            android:layout_marginLeft="@dimen/login_width_margin"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:src="@drawable/ic_signup_c_r_c" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="이메일을\n입력하세요."
+                android:fontFamily="@font/nanumsquare_acl"
+                android:includeFontPadding="false"
+                android:textColor="@color/black"
+                android:gravity="start"
+                android:textSize="25sp"
+                android:layout_marginTop="65dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="이메일"
+                android:fontFamily="@font/nanumsquare_acb"
+                android:includeFontPadding="false"
+                android:textColor="@color/main_color"
+                android:textSize="18sp"
+                android:layout_marginTop="30dp" />
+
+            <EditText
+                android:id="@+id/email_edittext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nanumsquare_acr"
+                android:includeFontPadding="false"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/black"
+                android:inputType="textEmailAddress"
+                android:hint="이메일을 입력하세요."
+                android:backgroundTint="@color/main_color"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/signUpNextBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="@dimen/login_width_margin"
+            android:layout_marginRight="@dimen/login_width_margin"
+            android:onClick="@{fragment::nextBtnClick}"
+            android:fontFamily="@font/nanumsquare_acb"
+            android:layout_marginBottom="88dp"
+            android:background="@drawable/signup_next_btn"
+            android:includeFontPadding="false"
+            android:text="계속하기"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+</layout>
