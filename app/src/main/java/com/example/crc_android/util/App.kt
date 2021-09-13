@@ -7,7 +7,6 @@ import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp
 class App : Application(){
-    private lateinit var dataStore : DataStoreModule
 
     companion object {
         private lateinit var crcApplication: App
@@ -18,9 +17,7 @@ class App : Application(){
     override fun onCreate(){
         super.onCreate()
         crcApplication = this
-        dataStore = DataStoreModule(this)
     }
 
-    fun getDataStore() : DataStoreModule = dataStore
 
 }
