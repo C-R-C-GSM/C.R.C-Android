@@ -1,4 +1,4 @@
-package com.example.crc_android.ui.review.review
+package com.example.crc_android.view.review
 
 import android.text.TextUtils
 import android.widget.Toast

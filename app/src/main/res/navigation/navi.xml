@@ -9,7 +9,7 @@
     <fragment
         android:id="@+id/replyFragment"
         tools:layout="@layout/fragment_reply"
-        android:name="com.example.crc_android.ui.review.review.ReplyFragment"
+        android:name="com.example.crc_android.view.review.ReplyFragment"
         android:label="ReplyFragment" >
         <action
             android:id="@+id/action_replyFragment_to_reviewFragment"
@@ -24,7 +24,7 @@
     <fragment
         android:id="@+id/reviewFragment"
         tools:layout="@layout/fragment_review"
-        android:name="com.example.crc_android.ui.review.review.ReviewFragment"
+        android:name="com.example.crc_android.view.review.ReviewFragment"
         android:label="ReviewFragment" >
 
         <action
@@ -38,7 +38,7 @@
     <fragment
         android:id="@+id/reviewRegister"
         tools:layout="@layout/fragment_review_register"
-        android:name="com.example.crc_android.ui.review.review.ReviewRegisterFragment"
+        android:name="com.example.crc_android.view.review.ReviewRegisterFragment"
         android:label="ReviewRegister" >
         <action
             android:id="@+id/action_reviewRegister_to_reviewFragment"
