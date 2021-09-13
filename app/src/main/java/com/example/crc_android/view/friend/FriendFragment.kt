@@ -3,7 +3,6 @@ package com.example.crc_android.view.friend
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
-import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -12,10 +11,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.crc_android.R
 import com.example.crc_android.adapter.ChooseEnter
 import com.example.crc_android.adapter.FriendAdapter
+import com.example.crc_android.base.UtilityBase
 import com.example.crc_android.data.network.model.Data
 import com.example.crc_android.databinding.FragmentFriendBinding
 import com.example.crc_android.viewmodel.friend.FriendViewModel
-import com.example.movie.base.UtilityBase
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 

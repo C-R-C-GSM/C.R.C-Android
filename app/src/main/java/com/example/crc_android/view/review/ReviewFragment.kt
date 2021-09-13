@@ -59,7 +59,7 @@ class ReviewFragment : UtilityBase.BaseFragment<FragmentReviewBinding>(R.layout.
 
     private fun nextMovePage() {
         binding.nextImage.setOnClickListener {
-            findNavController().navigate(R.id.action_reviewFragment_to_reviewRegister)
+            findNavController().navigate(R.id.action_reviewFragment_to_reviewRegisterFragment2)
         }
     }
 

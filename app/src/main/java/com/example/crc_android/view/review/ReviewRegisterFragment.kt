@@ -30,7 +30,7 @@ class ReviewRegisterFragment :
 
                 requestPostRegister()
 
-                findNavController().navigate(R.id.action_reviewRegister_to_reviewFragment)
+                findNavController().navigate(R.id.action_reviewRegisterFragment_to_reviewFragment)
             } else {
                 Toast.makeText(requireContext(), "빈칸을 빠짐없이 입력해주세요", Toast.LENGTH_SHORT).show()
             }
