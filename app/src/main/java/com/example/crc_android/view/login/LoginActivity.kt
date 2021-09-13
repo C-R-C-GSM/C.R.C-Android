@@ -12,7 +12,6 @@ import com.example.crc_android.MainActivity
 import com.example.crc_android.R
 import com.example.crc_android.base.UtilityBase
 import com.example.crc_android.databinding.ActivityLoginBinding
-import com.example.crc_android.data.network.util.RetrofitObject
 import com.example.crc_android.util.AES256
 import com.example.crc_android.util.App
 import com.example.crc_android.view.register.RegisterActivity
@@ -20,6 +19,7 @@ import com.example.crc_android.viewmodel.login.LoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
@@ -54,9 +54,10 @@ class LoginActivity : UtilityBase.BaseActivity<ActivityLoginBinding>(R.layout.ac
                 "Issue Token and Login Success" -> {
                     Toast.makeText(this, "로그인에 성공했습니다", Toast.LENGTH_SHORT).show()
 
+                    Log.d("로그", "인코딩전 토근  : ${it.body()?.Token}")
                     //인코딩 후 datastore에 저장
                     val encodeToken = it.body()!!.Token?.let { it1 -> AES256.aesEncode(it1) }
-                    dataStoreSave(encodeToken)
+                    setDataStore(encodeToken)
                     //RetrofitObject.TOKEN = it.body()?.Token?.let { it1 -> AES256.aesEncode(it1).toString() }.toString()
                     successLogin()
                 }
@@ -85,7 +86,7 @@ class LoginActivity : UtilityBase.BaseActivity<ActivityLoginBinding>(R.layout.ac
         })
     }
 
-    private fun dataStoreSave(token: String?) {
+    private fun setDataStore(token : String?){
         CoroutineScope(Dispatchers.Main).launch {
             if (token != null) {
                 App.getInstance().getDataStore().setToken(token)
@@ -94,10 +95,22 @@ class LoginActivity : UtilityBase.BaseActivity<ActivityLoginBinding>(R.layout.ac
 
     }
 
+    private fun getDataStore(){
+        CoroutineScope(Dispatchers.Main).launch {
+            App.getInstance().getDataStore().text.collect { it->
+                Log.d("로그", "저장된 데이터스토어 토큰  : $it")
+                val response = AES256.aesDecode(it)
+                Log.d("로그", "저장된 데이터스토어 토큰 난독화 해제(디코딩) 후  : $response")
+            }
+        }
+
+    }
+
     private fun successLogin() {
+        //로그인 성공후 행동
+        getDataStore()
         val intent=Intent(this,MainActivity::class.java)
         startActivity(intent)
         finish()
-
     }
 }
