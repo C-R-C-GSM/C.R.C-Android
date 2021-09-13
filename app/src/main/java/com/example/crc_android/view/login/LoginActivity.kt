@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
+import com.example.crc_android.MainActivity
 import com.example.crc_android.R
 import com.example.crc_android.base.UtilityBase
 import com.example.crc_android.databinding.ActivityLoginBinding
@@ -84,7 +85,7 @@ class LoginActivity : UtilityBase.BaseActivity<ActivityLoginBinding>(R.layout.ac
         })
     }
 
-    private fun dataStoreSave(token : String?){
+    private fun dataStoreSave(token: String?) {
         CoroutineScope(Dispatchers.Main).launch {
             if (token != null) {
                 App.getInstance().getDataStore().setToken(token)
@@ -94,6 +95,9 @@ class LoginActivity : UtilityBase.BaseActivity<ActivityLoginBinding>(R.layout.ac
     }
 
     private fun successLogin() {
-        //로그인 성공후 행동
+        val intent=Intent(this,MainActivity::class.java)
+        startActivity(intent)
+        finish()
+
     }
 }
