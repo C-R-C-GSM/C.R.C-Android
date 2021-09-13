@@ -1,5 +1,7 @@
 package com.example.crc_android.di
 
+import android.content.ContentValues
+import android.util.Log
 import com.example.crc_android.data.network.util.RetrofitObject
 import com.example.crc_android.data.network.api.LoginApi
 import com.example.crc_android.data.network.api.RegisterApi
@@ -23,6 +25,7 @@ object NetworkModule {
     @Provides
     @Singleton
     fun provideHttpClient(): OkHttpClient {
+        Log.d(ContentValues.TAG, "provideHttpClient: ")
         return OkHttpClient.Builder()
             //서버로부터의 응답까지의 시간이 읽기 시간 초과보다 크면 요청 실패로 판단한다.
             .readTimeout(10, TimeUnit.SECONDS)
@@ -52,12 +55,14 @@ object NetworkModule {
             .build()
 
     }
-
     @Provides
     @Singleton
     fun provideConverterFactory(): GsonConverterFactory {
+        Log.d(ContentValues.TAG, "provideConverterFactory: ")
         return GsonConverterFactory.create()
     }
+
+
 
     @Provides
     @Singleton
