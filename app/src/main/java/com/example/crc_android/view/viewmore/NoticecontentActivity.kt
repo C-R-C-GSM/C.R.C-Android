@@ -25,5 +25,6 @@ class NoticecontentActivity : AppCompatActivity() {
             startActivity(finishbtnIntent)
             finish()
         }
+
     }
 }

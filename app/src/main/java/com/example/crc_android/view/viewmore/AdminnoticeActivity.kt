@@ -35,13 +35,18 @@ class AdminnoticeActivity : AppCompatActivity() {
         setRetrofit()
         initialiseAdapter()
         binding.pluscontentBtn.setOnClickListener {
-            val pluscontentIntent = Intent(this, NoticeregistActivity::class.java)
-            startActivity(pluscontentIntent)
+            val pluscontentBtn= Intent(this, NoticeregistActivity::class.java)
+            startActivity(pluscontentBtn)
         }
 
         binding.backfragment.setOnClickListener {
             val backfragmentbtn = Intent(this, ViewmoreActivity::class.java)
             startActivity(backfragmentbtn)
+            finish()
+        }
+        binding.recyclerviewAdminmain.setOnClickListener {
+            val contentBtn = Intent(this, NoticecontentActivity::class.java)
+            startActivity(contentBtn)
             finish()
         }
         /*nextarrow.setOnClickListener {
