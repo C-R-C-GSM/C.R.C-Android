@@ -1,16 +1,13 @@
-package com.example.movie.base
+package com.example.crc_android.base
 
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-
-
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-
 import androidx.fragment.app.Fragment
 
 sealed class UtilityBase {
@@ -19,9 +16,9 @@ sealed class UtilityBase {
         lateinit var binding: T
 
         override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+                inflater: LayoutInflater,
+                container: ViewGroup?,
+                savedInstanceState: Bundle?
         ): View? {
             binding = DataBindingUtil.inflate(inflater, layoutRes, container, false)
             binding.onCreateView()
@@ -33,8 +30,8 @@ sealed class UtilityBase {
         open fun T.onViewCreated() = Unit
     }
 
-    open class  BaseActivity<T : ViewDataBinding>(@LayoutRes val layoutRes: Int) :
-        AppCompatActivity() {
+    open class BaseActivity<T : ViewDataBinding>(@LayoutRes val layoutRes: Int) :
+            AppCompatActivity() {
 
         lateinit var binding: T
 
@@ -42,7 +39,6 @@ sealed class UtilityBase {
             super.onCreate(savedInstanceState)
             binding = DataBindingUtil.setContentView(this, layoutRes)
             binding.onCreate()
-            binding.lifecycleOwner = this
         }
 
         open fun T.onCreate() = Unit
