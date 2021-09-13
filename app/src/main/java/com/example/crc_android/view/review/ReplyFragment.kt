@@ -1,4 +1,4 @@
-//package com.example.crc_android.ui.review
+package com.example.crc_android.view.review//package com.example.crc_android.ui.review
 //
 //import android.text.Editable
 //import android.text.TextUtils
