@@ -33,19 +33,18 @@ class FriendFragment : UtilityBase.BaseFragment<FragmentFriendBinding>(R.layout.
     }
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding.fragment = this
+
+    override fun FragmentFriendBinding.onCreateView() {
+        binding.fragment = this@FriendFragment
 
         setAdapter(friendEnterAdapter, binding.friendEnterRecyclerview)
         setAdapter(friendNoEnterAdapter, binding.friendNoEnterEcyclerview)
         buttonSelect(binding.oneBtn)
     }
 
-
     // findItem을 가져오고 student_check 가 0,1 인지 판단하여 adapter를 refresh 해준다.
     private fun observeFindItemGet(){
-        viewModel.friendEnterItem.observe(this@FriendFragment, { data ->
+        viewModel.friendEnterItem.observe(viewLifecycleOwner    , { data ->
             observeStudentCheck(data, data[0].student_check)
         })
     }
