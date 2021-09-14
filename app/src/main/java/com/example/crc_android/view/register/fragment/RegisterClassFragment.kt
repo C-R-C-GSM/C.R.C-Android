@@ -1,5 +1,6 @@
 package com.example.crc_android.view.register.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.LayoutInflater
@@ -12,6 +13,7 @@ import androidx.lifecycle.Observer
 import com.example.crc_android.R
 import com.example.crc_android.base.UtilityBase
 import com.example.crc_android.databinding.FragmentSignUpClassBinding
+import com.example.crc_android.view.login.LoginActivity
 import com.example.crc_android.viewmodel.register.RegisterViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
