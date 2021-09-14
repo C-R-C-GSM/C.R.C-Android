@@ -1,6 +1,5 @@
 package com.example.crc_android.bindingadapters
 
-import android.util.Log
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.example.crc_android.data.network.model.Data
