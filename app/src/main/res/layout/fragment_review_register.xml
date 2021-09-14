@@ -119,7 +119,8 @@
                     android:layout_gravity="center_vertical"
                     android:layout_width="wrap_content"
                     android:id="@+id/review_start_rating"
-                    android:layout_marginLeft="4dp"
+                    android:layout_marginStart="4dp"
+                    android:isIndicator="false"
                     android:layout_height="wrap_content" />
             </LinearLayout>
 

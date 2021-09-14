@@ -22,10 +22,6 @@ class ReviewFragment : UtilityBase.BaseFragment<FragmentReviewBinding>(R.layout.
         ReviewCheckAdapter()
     }
 
-    private val recyclerView: RecyclerView by lazy {
-        binding.reviewCheckRecycler
-    }
-
     override fun FragmentReviewBinding.onCreateView() {
         setAdapter()
 
@@ -38,7 +34,7 @@ class ReviewFragment : UtilityBase.BaseFragment<FragmentReviewBinding>(R.layout.
     }
 
     private fun setAdapter() {
-        recyclerView.apply {
+        binding.reviewCheckRecycler.apply {
             this.adapter = reviewAdapter
             this.layoutManager =
                 LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
