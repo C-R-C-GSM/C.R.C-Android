@@ -1,4 +1,4 @@
-package com.example.movie.base
+package com.example.crc_android.base
 
 import android.os.Bundle
 import androidx.annotation.LayoutRes
