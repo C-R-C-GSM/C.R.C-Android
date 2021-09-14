@@ -54,14 +54,13 @@ class RegisterClassFragment :
 
         registerViewModel.errorMessage.observe(requireActivity(), Observer {
             when (it) {
-                "plz input classNumber" -> {
+                "plz input classNumber" ->
                     Toast.makeText(
                         requireContext(),
                         "학년, 반, 번호를 정확히 입력해 주세요",
                         Toast.LENGTH_SHORT
                     ).show()
-                    binding.progressBar.visibility = View.GONE
-                }
+
                 "register sucess" -> Toast.makeText(
                     requireContext(),
                     "회원가입에 성공했습니다, 이메일을 확인해주세요!",
@@ -90,10 +89,13 @@ class RegisterClassFragment :
                 ).show()
 
             }
+            binding.progressBar.visibility = View.GONE
+
         })
     }
 
     fun backBtnClick(view: View) {
         registerViewModel.minusFlag()
+        registerViewModel.setErrorMessage()
     }
 }

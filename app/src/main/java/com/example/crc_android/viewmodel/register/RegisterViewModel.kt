@@ -53,10 +53,11 @@ class RegisterViewModel @Inject constructor(
 
     init {
         _flag.value = 0
-        _email.value = "null"
-        _password.value = "null"
-        _name.value = "null"
-        _classNumber.value = "null"
+        _email.value = ""
+        _password.value = ""
+        _name.value = ""
+        _classNumber.value = ""
+        _errorMessage.value = ""
     }
 
 
@@ -108,6 +109,10 @@ class RegisterViewModel @Inject constructor(
 
     }
 
+    fun setErrorMessage(){
+        _errorMessage.value = ""
+    }
+
     fun plusFlag() {
         _flag.value = _flag.value?.plus(1)
     }
@@ -124,6 +129,7 @@ class RegisterViewModel @Inject constructor(
         viewModelScope.launch {
             repository.registerApi(_email.value, _password.value, _name.value, _classNumber.value)
                 .let { response ->
+                    Log.d("로그","registerApiCall response message : ${response.body()?.message}")
                     if (response.isSuccessful){
                         when(response.body()?.message){
                             "register sucess" -> _errorMessage.value = "register sucess"
