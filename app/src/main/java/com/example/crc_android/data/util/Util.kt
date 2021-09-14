@@ -8,6 +8,8 @@ class Util{
         const val PREFERENCE_NAME="token_preference"
         const val DEFAULT_TOKEN="default token"
         const val PREFERENCES_TOKEN = "preferences_token"
+        const val PREFERENCES_EMAIL = "preferences_email"
+        const val PREFERENCES_PASSWORD = "preferences_password"
 
     }
 }

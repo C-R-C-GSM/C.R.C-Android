@@ -88,13 +88,15 @@ class LoginActivity : UtilityBase.BaseActivity<ActivityLoginBinding>(R.layout.ac
     }
 
     private fun setDataStore(token: String) {
-        loginViewModel.saveToken(token)
-        CoroutineScope(Dispatchers.Main).launch {
+        AES256.aesEncode(token)?.let { loginViewModel.saveToken(it) }
+        loginViewModel.saveEmail(binding.loginEmail.text.toString())
+        loginViewModel.savePassword(binding.loginPassword.text.toString())
+ /*       CoroutineScope(Dispatchers.Main).launch {
             if (token != null) {
-                App.getInstance().getDataStore().setEmail(AES256.aesEncode(binding.loginEmail.text.toString())!!)
+                data.setEmail(AES256.aesEncode(binding.loginEmail.text.toString())!!)
                 App.getInstance().getDataStore().setPassword(AES256.aesEncode(binding.loginPassword.text.toString())!!)
             }
-        }
+        }*/
     }
 
     fun getDataStore() {

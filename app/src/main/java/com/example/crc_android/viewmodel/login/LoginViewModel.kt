@@ -18,7 +18,7 @@ import javax.inject.Inject
 @HiltViewModel
 class LoginViewModel @Inject constructor(
     private val loginRepository: LoginRepository,
-   private val dataStore: DataStoreModule
+    private val dataStore: DataStoreModule
 ) : ViewModel() {
     val readToken = dataStore.readToken
     val loginResponse: LiveData<Response<ResponseMessageDTO?>> get() = _loginResponse
@@ -48,10 +48,18 @@ class LoginViewModel @Inject constructor(
             }
         }
     }
+
     // 토큰을 저장한다.
-    fun saveToken(token: String) =
-        viewModelScope.launch(Dispatchers.IO) {
-            Log.d("AdminViewModel", "saveToken: $token")
-            dataStore.setToken(token)
-        }
+    fun saveToken(token: String) = viewModelScope.launch(Dispatchers.IO) {
+        Log.d("AdminViewModel", "saveToken: $token")
+        dataStore.setToken(token)
+    }
+
+    fun saveEmail(email: String) = viewModelScope.launch(Dispatchers.IO) {
+        dataStore.setEmail(email)
+    }
+
+    fun savePassword(password: String) = viewModelScope.launch(Dispatchers.IO) {
+        dataStore.setPassword(password)
+    }
 }
