@@ -10,7 +10,6 @@ import com.example.crc_android.R
 import com.example.crc_android.base.UtilityBase
 import com.example.crc_android.data.network.model.ReviewReplyRequest
 import com.example.crc_android.databinding.FragmentReplyBinding
-import com.example.crc_android.ui.review.review.ReplyFragmentArgs
 import com.example.crc_android.viewmodel.review.ReviewViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
