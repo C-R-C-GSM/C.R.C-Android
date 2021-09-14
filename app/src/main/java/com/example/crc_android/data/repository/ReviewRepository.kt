@@ -13,7 +13,7 @@ class ReviewRepository @Inject constructor(
 ) {
     suspend fun postReviewRegister(
         token:String,
-   reviewPostRequest: ReviewPostRequest
+        reviewPostRequest: ReviewPostRequest
     ): Response<ReviewRegister> {
         return reviewApi.postReviewRegister(token,reviewPostRequest)
     }

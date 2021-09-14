@@ -1,6 +1,7 @@
 package com.example.crc_android.view.review
 
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.asLiveData
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -9,6 +10,7 @@ import com.example.crc_android.R
 import com.example.crc_android.adapter.ReviewCheckAdapter
 import com.example.crc_android.base.UtilityBase
 import com.example.crc_android.databinding.FragmentReviewBinding
+import com.example.crc_android.viewmodel.login.LoginViewModel
 import com.example.crc_android.viewmodel.review.ReviewViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -18,6 +20,7 @@ import kotlinx.coroutines.launch
 class ReviewFragment : UtilityBase.BaseFragment<FragmentReviewBinding>(R.layout.fragment_review) {
 
     private val reviewViewModel: ReviewViewModel by viewModels()
+    private val loginViewModel: LoginViewModel by viewModels()
     private val reviewAdapter: ReviewCheckAdapter by lazy {
         ReviewCheckAdapter()
     }
@@ -27,6 +30,7 @@ class ReviewFragment : UtilityBase.BaseFragment<FragmentReviewBinding>(R.layout.
     }
 
     override fun FragmentReviewBinding.onCreateView() {
+        observeToken()
         setAdapter()
 
         observeReviewCheck()
@@ -46,8 +50,16 @@ class ReviewFragment : UtilityBase.BaseFragment<FragmentReviewBinding>(R.layout.
         }
     }
 
+    private fun observeToken(){
+
+        loginViewModel.readToken.asLiveData().observe(viewLifecycleOwner){
+            reviewViewModel.getReviewCheck(it.token)
+
+        }
+    }
+
     private fun observeReviewCheck() = lifecycleScope.launch {
-        reviewViewModel.getReviewCheck("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXkiOjI1LCJyb2xlIjowLCJpYXQiOjE2MzEwOTkyNjYsImV4cCI6MTYzMTEwMjg2NiwiaXNzIjoiQy5SLkNfU0VSVkVSIn0.PIxL6ByfXP08cpC9cgOjO1azZM3IYiAR4IYxMlf6418")
+
         reviewViewModel.reviewItem.observe(viewLifecycleOwner, { data ->
 
             reviewAdapter.setItemList(data)
@@ -59,8 +71,9 @@ class ReviewFragment : UtilityBase.BaseFragment<FragmentReviewBinding>(R.layout.
 
     private fun nextMovePage() {
         binding.nextImage.setOnClickListener {
-            findNavController().navigate(R.id.action_reviewFragment_to_reviewRegister)
+            findNavController().navigate(R.id.action_reviewFragment_to_reviewRegisterFragment2)
         }
     }
 
 }
+

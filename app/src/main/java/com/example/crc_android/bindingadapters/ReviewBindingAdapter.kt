@@ -14,7 +14,7 @@ object ReviewBindingAdapter{
     fun reviewRating(rating: RatingBar, data:Double){
         rating.rating = data.toFloat()
     }
-
-
-
 }
+
+
+
