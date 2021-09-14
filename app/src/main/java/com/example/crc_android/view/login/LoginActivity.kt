@@ -89,20 +89,20 @@ class LoginActivity : UtilityBase.BaseActivity<ActivityLoginBinding>(R.layout.ac
         CoroutineScope(Dispatchers.Main).launch {
             if (token != null) {
                 App.getInstance().getDataStore().setToken(token)
+                App.getInstance().getDataStore().setEmail(AES256.aesEncode(binding.loginEmail.text.toString())!!)
+                App.getInstance().getDataStore().setPassword(AES256.aesEncode(binding.loginPassword.text.toString())!!)
             }
         }
-
     }
 
     private fun getDataStore(){
         CoroutineScope(Dispatchers.Main).launch {
-            App.getInstance().getDataStore().text.collect { it->
+            App.getInstance().getDataStore().getToken.collect { it->
                 Log.d("로그", "저장된 데이터스토어 토큰  : $it")
                 val response = AES256.aesDecode(it)
                 Log.d("로그", "저장된 데이터스토어 토큰 난독화 해제(디코딩) 후  : $response")
             }
         }
-
     }
 
     private fun successLogin() {

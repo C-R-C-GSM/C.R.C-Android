@@ -13,13 +13,13 @@ import java.io.IOException
 
 class DataStoreModule(private val context : Context) {
 
-    private val Context.dataStore  by preferencesDataStore(name = "dataStore")
+    private val Context.dataStore by preferencesDataStore(name = "dataStore")
 
     private val token = stringPreferencesKey("token") // string 저장 키값
-    //private val intKey = intPreferencesKey("key_name") // int 저장 키값
+    private val email = stringPreferencesKey("email")
+    private val password = stringPreferencesKey("password")
 
-    // 읽기
-    val text : Flow<String> = context.dataStore.data
+    val getToken : Flow<String> = context.dataStore.data
         .catch { exception ->
             if (exception is IOException) {
                 emit(emptyPreferences())
@@ -31,11 +31,45 @@ class DataStoreModule(private val context : Context) {
             preferences[token] ?: ""
         }
 
-    //쓰기
+    val getEmail : Flow<String> = context.dataStore.data
+        .catch { exception ->
+            if (exception is IOException) {
+                emit(emptyPreferences())
+            } else {
+                throw exception
+            }
+        }
+        .map {preferences ->
+            preferences[email] ?: ""
+        }
+
+    val getPassword : Flow<String> = context.dataStore.data
+        .catch { exception ->
+            if (exception is IOException) {
+                emit(emptyPreferences())
+            } else {
+                throw exception
+            }
+        }
+        .map {preferences ->
+            preferences[password] ?: ""
+        }
+
     suspend fun setToken(text : String){
         context.dataStore.edit { preferences ->
             preferences[token] = text
         }
     }
 
+    suspend fun setEmail(text : String){
+        context.dataStore.edit { preferences ->
+            preferences[email] = text
+        }
+    }
+
+    suspend fun setPassword(text : String){
+        context.dataStore.edit { preferences ->
+            preferences[password] = text
+        }
+    }
 }
