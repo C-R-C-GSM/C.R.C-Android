@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.crc_android.data.repository.LoginRepository
+import com.example.crc_android.util.AES256
 import com.example.crc_android.util.DataStoreModule
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.first
@@ -23,7 +24,7 @@ class SplashViewModel @Inject constructor(
     fun autologin() = viewModelScope.launch {
         val email = dataStore.readEmail.first()
         val password = dataStore.readPassword.first()
-        Log.d("로그","자동로그인 - email : $email, password : $password")
+        Log.d("로그", "자동로그인 - email : $email, password : $password")
         if (email == "" || password == "") {
             _message.value = "null"
         } else {
@@ -35,9 +36,16 @@ class SplashViewModel @Inject constructor(
         viewModelScope.launch {
             loginRepository.loginApi(email, password).let { response ->
                 if (response.isSuccessful) {
-                    response.body()?.Token?.let { dataStore.setToken(it) }
+                    Log.d("로그", "자동로그인 - token : ${response.body()?.Token}")
+                    val token = response.body()?.Token
+                    if (token != null) {
+                        AES256.aesEncode(token)?.let {
+                            dataStore.setToken(it)
+                            Log.d("로그", "자동로그인 - token(인코딩) : $it")
+                        }
+                    }
                     _message.value = "login success"
-                }else _message.value = "login fail"
+                } else _message.value = "login fail"
             }
         }
     }
