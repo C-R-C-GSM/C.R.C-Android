@@ -21,6 +21,13 @@ import java.io.IOException
 import javax.inject.Inject
 
 
+    private val Context.dataStore by preferencesDataStore(name = "dataStore")
+
+    private val token = stringPreferencesKey("token") // string 저장 키값
+    private val email = stringPreferencesKey("email")
+    private val password = stringPreferencesKey("password")
+
+    val getToken : Flow<String> = context.dataStore.data
 private val Context.dataStore by preferencesDataStore(PREFERENCE_NAME)
 
 @ActivityRetainedScoped
@@ -59,6 +66,42 @@ class DataStoreModule @Inject constructor(@ApplicationContext private val contex
             Token(token)
         }
 
+    val getEmail : Flow<String> = context.dataStore.data
+        .catch { exception ->
+            if (exception is IOException) {
+                emit(emptyPreferences())
+            } else {
+                throw exception
+            }
+        }
+        .map {preferences ->
+            preferences[email] ?: ""
+        }
+
+    val getPassword : Flow<String> = context.dataStore.data
+        .catch { exception ->
+            if (exception is IOException) {
+                emit(emptyPreferences())
+            } else {
+                throw exception
+            }
+        }
+        .map {preferences ->
+            preferences[password] ?: ""
+        }
+
+    suspend fun setEmail(text : String){
+        context.dataStore.edit { preferences ->
+            preferences[email] = text
+        }
+    }
+
+    suspend fun setPassword(text : String){
+        context.dataStore.edit { preferences ->
+            preferences[password] = text
+        }
+    }
+}
 }
 
 data class Token(
