@@ -16,6 +16,7 @@ import com.example.crc_android.base.UtilityBase
 import com.example.crc_android.data.network.model.Data
 import com.example.crc_android.databinding.FragmentFriendBinding
 import com.example.crc_android.viewmodel.friend.FriendViewModel
+import com.example.crc_android.base.UtilityBase
 import com.example.crc_android.viewmodel.login.LoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
