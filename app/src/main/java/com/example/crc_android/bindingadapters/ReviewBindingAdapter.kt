@@ -15,13 +15,6 @@ object ReviewBindingAdapter{
         rating.rating = data.toFloat()
     }
 
-    @BindingAdapter("app:userDay")
-    @JvmStatic
-    fun getUserDay(text: TextView, day: Long) {
 
-        val toTimeStamp = Date(day)
-        val date = SimpleDateFormat("yyyy년 MM월 dd일 aa", Locale.forLanguageTag("ko"))
-        text.text = date.format(toTimeStamp)
-    }
 
 }
