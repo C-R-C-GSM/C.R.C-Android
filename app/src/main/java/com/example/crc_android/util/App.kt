@@ -18,6 +18,4 @@ class App : Application(){
         super.onCreate()
         crcApplication = this
     }
-
-
 }

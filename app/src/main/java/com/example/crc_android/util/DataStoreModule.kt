@@ -9,8 +9,12 @@ import androidx.datastore.preferences.core.emptyPreferences
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import com.example.crc_android.data.util.Util.Companion.DEFAULT_TOKEN
+import com.example.crc_android.data.util.Util.Companion.PREFERENCES_EMAIL
+import com.example.crc_android.data.util.Util.Companion.PREFERENCES_PASSWORD
 import com.example.crc_android.data.util.Util.Companion.PREFERENCES_TOKEN
 import com.example.crc_android.data.util.Util.Companion.PREFERENCE_NAME
+import com.example.crc_android.util.DataStoreModule.PreferencesKeys.dataStoreEmail
+import com.example.crc_android.util.DataStoreModule.PreferencesKeys.dataStorePassword
 import com.example.crc_android.util.DataStoreModule.PreferencesKeys.dataStoreToken
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.android.scopes.ActivityRetainedScoped
@@ -21,13 +25,7 @@ import java.io.IOException
 import javax.inject.Inject
 
 
-    private val Context.dataStore by preferencesDataStore(name = "dataStore")
 
-    private val token = stringPreferencesKey("token") // string 저장 키값
-    private val email = stringPreferencesKey("email")
-    private val password = stringPreferencesKey("password")
-
-    val getToken : Flow<String> = context.dataStore.data
 private val Context.dataStore by preferencesDataStore(PREFERENCE_NAME)
 
 @ActivityRetainedScoped
@@ -36,6 +34,8 @@ class DataStoreModule @Inject constructor(@ApplicationContext private val contex
 
     private object PreferencesKeys {
         val dataStoreToken = stringPreferencesKey(PREFERENCES_TOKEN)
+        val dataStoreEmail = stringPreferencesKey(PREFERENCES_EMAIL)
+        val dataStorePassword = stringPreferencesKey(PREFERENCES_PASSWORD)
 
     }
 
@@ -48,6 +48,18 @@ class DataStoreModule @Inject constructor(@ApplicationContext private val contex
     suspend fun setToken(text: String) {
         context.dataStore.edit { preferences ->
             preferences[dataStoreToken] = text
+        }
+    }
+
+    suspend fun setEmail(text: String) {
+        context.dataStore.edit { preferences ->
+            preferences[dataStoreEmail] = text
+        }
+    }
+
+    suspend fun setPassword(text: String) {
+        context.dataStore.edit { preferences ->
+            preferences[dataStorePassword] = text
         }
     }
 
@@ -66,7 +78,7 @@ class DataStoreModule @Inject constructor(@ApplicationContext private val contex
             Token(token)
         }
 
-    val getEmail : Flow<String> = context.dataStore.data
+    val readEmail: Flow<String> = dataStore.data
         .catch { exception ->
             if (exception is IOException) {
                 emit(emptyPreferences())
@@ -74,11 +86,12 @@ class DataStoreModule @Inject constructor(@ApplicationContext private val contex
                 throw exception
             }
         }
-        .map {preferences ->
-            preferences[email] ?: ""
+        .map { preferences ->
+            preferences[dataStoreEmail] ?: ""
         }
 
-    val getPassword : Flow<String> = context.dataStore.data
+
+    val readPassword: Flow<String> = dataStore.data
         .catch { exception ->
             if (exception is IOException) {
                 emit(emptyPreferences())
@@ -86,23 +99,14 @@ class DataStoreModule @Inject constructor(@ApplicationContext private val contex
                 throw exception
             }
         }
-        .map {preferences ->
-            preferences[password] ?: ""
+        .map { preferences ->
+            preferences[dataStorePassword] ?: ""
         }
 
-    suspend fun setEmail(text : String){
-        context.dataStore.edit { preferences ->
-            preferences[email] = text
-        }
-    }
 
-    suspend fun setPassword(text : String){
-        context.dataStore.edit { preferences ->
-            preferences[password] = text
-        }
-    }
+
 }
-}
+
 
 data class Token(
     val token: String,

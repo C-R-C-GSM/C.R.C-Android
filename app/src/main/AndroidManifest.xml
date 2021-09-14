@@ -4,6 +4,7 @@
     package="com.example.crc_android">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".util.App"
         android:allowBackup="true"
@@ -14,14 +15,19 @@
         android:theme="@style/Theme.CRC_Android"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".MainActivity" />
-        <activity android:name=".view.register.RegisterActivity" />
-        <activity android:name=".view.login.LoginActivity">
+        <activity
+            android:name=".view.splash.SplashActivity"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".view.register.RegisterActivity" />
+        <activity android:name=".view.login.LoginActivity">
+
         </activity>
     </application>
 
