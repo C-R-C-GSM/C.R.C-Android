@@ -34,6 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:layout_marginRight="28dp"
+            android:src="@drawable/plus"
             app:layout_constraintBottom_toBottomOf="@+id/textView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/textView" />
@@ -56,6 +57,7 @@
             android:id="@+id/review_check_recycler"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingBottom="120dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view"

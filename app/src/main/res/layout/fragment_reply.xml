@@ -17,7 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="29dp"
-            android:drawableLeft="@drawable/left_arrow"
+            android:drawableLeft="@drawable/leftarrow"
             android:paddingLeft="4dp"
             android:text="급식리뷰"
             app:layout_constraintBottom_toBottomOf="@+id/toolbar_title"

@@ -4,12 +4,14 @@ import android.text.Editable
 import android.text.TextUtils
 import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.asLiveData
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.crc_android.R
 import com.example.crc_android.base.UtilityBase
 import com.example.crc_android.data.network.model.ReviewReplyRequest
 import com.example.crc_android.databinding.FragmentReplyBinding
+import com.example.crc_android.viewmodel.login.LoginViewModel
 import com.example.crc_android.viewmodel.review.ReviewViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -21,6 +23,8 @@ class ReplyFragment : UtilityBase.BaseFragment<FragmentReplyBinding>(R.layout.fr
         previousUi()
 
     }
+
+    private val loginViewModel: LoginViewModel by viewModels()
 
     private val viewModel by viewModels<ReviewViewModel>()
     private val args by navArgs<ReplyFragmentArgs>()
@@ -55,15 +59,23 @@ class ReplyFragment : UtilityBase.BaseFragment<FragmentReplyBinding>(R.layout.fr
         }
     }
 
+    private fun observeToken(reviewReplyRequest: ReviewReplyRequest) {
+
+        loginViewModel.readToken.asLiveData().observe(viewLifecycleOwner) {
+            viewModel.reviewReply(
+                it.token,
+                reviewReplyRequest
+            )
+        }
+    }
+
     private fun observePostReply(data: Editable) {
 
         val reviewRequest = ReviewReplyRequest(
             args.reviewId, data.toString()
         )
-        viewModel.reviewReply(
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXkiOjI1LCJyb2xlIjowLCJpYXQiOjE2MzEwOTkyNjYsImV4cCI6MTYzMTEwMjg2NiwiaXNzIjoiQy5SLkNfU0VSVkVSIn0.PIxL6ByfXP08cpC9cgOjO1azZM3IYiAR4IYxMlf6418",
-            reviewRequest
-        )
+        observeToken(reviewRequest)
+
     }
 }
 
