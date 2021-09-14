@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.crc_android.R
 import com.example.crc_android.data.network.model.check.ReviewData
 import com.example.crc_android.databinding.ReviewItemRowBinding
-import com.example.crc_android.ui.review.review.ReviewFragmentDirections
+import com.example.crc_android.view.review.ReviewFragmentDirections
 
 class ReviewCheckAdapter : RecyclerView.Adapter<ReviewCheckAdapter.ReviewCheckHolder>() {
     private val reviewList = mutableListOf<ReviewData>()
