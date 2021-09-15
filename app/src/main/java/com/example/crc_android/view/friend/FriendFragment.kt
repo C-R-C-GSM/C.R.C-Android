@@ -15,8 +15,8 @@ import com.example.crc_android.adapter.FriendAdapter
 import com.example.crc_android.base.UtilityBase
 import com.example.crc_android.data.network.model.Data
 import com.example.crc_android.databinding.FragmentFriendBinding
+import com.example.crc_android.util.AES256
 import com.example.crc_android.viewmodel.friend.FriendViewModel
-import com.example.crc_android.base.UtilityBase
 import com.example.crc_android.viewmodel.login.LoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -39,14 +39,15 @@ class FriendFragment : UtilityBase.BaseFragment<FragmentFriendBinding>(R.layout.
         binding.fragment = this@FriendFragment
 
 
-
         setAdapter(friendEnterAdapter, binding.friendEnterRecyclerview)
         setAdapter(friendNoEnterAdapter, binding.friendNoEnterEcyclerview)
         buttonSelect(binding.oneBtn)
+
     }
 
 
-    // 버튼클릭할때마다 event
+
+    // 버튼클릭할때마다 각각 통신
     fun buttonSelect(button: View) {
 
         when (button) {
@@ -77,6 +78,7 @@ class FriendFragment : UtilityBase.BaseFragment<FragmentFriendBinding>(R.layout.
     }
 
 
+    // 버튼클릭할때마다 버튼색깔을 바꿔주는 함수
     private fun btnTextChangeColor(
         number: Int,
         oneText: Button,
@@ -133,56 +135,60 @@ class FriendFragment : UtilityBase.BaseFragment<FragmentFriendBinding>(R.layout.
     }
 
 
-    // 데이터를 받는다.
+    // 서버와 통신한다.
     private fun observeFriend(number: Int) {
         loginViewModel.readToken.asLiveData().observe(viewLifecycleOwner) {
+            Log.d("TAG", "FriendFragment - observeFriend() called ${it.token}")
             lifecycleScope.launch {
                 when (number) {
                     ONE -> {
-                        viewModel.getFriendOne(it.token)
+                        viewModel.getFriendOne(AES256.aesDecode(it.token).toString())
                     }
                     TWO -> {
-                        viewModel.getFriendTwo(it.token)
+                        viewModel.getFriendTwo(AES256.aesDecode(it.token).toString())
                     }
                     THREE -> {
-                        viewModel.getFriendThree(it.token)
+                        viewModel.getFriendThree(AES256.aesDecode(it.token).toString())
                     }
                 }
             }
         }
     }
 
-    // 데이터를 refresh 해준다.
+    // 데이터가 들어오면 check 구별후 refresh 해준다.
     private fun observeFindItemGet(number: Int) {
         when (number) {
             ONE -> {
                 viewModel.friendEnterItem.observe(viewLifecycleOwner, { data ->
-
+                    studentNumber(data, 1)
                     adapterRefresh(data, friendEnterAdapter)
 
                 })
                 viewModel.friendNoEnterItem.observe(viewLifecycleOwner) { data ->
+                    studentNumber(data, 0)
                     adapterRefresh(data, friendNoEnterAdapter)
                 }
 
             }
             TWO -> {
                 viewModel.friendEnterItem.observe(viewLifecycleOwner, { data ->
-
+                    studentNumber(data, 1)
                     adapterRefresh(data, friendEnterAdapter)
 
                 })
                 viewModel.friendNoEnterItem.observe(viewLifecycleOwner) { data ->
+                    studentNumber(data, 0)
                     adapterRefresh(data, friendNoEnterAdapter)
                 }
             }
             THREE -> {
                 viewModel.friendEnterItem.observe(viewLifecycleOwner, { data ->
-
+                    studentNumber(data, 1)
                     adapterRefresh(data, friendEnterAdapter)
 
                 })
                 viewModel.friendNoEnterItem.observe(viewLifecycleOwner) { data ->
+                    studentNumber(data, 0)
                     adapterRefresh(data, friendNoEnterAdapter)
                 }
             }
@@ -190,6 +196,7 @@ class FriendFragment : UtilityBase.BaseFragment<FragmentFriendBinding>(R.layout.
     }
 
 
+    // 입장,미입장 어뎁터가 변동사항이있으면 refresh 한다.
     private fun adapterRefresh(data: List<Data>, adapter: FriendAdapter) {
         when (adapter) {
             friendEnterAdapter -> friendEnterAdapter.setData(data)
@@ -197,6 +204,24 @@ class FriendFragment : UtilityBase.BaseFragment<FragmentFriendBinding>(R.layout.
             friendNoEnterAdapter -> friendNoEnterAdapter.setData(data)
         }
 
+    }
+
+    // student가 check가 됐는가 안됐는거에 따라서 입장과 미입장을 구별한다.
+    private fun studentNumber(data: List<Data>, number: Int) = when (number) {
+        1 -> {
+            val totalData = data.filter { it.student_check == 1 }
+            binding.totalNumberText.text = totalData.size.toString()
+        }
+        0 -> {
+            val dataValue = data.filter { it.student_check == 0 }
+            binding.totalNoEnterText.text = dataValue.size.toString()
+        }
+
+
+        else -> {
+            binding.totalNumberText.text = 0.toString()
+            binding.totalNoEnterText.text = 0.toString()
+        }
     }
 
 
