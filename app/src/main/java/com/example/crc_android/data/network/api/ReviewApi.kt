@@ -1,8 +1,9 @@
-package com.example.crc_android.data.network
+package com.example.crc_android.data.network.api
 
 import com.example.crc_android.data.network.model.check.ReviewCheck
 import com.example.crc_android.data.network.model.reviewRegister.ReviewRegister
 import com.example.crc_android.data.network.model.ReviewPostRequest
+import com.example.crc_android.data.network.model.ReviewReplyData
 import com.example.crc_android.data.network.model.ReviewReplyRequest
 import retrofit2.Response
 import retrofit2.http.*
@@ -22,7 +23,7 @@ interface ReviewApi {
 
         @Header("Token") token:String,
         @Body reviewReply:ReviewReplyRequest
-    )
+    ):Response<ReviewReplyData>
 
     @POST("review/register")
     suspend fun postReviewRegister(
