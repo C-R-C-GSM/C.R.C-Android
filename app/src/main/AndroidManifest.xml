@@ -16,7 +16,7 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity
-            android:name=".view.splash.SplashActivity"
+            android:name=".view.login.LoginActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,9 +26,7 @@
         </activity>
         <activity android:name=".MainActivity" />
         <activity android:name=".view.register.RegisterActivity" />
-        <activity android:name=".view.login.LoginActivity">
 
-        </activity>
     </application>
 
 </manifest>
