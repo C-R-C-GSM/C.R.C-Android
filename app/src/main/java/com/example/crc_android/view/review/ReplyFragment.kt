@@ -11,6 +11,7 @@ import com.example.crc_android.R
 import com.example.crc_android.base.UtilityBase
 import com.example.crc_android.data.network.model.ReviewReplyRequest
 import com.example.crc_android.databinding.FragmentReplyBinding
+import com.example.crc_android.util.AES256
 import com.example.crc_android.viewmodel.login.LoginViewModel
 import com.example.crc_android.viewmodel.review.ReviewViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -54,16 +55,15 @@ class ReplyFragment : UtilityBase.BaseFragment<FragmentReplyBinding>(R.layout.fr
     }
 
     private fun finishBtn() {
-        binding.finishTextBtn.setOnClickListener {
-            findNavController().navigate(R.id.action_replyFragment_to_reviewFragment)
-        }
+
+        findNavController().navigate(R.id.action_replyFragment_to_reviewFragment)
     }
 
     private fun observeToken(reviewReplyRequest: ReviewReplyRequest) {
 
         loginViewModel.readToken.asLiveData().observe(viewLifecycleOwner) {
             viewModel.reviewReply(
-                it.token,
+                AES256.aesDecode(it.token).toString(),
                 reviewReplyRequest
             )
         }
@@ -72,7 +72,7 @@ class ReplyFragment : UtilityBase.BaseFragment<FragmentReplyBinding>(R.layout.fr
     private fun observePostReply(data: Editable) {
 
         val reviewRequest = ReviewReplyRequest(
-            args.reviewId, data.toString()
+             data.toString(),args.reviewId
         )
         observeToken(reviewRequest)
 
