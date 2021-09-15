@@ -24,11 +24,11 @@ class AdminViewModel @Inject constructor(
 
     suspend fun getCheckRole(token: String) = viewModelScope.launch {
         repository.getCheckRole(token).let {
-            if (it.isSuccessful) {
-                Log.d("TAG", "getCheckRole: ${it}")
-            } else {
-                _adminSuccess.value = false
-                Log.d("TAG", "getCheckRole: 실패")
+            Log.d("TAG", "getCheckRole: ${it.body()}")
+            when (it.body()?.code) {
+                600 -> _adminSuccess.value = false
+                0 -> _adminSuccess.value = true
+                404 -> _adminSuccess.value = false
             }
         }
     }
