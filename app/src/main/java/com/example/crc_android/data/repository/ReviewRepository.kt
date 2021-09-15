@@ -2,8 +2,9 @@ package com.example.crc_android.data.repository
 
 import com.example.crc_android.data.network.model.check.ReviewCheck
 import com.example.crc_android.data.network.model.reviewRegister.ReviewRegister
-import com.example.crc_android.data.network.ReviewApi
+import com.example.crc_android.data.network.api.ReviewApi
 import com.example.crc_android.data.network.model.ReviewPostRequest
+import com.example.crc_android.data.network.model.ReviewReplyData
 import com.example.crc_android.data.network.model.ReviewReplyRequest
 import retrofit2.Response
 import javax.inject.Inject
@@ -25,10 +26,10 @@ class ReviewRepository @Inject constructor(
     }
 
     suspend fun postReviewReply(
-        token:String,
+        token: String,
         reviewReplyRequest: ReviewReplyRequest
-    ) {
-        return reviewApi.postReviewReply(token,reviewReplyRequest)
+    ): Response<ReviewReplyData> {
+        return reviewApi.postReviewReply(token, reviewReplyRequest)
     }
 
 }
