@@ -55,6 +55,7 @@ class AdminnoticeActivity : AppCompatActivity() {
         }*/
 
 
+
     }
 
     private fun initialiseAdapter() {

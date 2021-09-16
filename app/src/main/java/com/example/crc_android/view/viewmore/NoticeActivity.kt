@@ -42,7 +42,7 @@ class NoticeActivity : AppCompatActivity() {
             arrow1.setOnClickListener {
                 val arrow1Intent = Intent(context, NoticecontentActivity::class.java)
                 context.startActivity(arrow1Intent)
-                finish()
+
             }
         }
 

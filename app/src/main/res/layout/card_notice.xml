@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+
     <data>
         <variable
             name="data"
@@ -48,11 +49,11 @@
 
         <ImageView
             android:id="@+id/arrow1"
-            android:layout_width="21dp"
+            android:layout_width="wrap_content"
             android:layout_height="21dp"
             android:layout_marginLeft="295dp"
             android:layout_marginTop="22dp"
-            android:background="@drawable/leftarrow"
+            android:background="@drawable/leftarrow1"
             app:layout_constraintLeft_toLeftOf="@id/boardcard"
             app:layout_constraintTop_toTopOf="@id/boardcard" />
 
