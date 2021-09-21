@@ -44,12 +44,14 @@ class NoticeregistActivity : AppCompatActivity() {
         binding.update.setOnClickListener {
             addData()
         }
+
+
     }
 
 
     private fun addData() {
-        val title = binding.title.text.toString()
-        val content = binding.content.text.toString()
+        val title = binding.puttitle.text.toString()
+        val content = binding.putcontent.text.toString()
         Log.d(TAG, "addData: 테스트 $title $content")
         if ((title.isBlank() || content.isBlank())) {
             Toast.makeText(this,"문자가 없어용~~~",Toast.LENGTH_SHORT).show()
@@ -57,8 +59,8 @@ class NoticeregistActivity : AppCompatActivity() {
         } else {
             var blog = RegistNotice(title, content)
             viewModel.add(blog)
-            binding.title.text.clear()
-            binding.content.text.clear()
+            binding.puttitle.text.clear()
+            binding.putcontent.text.clear()
             finish()
 
         }
