@@ -58,10 +58,12 @@
 
         <RatingBar
             android:id="@+id/ratingBar"
-            style="@style/Widget.AppCompat.RatingBar.Small"
+            style="@style/Widget.AppCompat.RatingBar.Indicator"
             reviewRating="@{item.review_star}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:rating="5"
+            android:progressTint="#ffc001"
             android:layout_marginTop="4dp"
             app:layout_constraintLeft_toLeftOf="@id/textView2"
             app:layout_constraintStart_toStartOf="@+id/when_text"
@@ -82,7 +84,7 @@
             android:layout_width="match_parent"
             android:layout_height="0.1dp"
             android:layout_marginTop="24dp"
-            android:background="#999999"
+            android:background="@color/line_color"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textView4" />
@@ -102,6 +104,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{item.reply}"
+            android:layout_marginTop="10dp"
+            android:textSize="12sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/review_contact"
             tool:text="아 쓰니마셍" />
