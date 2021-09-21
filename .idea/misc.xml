@@ -3,25 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/KyungMin/StudioProjects/C.R.C-Android/app/src/main/res/drawable/menu_selector_color.xml" value="0.30625" />
-        <entry key="..\:/Users/KyungMin/StudioProjects/C.R.C-Android/app/src/main/res/layout/activity_main.xml" value="0.5712820512820512" />
-        <entry key="..\:/Users/KyungMin/StudioProjects/C.R.C-Android/app/src/main/res/layout/activity_notice.xml" value="0.29010416666666666" />
-        <entry key="..\:/Users/KyungMin/StudioProjects/C.R.C-Android/app/src/main/res/layout/activity_viewmore.xml" value="0.264" />
-        <entry key="..\:/Users/KyungMin/StudioProjects/C.R.C-Android/app/src/main/res/layout/card_notice.xml" value="0.4484375" />
-        <entry key="..\:/Users/KyungMin/StudioProjects/C.R.C-Android/app/src/main/res/layout/fragment_friend.xml" value="0.4" />
-        <entry key="..\:/Users/KyungMin/StudioProjects/C.R.C-Android/app/src/main/res/layout/fragment_home.xml" value="0.264" />
-        <entry key="..\:/Users/KyungMin/StudioProjects/C.R.C-Android/app/src/main/res/layout/fragment_reply.xml" value="0.2" />
-        <entry key="..\:/Users/KyungMin/StudioProjects/C.R.C-Android/app/src/main/res/layout/fragment_review.xml" value="0.4" />
-        <entry key="..\:/Users/KyungMin/StudioProjects/C.R.C-Android/app/src/main/res/layout/fragment_review_register.xml" value="0.264" />
-        <entry key="..\:/Users/KyungMin/StudioProjects/C.R.C-Android/app/src/main/res/layout/friend_list_enter.xml" value="0.6" />
-        <entry key="..\:/Users/KyungMin/StudioProjects/C.R.C-Android/app/src/main/res/layout/friend_list_no_entry_enter.xml" value="0.3894927536231884" />
-        <entry key="..\:/Users/KyungMin/StudioProjects/C.R.C-Android/app/src/main/res/layout/review_item_row.xml" value="0.6" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/C.R.C-Androidnew/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.18697916666666667" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/C.R.C-Androidnew/app/src/main/res/drawable/ic_arrow_back.xml" value="0.18697916666666667" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/C.R.C-Androidnew/app/src/main/res/drawable/registeredit.xml" value="0.1" />
-        <entry key="..\:/Users/USER/AndroidStudioProjects/C.R.C-Androidnew/app/src/main/res/layout/activity_adminnotice.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/C.R.C-Androidnew/app/src/main/res/layout/activity_adminnotice.xml" value="0.22" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/C.R.C-Androidnew/app/src/main/res/layout/activity_notice.xml" value="0.16666666666666666" />
-        <entry key="..\:/Users/USER/AndroidStudioProjects/C.R.C-Androidnew/app/src/main/res/layout/activity_noticecontent.xml" value="0.16666666666666666" />
-        <entry key="..\:/Users/USER/AndroidStudioProjects/C.R.C-Androidnew/app/src/main/res/layout/activity_noticeregist.xml" value="0.1125" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/C.R.C-Androidnew/app/src/main/res/layout/activity_noticecontent.xml" value="0.22" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/C.R.C-Androidnew/app/src/main/res/layout/activity_noticeregist.xml" value="0.13333333333333333" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/C.R.C-Androidnew/app/src/main/res/layout/activity_viewmore.xml" value="0.16666666666666666" />
+
         <entry key="..\:/Users/USER/AndroidStudioProjects/C.R.C-Androidnew/app/src/main/res/layout/card_notice.xml" value="0.1" />
         <entry key="..\:/Users/apple/AndroidStudioProjects/C.R.C-Android/app/src/main/res/drawable/ic_c_r_c_.xml" value="0.215625" />
         <entry key="..\:/Users/apple/AndroidStudioProjects/C.R.C-Android/app/src/main/res/drawable/ic_logo.xml" value="0.215625" />

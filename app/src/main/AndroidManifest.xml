@@ -20,14 +20,17 @@
         <activity android:name=".view.viewmore.NoticeregistActivity"/>
         <activity android:name=".view.viewmore.AdminnoticeActivity"/>
         <activity android:name=".view.viewmore.ViewmoreActivity"/>
-        <activity
-            android:name=".view.login.LoginActivity"
-            android:exported="true" >
+        <activity android:name=".view.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.login.LoginActivity"
+            android:exported="true" >
+
         </activity>
         <activity android:name=".MainActivity" />
         <activity android:name=".view.register.RegisterActivity" />
