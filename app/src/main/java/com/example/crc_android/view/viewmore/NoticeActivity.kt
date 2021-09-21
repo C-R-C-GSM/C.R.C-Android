@@ -1,6 +1,7 @@
 package com.example.crc_android.view.viewmore
 
 import android.content.Intent
+import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -26,7 +27,7 @@ class NoticeActivity : AppCompatActivity() {
         viewManager = LinearLayoutManager(this, RecyclerView.VERTICAL, true)
         viewAdapter = MyAdapter(this)
         val backarrow : ImageView= findViewById(R.id.backarrow)
-
+        val arrow1 : ImageView = findViewById(R.id.arrow1)
 
         recyclerView = findViewById<RecyclerView>(R.id.recyclerview_main).apply {
             setHasFixedSize(true)
@@ -37,6 +38,11 @@ class NoticeActivity : AppCompatActivity() {
                 val backarrowIntent = Intent(context, ViewmoreActivity::class.java)
                 context.startActivity(backarrowIntent)
                 finish()
+            }
+            arrow1.setOnClickListener {
+                val arrow1Intent = Intent(context, NoticecontentActivity::class.java)
+                context.startActivity(arrow1Intent)
+
             }
         }
 

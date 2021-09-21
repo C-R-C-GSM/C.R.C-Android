@@ -86,7 +86,7 @@
 
 
         <EditText
-            android:id="@+id/title"
+            android:id="@+id/puttitle"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_marginStart="60dp"
@@ -99,7 +99,7 @@
 
 
         <EditText
-            android:id="@+id/content"
+            android:id="@+id/putcontent"
             android:layout_width="300dp"
             android:layout_height="178dp"
             android:layout_marginStart="60dp"
