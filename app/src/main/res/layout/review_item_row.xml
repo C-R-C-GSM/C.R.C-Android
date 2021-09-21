@@ -65,6 +65,8 @@
             android:rating="5"
             android:progressTint="#ffc001"
             android:layout_marginTop="4dp"
+            android:isIndicator="true"
+
             app:layout_constraintLeft_toLeftOf="@id/textView2"
             app:layout_constraintStart_toStartOf="@+id/when_text"
             app:layout_constraintTop_toBottomOf="@+id/textView3" />
