@@ -1,68 +1,78 @@
 package com.example.crc_android.view.viewmore
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.crc_android.MainActivity
 import com.example.crc_android.R
 import com.example.crc_android.data.NOTICE
 import com.example.crc_android.data.NoticeToken
 import com.example.crc_android.data.RegistNotice
 import com.example.crc_android.data.RetrofitHelper
-import com.example.crc_android.databinding.ActivityNoticeregistBinding
+import com.example.crc_android.databinding.FragmentNoticeregistBinding
 import com.example.crc_android.viewmodel.viewmore.MainViewModel
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.util.concurrent.TimeUnit
 
-class NoticeregistActivity : AppCompatActivity() {
-    lateinit var binding: ActivityNoticeregistBinding
-    private var viewManager = LinearLayoutManager(this)
+
+class NoticeregistFragment : Fragment() {
+
+    lateinit var binding: FragmentNoticeregistBinding
+    private var viewManager = LinearLayoutManager(requireActivity())
     private lateinit var viewModel: MainViewModel
     private val TAG = "NoticeregistActivity"
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_noticeregist)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_noticeregist)
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val view = inflater.inflate(R.layout.fragment_noticeregist, container, false)
+        binding = DataBindingUtil.setContentView(requireActivity(), R.layout.fragment_noticeregist)
         binding.activity = this
-        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+        viewModel = ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
+
 
         setRetrofit()
 
+        (requireActivity() as MainActivity)
         binding.returnnotice.setOnClickListener {
-            val returnnoticebtn = Intent(this, AdminnoticeActivity::class.java)
-            startActivity(returnnoticebtn)
-            finish()
+            (requireActivity() as MainActivity).supportFragmentManager.beginTransaction()
+                .replace(R.id.navHostFragment, AdminnoticeFragment()).commit()
         }
 
         binding.update.setOnClickListener {
             addData()
         }
-
+        return view
 
     }
-
 
     private fun addData() {
         val title = binding.puttitle.text.toString()
         val content = binding.putcontent.text.toString()
         Log.d(TAG, "addData: 테스트 $title $content")
         if ((title.isBlank() || content.isBlank())) {
-            Toast.makeText(this,"문자가 없어용~~~",Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "문자가 없어용~~~", Toast.LENGTH_SHORT).show()
             Log.d(TAG, "addData: $title")
         } else {
             var blog = RegistNotice(title, content)
             viewModel.add(blog)
             binding.puttitle.text.clear()
             binding.putcontent.text.clear()
-            finish()
-
+            (requireActivity() as MainActivity).supportFragmentManager.beginTransaction()
+                .replace(R.id.navHostFragment, AdminnoticeFragment()).commit()
         }
     }
 
@@ -88,22 +98,19 @@ class NoticeregistActivity : AppCompatActivity() {
 
 
     }
+
+
+    val interceptor = HttpLoggingInterceptor().apply {
+        this.level = HttpLoggingInterceptor.Level.BODY
+    }
+
+    val client = OkHttpClient.Builder().apply {
+        this.addInterceptor(interceptor)
+
+            //서버 연결 시도 시간 설정
+            .connectTimeout(60, TimeUnit.SECONDS)
+            .readTimeout(60, TimeUnit.SECONDS)
+            .writeTimeout(60, TimeUnit.SECONDS)
+    }.build()
 }
-
-
-val interceptor = HttpLoggingInterceptor().apply {
-    this.level = HttpLoggingInterceptor.Level.BODY
-}
-
-val client = OkHttpClient.Builder().apply {
-    this.addInterceptor(interceptor)
-
-        //서버 연결 시도 시간 설정
-        .connectTimeout(60, TimeUnit.SECONDS)
-        .readTimeout(60, TimeUnit.SECONDS)
-        .writeTimeout(60, TimeUnit.SECONDS)
-}.build()
-
-
-
 

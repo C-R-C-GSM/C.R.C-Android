@@ -11,6 +11,11 @@ class App : Application(){
     companion object {
         private lateinit var crcApplication: App
         fun getInstance() : App = crcApplication
+        var title : String=""
+        var date : String = ""
+        var content : String = ""
+
+
     }
 
 

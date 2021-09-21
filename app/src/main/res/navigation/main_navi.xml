@@ -61,4 +61,13 @@
             android:id="@+id/action_replyFragment_to_reviewFragment"
             app:destination="@id/reviewFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/viewmoreFragment"
+        tools:layout="@layout/fragment_viewmore"
+        android:name="com.example.crc_android.view.viewmore.ViewmoreFragment"
+        android:label="공지사항" />
+
+
+
 </navigation>
