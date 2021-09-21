@@ -22,7 +22,7 @@ class HomeFragment : UtilityBase.BaseFragment<FragmentHomeBinding>(R.layout.frag
     override fun FragmentHomeBinding.onCreateView() {
         observeToken()
         observeTotalFriend()
-
+        refreshAdapter()
 
     }
 
@@ -47,6 +47,12 @@ class HomeFragment : UtilityBase.BaseFragment<FragmentHomeBinding>(R.layout.frag
         loginViewModel.readToken.asLiveData().observe(viewLifecycleOwner) {
             viewModel.getTotalNumber(AES256.aesDecode(it.token).toString())
 
+        }
+    }
+
+    private fun refreshAdapter(){
+        binding.refreshImg.setOnClickListener{
+            observeToken()
         }
     }
 }
