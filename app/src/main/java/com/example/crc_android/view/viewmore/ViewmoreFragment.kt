@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.databinding.DataBindingUtil
 import com.example.crc_android.MainActivity
 import com.example.crc_android.R
@@ -23,14 +24,12 @@ class ViewmoreFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_viewmore, container, false)
-        binding = DataBindingUtil.setContentView(requireActivity(), R.layout.fragment_viewmore)
 
         (requireActivity() as MainActivity)
-        binding.noticeBtn.setOnClickListener {
+        view.findViewById<Button>(R.id.noticeBtn).setOnClickListener {
             (requireActivity() as MainActivity).supportFragmentManager.beginTransaction()
                 .replace(R.id.navHostFragment, AdminnoticeFragment()).commit()
         }
         return view
     }
-
 }
