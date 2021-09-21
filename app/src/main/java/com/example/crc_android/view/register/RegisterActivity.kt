@@ -38,9 +38,8 @@ class RegisterActivity : UtilityBase.BaseActivity<ActivitySignUpBinding>(R.layou
         })
 
         //회원가입 성공시
-        registerViewModel.registerResponse.observe(this, Observer {
-            if (it.isSuccessful){
-                if (it.body()?.message == "register sucess")
+        registerViewModel.errorMessage.observe(this, Observer {
+            if (it == "register sucess"){
                 finish()
             }
         })

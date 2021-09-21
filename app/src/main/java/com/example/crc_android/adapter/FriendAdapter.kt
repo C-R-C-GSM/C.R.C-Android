@@ -1,5 +1,6 @@
 package com.example.crc_android.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
@@ -94,15 +95,14 @@ class FriendAdapter(private val chooseEnter: ChooseEnter) :
         }
     }
 
-    fun setData(friendData: List<Data>?) {
+    fun setData(friendData: List<Data>) {
 
-        if (friendData?.isNotEmpty() == true) {
+        Log.d("FriendAdapter", "setData: $friendData")
             val movieDiffUtil = MovieDiffUtil(friendList, friendData)
             val diffUtilResult = movieDiffUtil.let { DiffUtil.calculateDiff(it) }
             friendList = friendData as MutableList<Data>
             diffUtilResult.dispatchUpdatesTo(this)
             notifyDataSetChanged()
-        }
     }
 
 

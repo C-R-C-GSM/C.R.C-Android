@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
 
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -15,35 +15,53 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
-            android:layout_marginEnd="54dp"
-            android:layout_marginRight="54dp"
-            android:src="@drawable/refresh"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="9dp"
-            android:gravity="center_horizontal"
+            android:layout_marginTop="52dp"
             android:text="종합 현황"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/next_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginRight="28dp"
+            android:src="@drawable/refresh"
+            app:layout_constraintBottom_toBottomOf="@+id/textView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView" />
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:layout_marginLeft="29dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginRight="29dp"
+            android:background="#999999"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
 
         <View
             android:id="@+id/view"
             android:layout_width="295dp"
             android:layout_height="29dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="17dp"
             android:background="@drawable/util_radius"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:layout_constraintTop_toBottomOf="@id/view2" />
 
         <LinearLayout
             android:id="@+id/linearLayout"
@@ -75,8 +93,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="130dp"
                 android:layout_marginLeft="130dp"
-                android:text="230"
-              />
+                android:text="230" />
 
 
         </LinearLayout>
@@ -108,11 +125,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                tools:text="0"
                 android:layout_marginStart="149dp"
                 android:layout_marginLeft="149dp"
                 android:gravity="right"
-                android:textColor="@color/main_color" />
+                android:textColor="@color/main_color"
+                tools:text="0" />
 
 
         </LinearLayout>

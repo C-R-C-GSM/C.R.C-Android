@@ -8,56 +8,73 @@
         <variable
             name="fragment"
             type="com.example.crc_android.view.friend.FriendFragment" />
+
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
-            android:layout_marginEnd="54dp"
-            android:layout_marginRight="54dp"
-            android:src="@drawable/refresh"
 
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="9dp"
-            android:gravity="center_horizontal"
+            android:layout_marginTop="52dp"
             android:text="학생 현황"
-            android:textColor="@color/text_color"
-            android:textSize="16sp"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
+        <ImageView
+            android:id="@+id/next_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginRight="28dp"
+            android:src="@drawable/refresh"
+            app:layout_constraintBottom_toBottomOf="@+id/textView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView" />
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="match_parent"
+                android:layout_height="0.1dp"
+                android:layout_marginLeft="29dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginRight="29dp"
+                android:background="#999999"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
 
         <LinearLayout
             android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
-            android:layout_marginTop="19dp"
             android:layout_marginRight="16dp"
             android:orientation="horizontal"
             android:weightSum="3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView">
+            app:layout_constraintTop_toBottomOf="@+id/view">
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/one_btn"
-                android:onClick="@{(view)->fragment.buttonSelect(view)}"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="@color/white"
+                android:onClick="@{(view)->fragment.buttonSelect(view)}"
                 android:text="1학년"
                 android:textColor="@color/button_select_text_color" />
 
@@ -75,9 +92,9 @@
                 android:id="@+id/three_btn"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:onClick="@{(view)->fragment.buttonSelect(view)}"
                 android:layout_weight="1"
                 android:backgroundTint="@color/white"
+                android:onClick="@{(view)->fragment.buttonSelect(view)}"
                 android:text="3학년"
                 android:textColor="@color/button_text_color" />
 
@@ -104,6 +121,7 @@
                 app:drawableLeftCompat="@drawable/user" />
 
             <TextView
+                android:id="@+id/total_number_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="40dp"
@@ -118,6 +136,7 @@
                 app:drawableLeftCompat="@drawable/no_entry_sign" />
 
             <TextView
+                android:id="@+id/total_noEnter_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="40dp"
@@ -130,8 +149,9 @@
             android:id="@+id/friend_enter_recyclerview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="39dp"
             android:layout_marginStart="18dp"
+            android:layout_marginTop="39dp"
+            android:paddingBottom="250dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout"
             tools:listitem="@layout/friend_list_enter" />
@@ -140,8 +160,9 @@
             android:id="@+id/friend_no_enter_ecyclerview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="@+id/linearLayout"
             android:layout_marginEnd="40dp"
+            android:paddingBottom="250dp"
+            app:layout_constraintEnd_toEndOf="@+id/linearLayout"
             app:layout_constraintTop_toTopOf="@+id/friend_enter_recyclerview"
             tools:listitem="@layout/friend_list_no_entry_enter" />
 

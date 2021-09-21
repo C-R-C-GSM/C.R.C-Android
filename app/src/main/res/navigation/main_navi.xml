@@ -23,7 +23,7 @@
         android:id="@+id/friendFragment"
         tools:layout="@layout/fragment_friend"
         android:name="com.example.crc_android.view.friend.FriendFragment"
-        android:label="" >
+        android:label="dsa" >
         <action
             android:id="@+id/action_friendFragment_to_reviewFragment"
             app:destination="@id/reviewFragment" />
@@ -32,7 +32,7 @@
         android:id="@+id/reviewFragment"
         tools:layout="@layout/fragment_review"
         android:name="com.example.crc_android.view.review.ReviewFragment"
-        android:label="" >
+        android:label="ads" >
         <action
             android:id="@+id/action_reviewFragment_to_reviewRegisterFragment2"
             app:destination="@id/reviewRegisterFragment" />
@@ -44,7 +44,7 @@
         android:id="@+id/reviewRegisterFragment"
         tools:layout="@layout/fragment_review_register"
         android:name="com.example.crc_android.view.review.ReviewRegisterFragment"
-        android:label="" >
+        android:label="dsa" >
         <action
             android:id="@+id/action_reviewRegisterFragment_to_reviewFragment"
             app:destination="@id/reviewFragment" />
@@ -53,7 +53,7 @@
         android:id="@+id/replyFragment"
         tools:layout="@layout/fragment_reply"
         android:name="com.example.crc_android.view.review.ReplyFragment"
-        android:label="ReplyFragment" >
+        android:label="급식리뷰" >
         <argument
             android:name="reviewId"
             app:argType="string" />

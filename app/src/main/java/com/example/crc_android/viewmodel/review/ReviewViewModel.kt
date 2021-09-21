@@ -1,4 +1,3 @@
-
 package com.example.crc_android.viewmodel.review
 
 import android.util.Log
@@ -22,6 +21,9 @@ class ReviewViewModel @Inject constructor(
     private var _reviewItem = MutableLiveData<List<ReviewData>>()
     val reviewItem: LiveData<List<ReviewData>> get() = _reviewItem
 
+    private val _successValue = MutableLiveData<Boolean>()
+    val successValue: LiveData<Boolean> get() = _successValue
+
     fun getReviewCheck(token: String) = viewModelScope.launch {
         try {
             reviewRepository.getReviewCheck(token).let { response ->
@@ -32,23 +34,31 @@ class ReviewViewModel @Inject constructor(
                 }
             }
 
-        }catch (e:Exception){
+        } catch (e: Exception) {
             Log.d("TAG", "getReviewCheck: $e")
         }
     }
-    fun reviewRegister(token:String,reviewPostRequest: ReviewPostRequest)=viewModelScope.launch {
-        reviewRepository.postReviewRegister(token,reviewPostRequest).let{
-            if (it.isSuccessful){
-                Log.d("TAG", "reviewRegister: 성공")
+
+    fun reviewRegister(token: String, reviewPostRequest: ReviewPostRequest) =
+        viewModelScope.launch {
+            reviewRepository.postReviewRegister(token, reviewPostRequest).let {
+                if (it.isSuccessful) {
+                    _successValue.value = true
+
+                }
             }
         }
-    }
 
-    fun reviewReply(token:String,reviewReplyRequest: ReviewReplyRequest)=viewModelScope.launch {
-        reviewRepository.postReviewReply(token,reviewReplyRequest).let{
-            Log.d("TAG", "reviewReply: 성공")
+    fun reviewReply(token: String, reviewReplyRequest: ReviewReplyRequest) =
+        viewModelScope.launch {
+            reviewRepository.postReviewReply(token, reviewReplyRequest).let {
+
+                if (it.isSuccessful) {
+
+                    Log.d("TAG", "reviewReply: 성공 ")
+                }
+            }
 
 
         }
-    }
 }

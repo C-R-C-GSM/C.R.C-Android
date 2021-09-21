@@ -1,5 +1,6 @@
 package com.example.crc_android.viewmodel.friend
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -16,21 +17,27 @@ import javax.inject.Inject
 class FriendViewModel @Inject constructor(
     private val friendRepository: FriendRepository
 ) : ViewModel() {
-
+    val TAG = "FriendViewModel"
 
     private val _friendEnterItem = MutableLiveData<List<Data>>()
     val friendEnterItem: LiveData<List<Data>> get() = _friendEnterItem
 
+    private val _friendNoEnterItem = MutableLiveData<List<Data>>()
+    val friendNoEnterItem: LiveData<List<Data>> get() = _friendNoEnterItem
 
-    suspend fun getFriendOne(token: String, student_check: Int) = viewModelScope.launch {
+
+    suspend fun getFriendOne(token: String) = viewModelScope.launch {
 
         try {
             friendRepository.getFriendOne(token).let { response ->
                 if (response.isSuccessful) {
+                    Log.d(TAG, "getFriendOne: ")
+                    response.body()?.data?.filter { it.student_check == 1 }.apply {
+                        _friendEnterItem.value = this
+                    }
 
-                    when (student_check) {
-                        1 -> _friendEnterItem.value = response.body()?.data
-                        0 -> _friendEnterItem.value = response.body()?.data
+                    response.body()?.data?.filter { it.student_check == 0 }.apply {
+                        _friendNoEnterItem.value = this
                     }
 
 
@@ -46,14 +53,18 @@ class FriendViewModel @Inject constructor(
     }
 
 
-    suspend fun getFriendTwo(token: String, student_check: Int) = viewModelScope.launch {
+    suspend fun getFriendTwo(token: String) = viewModelScope.launch {
         try {
+
             friendRepository.getFriendTwo(token).let { response ->
                 if (response.isSuccessful) {
+                    Log.d(TAG, "FriendViewModel - getFriendTwo() called")
+                    response.body()?.data?.filter { it.student_check == 1 }.apply {
+                        _friendEnterItem.value = this
+                    }
 
-                    when (student_check) {
-                        1 -> _friendEnterItem.value = response.body()?.data
-                        0 -> _friendEnterItem.value = response.body()?.data
+                    response.body()?.data?.filter { it.student_check == 0 }.apply {
+                        _friendNoEnterItem.value = this
                     }
 
 
@@ -66,14 +77,17 @@ class FriendViewModel @Inject constructor(
 
     }
 
-    suspend fun getFriendThree(token: String, student_check: Int) = viewModelScope.launch {
+    suspend fun getFriendThree(token: String) = viewModelScope.launch {
         try {
             friendRepository.getFriendThree(token).let { response ->
                 if (response.isSuccessful) {
+Log.d(TAG,"FriendViewModel - getFriendThree() called")
+                    response.body()?.data?.filter { it.student_check == 1 }.apply {
+                        _friendEnterItem.value = this
+                    }
 
-                    when (student_check) {
-                        1 -> _friendEnterItem.value = response.body()?.data
-                        0 -> _friendEnterItem.value = response.body()?.data
+                    response.body()?.data?.filter { it.student_check == 0 }.apply {
+                        _friendNoEnterItem.value = this
                     }
                 }
             }
