@@ -6,7 +6,7 @@
     <data>
         <variable
             name="activity"
-            type="com.example.crc_android.view.viewmore.NoticeregistActivity" />
+            type="com.example.crc_android.view.viewmore.NoticeregistFragment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

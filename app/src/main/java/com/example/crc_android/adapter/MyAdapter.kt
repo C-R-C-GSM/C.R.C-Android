@@ -1,5 +1,6 @@
 package com.example.crc_android.adapter
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
@@ -8,10 +9,16 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.crc_android.MainActivity
 import com.example.crc_android.R
-import com.example.crc_android.view.viewmore.AdminnoticeActivity
+import com.example.crc_android.data.RegistNotice
+import com.example.crc_android.view.viewmore.AdminnoticeFragment
+import com.example.crc_android.view.viewmore.ViewmoreFragment
+import java.text.SimpleDateFormat
 
-class MyAdapter(val context: Context):
+class MyAdapter(val context: Activity,
+                val arrayList :ArrayList<RegistNotice>):
+
     RecyclerView.Adapter<MyAdapter.MyViewHolder>(){
     class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         public var itemtitle : TextView = itemView.findViewById(R.id.sampletext1)
@@ -31,14 +38,14 @@ class MyAdapter(val context: Context):
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
 
-        holder.itemtitle.setText("제목입니다")
-        holder.itemdate.setText("날짜입니다")
-
+        holder.itemtitle.setText(arrayList[position].title)
+        holder.itemdate.setText(SimpleDateFormat("yyyy-MM-dd").format(arrayList[position].time))
 
         holder.arrow1.setOnClickListener {
-            val arrow1Intent = Intent(context, AdminnoticeActivity::class.java)
-            context.startActivity(arrow1Intent)
+            (context as MainActivity).supportFragmentManager.beginTransaction().replace(R.id.navHostFragment, ViewmoreFragment()).commit()
         }
+
+
 
 
     }
@@ -46,6 +53,7 @@ class MyAdapter(val context: Context):
 
 
     override fun getItemCount(): Int {
-        return 7
+        return arrayList.size
     }
+
 }

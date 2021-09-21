@@ -6,7 +6,7 @@
     <data>
         <variable
             name="admin"
-            type="com.example.crc_android.view.viewmore.AdminnoticeActivity" />
+            type="com.example.crc_android.view.viewmore.AdminnoticeFragment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

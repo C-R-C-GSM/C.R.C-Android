@@ -10,17 +10,15 @@
         <entry key="..\:/Users/USER/AndroidStudioProjects/C.R.C-Androidnew/app/src/main/res/layout/activity_notice.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/C.R.C-Androidnew/app/src/main/res/layout/activity_noticecontent.xml" value="0.22" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/C.R.C-Androidnew/app/src/main/res/layout/activity_noticeregist.xml" value="0.13333333333333333" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/C.R.C-Androidnew/app/src/main/res/layout/activity_sign_up.xml" value="0.10666666666666667" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/C.R.C-Androidnew/app/src/main/res/layout/activity_viewmore.xml" value="0.16666666666666666" />
-
-        <entry key="..\:/Users/USER/AndroidStudioProjects/C.R.C-Androidnew/app/src/main/res/layout/card_notice.xml" value="0.1" />
-        <entry key="..\:/Users/apple/AndroidStudioProjects/C.R.C-Android/app/src/main/res/drawable/ic_c_r_c_.xml" value="0.215625" />
-        <entry key="..\:/Users/apple/AndroidStudioProjects/C.R.C-Android/app/src/main/res/drawable/ic_logo.xml" value="0.215625" />
-        <entry key="..\:/Users/apple/AndroidStudioProjects/C.R.C-Android/app/src/main/res/drawable/ic_signup_c_r_c.xml" value="0.1" />
-        <entry key="..\:/Users/apple/AndroidStudioProjects/C.R.C-Android/app/src/main/res/drawable/signup_next_btn.xml" value="0.215625" />
-        <entry key="..\:/Users/apple/AndroidStudioProjects/C.R.C-Android/app/src/main/res/layout/activity_login.xml" value="0.264" />
-        <entry key="..\:/Users/apple/AndroidStudioProjects/C.R.C-Android/app/src/main/res/layout/activity_sign_up.xml" value="0.11594202898550725" />
-        <entry key="..\:/Users/apple/AndroidStudioProjects/C.R.C-Android/app/src/main/res/layout/activity_splash.xml" value="0.2" />
-        <entry key="..\:/Users/apple/AndroidStudioProjects/C.R.C-Android/app/src/main/res/layout/fragment_sign_up_class.xml" value="0.264" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/C.R.C-Androidnew/app/src/main/res/layout/card_notice.xml" value="0.2926829268292683" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/C.R.C-Androidnew/app/src/main/res/layout/fragment_adminnotice.xml" value="0.1" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/C.R.C-Androidnew/app/src/main/res/layout/fragment_notice.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/C.R.C-Androidnew/app/src/main/res/layout/fragment_noticecontent.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/C.R.C-Androidnew/app/src/main/res/layout/fragment_noticeregist.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/C.R.C-Androidnew/app/src/main/res/layout/fragment_viewmore.xml" value="0.1484375" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/C.R.C-Androidnew/app/src/main/res/menu/main_item.xml" value="0.14666666666666667" />
         <entry key="..\:/Users/apple/StudioProjects/C.R.C-Android/app/src/main/res/layout/activity_suggestioncomment.xml" value="0.32155797101449274" />
         <entry key="..\:/Users/apple/StudioProjects/C.R.C-Android/app/src/main/res/layout/fragment_sign_up_class.xml" value="0.33" />
       </map>

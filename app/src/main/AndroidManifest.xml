@@ -19,7 +19,7 @@
         <activity android:name=".view.viewmore.NoticeActivity"/>
         <activity android:name=".view.viewmore.NoticeregistActivity"/>
         <activity android:name=".view.viewmore.AdminnoticeActivity"/>
-        <activity android:name=".view.viewmore.ViewmoreActivity">
+        <activity android:name=".view.viewmore.ViewmoreActivity"/>
         <activity
             android:name=".view.login.LoginActivity"
             android:exported="true" >
