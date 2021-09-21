@@ -15,11 +15,7 @@
         android:theme="@style/Theme.CRC_Android"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".view.viewmore.NoticecontentActivity"/>
-        <activity android:name=".view.viewmore.NoticeActivity"/>
-        <activity android:name=".view.viewmore.NoticeregistActivity"/>
-        <activity android:name=".view.viewmore.AdminnoticeActivity"/>
-        <activity android:name=".view.viewmore.ViewmoreActivity"/>
+
         <activity android:name=".view.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
