@@ -10,11 +10,11 @@
             type="com.example.crc_android.data.network.model.check.ReviewData" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="29dp"
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="28dp">
 
@@ -37,7 +37,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
             android:text="@{item.review_time}"
-
+            android:textSize="15dp"
+            app:layout_constraintLeft_toLeftOf="@id/textView2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView2"
             tool:text="2021-09-02" />
@@ -61,6 +62,8 @@
             reviewRating="@{item.review_star}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:rating="5"
+            android:progressTint="#ffc001"
             android:layout_marginTop="4dp"
             android:isIndicator="true"
 
@@ -70,23 +73,22 @@
 
         <TextView
             android:id="@+id/textView4"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="@{item.content}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/textView2"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ratingBar"
-            tool:text="도넛이 너무 작아서 제 큰 입이 만족하지 못했습니다. 다 른 친구는 소세지 두 개 주고 저는 하나 주셨는데 속상했 습니다. 아이스슈 너무 맛있어요. 급식에 자주 나오면 좋 겠습니다ㅎㅎ" />
+            tool:text="안녕하십니까" />
 
         <View
             android:id="@+id/view"
             android:layout_width="match_parent"
             android:layout_height="0.1dp"
             android:layout_marginTop="24dp"
-            android:background="#999999"
+            android:background="@color/line_color"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/textView4"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textView4" />
 
         <TextView
@@ -98,5 +100,16 @@
             android:textColor="@color/main_color"
             app:layout_constraintStart_toStartOf="@+id/textView4"
             app:layout_constraintTop_toBottomOf="@+id/view" />
+
+        <TextView
+            android:id="@+id/reply_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{item.reply}"
+            android:layout_marginTop="10dp"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/review_contact"
+            tool:text="아 쓰니마셍" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

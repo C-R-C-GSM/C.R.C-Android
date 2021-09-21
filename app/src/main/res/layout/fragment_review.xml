@@ -15,6 +15,7 @@
         <!--    피그마의 디자인과 비율이 맞지않아 틀만 잡음-->
 
 
+
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
@@ -46,7 +47,7 @@
             android:layout_marginLeft="29dp"
             android:layout_marginTop="14dp"
             android:layout_marginRight="29dp"
-            android:background="#999999"
+            android:background="@color/line_color"
 
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -57,6 +58,7 @@
             android:id="@+id/review_check_recycler"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingBottom="120dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view"

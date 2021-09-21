@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="fragment"
+            type="com.example.crc_android.view.friend.FriendFragment" />
+
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="52dp"
+            android:text="학생 현황"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/refresh_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginRight="28dp"
+            android:src="@drawable/refresh"
+            app:layout_constraintBottom_toBottomOf="@+id/textView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView" />
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="match_parent"
+                android:layout_height="0.1dp"
+                android:layout_marginLeft="29dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginRight="29dp"
+                android:background="#ffffff"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:orientation="horizontal"
+            android:weightSum="3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/one_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="@color/white"
+                android:onClick="@{(view)->fragment.buttonSelect(view)}"
+                android:text="1학년"
+                android:textColor="@color/button_select_text_color" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/two_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="@color/white"
+                android:onClick="@{(view)->fragment.buttonSelect(view)}"
+                android:text="2학년"
+                android:textColor="@color/button_text_color" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/three_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="@color/white"
+                android:onClick="@{(view)->fragment.buttonSelect(view)}"
+                android:text="3학년"
+                android:textColor="@color/button_text_color" />
+
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+android:layout_marginTop="38dp"
+            android:drawablePadding="6dp"
+            android:textColor="@color/black"
+            android:layout_marginStart="30dp"
+            android:text="입장"
+            app:drawableLeftCompat="@drawable/user"
+            app:layout_constraintStart_toStartOf="@+id/linearLayout2"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+        <TextView
+            android:id="@+id/total_number_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/number"
+            app:layout_constraintEnd_toStartOf="@+id/textView5"
+            android:textColor="@color/main_color"
+            app:layout_constraintStart_toEndOf="@+id/textView2"
+            app:layout_constraintTop_toTopOf="@+id/textView2" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="6dp"
+            android:text="미입장"
+            android:textColor="@color/black"
+            android:layout_marginEnd="43dp"
+            app:drawableLeftCompat="@drawable/no_entry_sign"
+            app:layout_constraintEnd_toStartOf="@+id/total_noEnter_text"
+            app:layout_constraintTop_toTopOf="@+id/total_number_text" />
+
+        <TextView
+            android:id="@+id/total_noEnter_text"
+            android:layout_width="wrap_content"
+            android:layout_marginEnd="28dp"
+            android:textColor="@color/black"
+
+            android:layout_height="wrap_content"
+            android:text="@string/number"
+            app:layout_constraintEnd_toEndOf="@+id/linearLayout2"
+            app:layout_constraintTop_toTopOf="@+id/textView5" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/friend_enter_recyclerview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="250dp"
+            android:layout_marginTop="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2"
+            tools:listitem="@layout/friend_list_enter" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/friend_no_enter_ecyclerview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="250dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/friend_enter_recyclerview"
+            tools:listitem="@layout/friend_list_no_entry_enter" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

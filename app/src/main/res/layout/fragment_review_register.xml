@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools">
 
     <data>
 
@@ -16,7 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="29dp"
-            android:drawableLeft="@drawable/left_arrow"
+            android:drawableLeft="@drawable/leftarrow"
             android:paddingLeft="4dp"
             android:text="급식리뷰"
             app:layout_constraintBottom_toBottomOf="@+id/toolbar_title"
@@ -66,8 +67,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="29dp"
-            android:layout_marginRight="29dp"
             android:layout_marginTop="84dp"
+            android:layout_marginRight="29dp"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -76,11 +77,11 @@
             <EditText
                 android:id="@+id/nickname_edit"
                 android:layout_width="match_parent"
-                android:textSize="11sp"
-                android:paddingStart="15dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/register_border"
                 android:hint="닉네임을 입력하세요"
+                android:paddingStart="15dp"
+                android:textSize="11sp"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
@@ -89,50 +90,57 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="7dp"
                 android:background="@drawable/register_contents_border"
+                android:hint="내용을 입력하세요"
                 android:paddingStart="15dp"
-                android:textSize="11sp"
                 android:paddingBottom="70dp"
-               android:hint="내용을 입력하세요"
+                android:textSize="11sp"
                 app:layout_constraintEnd_toEndOf="@+id/nickname_edit"
                 app:layout_constraintStart_toStartOf="@+id/nickname_edit"
                 app:layout_constraintTop_toBottomOf="@+id/nickname_edit" />
 
-            <LinearLayout
-                android:id="@+id/linearLayout"
-                android:layout_width="match_parent"
-                android:layout_marginTop="7dp"
+
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/register_border"
-                android:orientation="horizontal"
-                app:layout_constraintTop_toBottomOf="@+id/content_edit">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_height="wrap_content"
-                    android:text="평점" />
+                android:layout_gravity="center"
+                android:text="평점" />
 
 
-                <androidx.appcompat.widget.AppCompatRatingBar
-                    style="@style/Widget.AppCompat.RatingBar.Small"
-                    android:layout_gravity="center_vertical"
-                    android:layout_width="wrap_content"
-                    android:id="@+id/review_start_rating"
-                    android:layout_marginStart="4dp"
-                    android:isIndicator="false"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
+            <RatingBar
+                android:id="@+id/reviewStartRating"
+                style="@style/Base.Widget.AppCompat.RatingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:progressTint="#ffc001"
+                android:isIndicator="false"
+                android:numStars="5" />
 
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="7dp"
-                android:paddingStart="15dp"
-                android:background="@drawable/register_border"
+                android:layout_gravity="center"
                 android:text="시간"
                 app:layout_constraintStart_toStartOf="parent" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/day_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tool:text="2021.8.14."/>
+                <TextView
+                    android:id="@+id/day_pm_fm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tool:text="아침"/>
+            </LinearLayout>
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

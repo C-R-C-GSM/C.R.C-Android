@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.example.crc_android.data.network.model.Data" />
+
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_gravity="left"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/enter_data_text"
+            studentsData="@{data.student_data}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="3101" />
+
+        <TextView
+            android:id="@+id/enter_name_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            app:layout_constraintStart_toEndOf="@+id/enter_data_text"
+            app:layout_constraintTop_toTopOf="parent"
+            app:studentsName="@{data.student_name}"
+            tools:text="정다인" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
