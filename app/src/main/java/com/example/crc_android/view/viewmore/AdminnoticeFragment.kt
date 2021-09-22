@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.crc_android.MainActivity
 import com.example.crc_android.R
 import com.example.crc_android.adapter.RegisterMyAdapter
+import com.example.crc_android.data.Data
 import com.example.crc_android.data.network.api.AdminNoticeApi
 import com.example.crc_android.data.NoticeToken
 import com.example.crc_android.data.RetrofitHelper
@@ -33,29 +34,27 @@ class AdminnoticeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-        val view = inflater.inflate(R.layout.fragment_adminnotice, container, false)
-        binding = DataBindingUtil.setContentView(requireActivity(), R.layout.fragment_adminnotice)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_adminnotice, container, false)
         binding.admin = this
         viewModel = ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
-        binding.recyclerviewAdminmain.adapter?.notifyDataSetChanged()
+        adapter = RegisterMyAdapter(viewModel, Data.dataList, requireActivity())
+        binding.recyclerviewAdminmain.adapter = adapter
         setRetrofit()
         initialiseAdapter()
 
         (requireActivity() as MainActivity)
         binding.pluscontentBtn.setOnClickListener {
+            (requireActivity() as MainActivity).supportFragmentManager.beginTransaction().addToBackStack(null)
             (requireActivity() as MainActivity).supportFragmentManager.beginTransaction().replace(R.id.navHostFragment, NoticeregistFragment()).commit()
         }
 
 
         binding.backfragment.setOnClickListener {
+            (requireActivity() as MainActivity).supportFragmentManager.beginTransaction().addToBackStack(null)
             (requireActivity() as MainActivity).supportFragmentManager.beginTransaction().replace(R.id.navHostFragment, ViewmoreFragment()).commit()
         }
 
-
-
-
-        return view
+        return binding.root
     }
 
 
@@ -63,19 +62,15 @@ class AdminnoticeFragment : Fragment() {
         binding.recyclerviewAdminmain.layoutManager = LinearLayoutManager(requireActivity())
         observeData()
         viewModel.get()
-        binding.recyclerviewAdminmain.adapter?.notifyDataSetChanged()
-    }
-
-    override fun onResume() {
-        super.onResume()
-        viewModel.get()
+        adapter.notifyDataSetChanged()
     }
 
     fun observeData() {
         viewModel.lst.observe(requireActivity(), Observer {
             Log.i("data", it.toString())
-            binding.recyclerviewAdminmain.adapter =
-                RegisterMyAdapter(viewModel, it, requireActivity())
+            Data.dataList = it
+            adapter.notifyDataSetChanged()
+
         })
     }
 
@@ -101,5 +96,3 @@ class AdminnoticeFragment : Fragment() {
 
     }
 }
-
-

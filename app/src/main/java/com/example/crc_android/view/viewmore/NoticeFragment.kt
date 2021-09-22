@@ -40,7 +40,8 @@ class NoticeFragment : Fragment() {
         viewAdapter = MyAdapter(requireActivity(), Data.dataList)
 
 
-        view.findViewById<Button>(R.id.backarrow).setOnClickListener {
+        view.findViewById<ImageView>(R.id.backarrow).setOnClickListener {
+            (requireActivity() as MainActivity).supportFragmentManager.beginTransaction().addToBackStack(null)
             (requireActivity() as MainActivity).supportFragmentManager.beginTransaction().replace(R.id.navHostFragment, ViewmoreFragment()).commit()
         }
 

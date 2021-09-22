@@ -27,8 +27,7 @@ class NoticecontentFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_noticecontent, container, false)
-        binding = DataBindingUtil.setContentView(requireActivity(), R.layout.fragment_noticecontent)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_noticecontent, container, false)
         binding.gettitle.setText(App.title)
         binding.getdate.setText(App.date)
         binding.getcontent.setText(App.content)
@@ -36,17 +35,19 @@ class NoticecontentFragment : Fragment() {
 
         (requireActivity() as MainActivity)
         binding.returnbtn.setOnClickListener {
+            (requireActivity() as MainActivity).supportFragmentManager.beginTransaction().addToBackStack(null)
             (requireActivity() as MainActivity).supportFragmentManager.beginTransaction()
-                .replace(R.id.navHostFragment, NoticeFragment()).commit()
+                .replace(R.id.navHostFragment, AdminnoticeFragment()).commit()
 
         }
 
         binding.finishbtn.setOnClickListener {
+            (requireActivity() as MainActivity).supportFragmentManager.beginTransaction().addToBackStack(null)
             (requireActivity() as MainActivity).supportFragmentManager.beginTransaction()
-                .replace(R.id.navHostFragment, NoticeFragment()).commit()
+                .replace(R.id.navHostFragment, AdminnoticeFragment()).commit()
         }
 
-        return view
+        return binding.root
     }
 
 

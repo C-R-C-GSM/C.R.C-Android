@@ -24,13 +24,13 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import retrofit2.http.POST
 import java.util.concurrent.TimeUnit
 
 
 class NoticeregistFragment : Fragment() {
 
     lateinit var binding: FragmentNoticeregistBinding
-    private var viewManager = LinearLayoutManager(requireActivity())
     private lateinit var viewModel: MainViewModel
     private val TAG = "NoticeregistActivity"
 
@@ -38,8 +38,7 @@ class NoticeregistFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_noticeregist, container, false)
-        binding = DataBindingUtil.setContentView(requireActivity(), R.layout.fragment_noticeregist)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_noticeregist, container, false)
         binding.activity = this
         viewModel = ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
 
@@ -48,6 +47,7 @@ class NoticeregistFragment : Fragment() {
 
         (requireActivity() as MainActivity)
         binding.returnnotice.setOnClickListener {
+            (requireActivity() as MainActivity).supportFragmentManager.beginTransaction().addToBackStack(null)
             (requireActivity() as MainActivity).supportFragmentManager.beginTransaction()
                 .replace(R.id.navHostFragment, AdminnoticeFragment()).commit()
         }
@@ -55,7 +55,7 @@ class NoticeregistFragment : Fragment() {
         binding.update.setOnClickListener {
             addData()
         }
-        return view
+        return binding.root
 
     }
 
@@ -71,6 +71,7 @@ class NoticeregistFragment : Fragment() {
             viewModel.add(blog)
             binding.puttitle.text.clear()
             binding.putcontent.text.clear()
+            (requireActivity() as MainActivity).supportFragmentManager.beginTransaction().addToBackStack(null)
             (requireActivity() as MainActivity).supportFragmentManager.beginTransaction()
                 .replace(R.id.navHostFragment, AdminnoticeFragment()).commit()
         }
@@ -81,6 +82,24 @@ class NoticeregistFragment : Fragment() {
         val retrofit = RetrofitHelper.getInstance()
 
         val service = retrofit.create(NOTICE::class.java)
+
+        val post : Call<RegistNotice> =
+        service.postnoticetoken("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXkiOjI3LCJyb2xlIjoxLCJpYXQiOjE2MzIyOTcwMjcsImV4cCI6MTYzMjMwMDYyNywiaXNzIjoiQy5SLkNfU0VSVkVSIn0.GzY30og-8rKAifp-NZnl6_aVe6lX0p9mxdpikl8ZVPQ",RegistNotice(title="String",content = "String"))
+        post.enqueue(object :Callback<RegistNotice>{
+            override fun onFailure(call: Call<RegistNotice>, t: Throwable) {
+                println("실패")
+                Log.d("Test", t.toString())
+            }
+
+            override fun onResponse(call: Call<RegistNotice>, response: Response<RegistNotice>) {
+                if (response.body() != null) {
+                    println("성공")
+                }
+            }
+        })
+
+
+
         val call: Call<NoticeToken> =
             service.getnoticetoken("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXkiOjM3LCJyb2xlIjowLCJpYXQiOjE2MjkzNTI0NzUsImV4cCI6MTYyOTM1NjA3NSwiaXNzIjoiQy5SLkNfU0VSVkVSIn0.w78k_zbpqx14VwruONvOvbh3cmM_qZy35dZvu1cNXlI")
         call.enqueue(object : Callback<NoticeToken> {

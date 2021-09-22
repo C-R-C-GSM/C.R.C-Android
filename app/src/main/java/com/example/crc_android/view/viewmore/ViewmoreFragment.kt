@@ -11,6 +11,7 @@ class ViewmoreFragment : UtilityBase.BaseFragment<FragmentViewmoreBinding>(R.lay
 
     override fun FragmentViewmoreBinding.onCreateView() {
         binding.noticeBtn.setOnClickListener {
+            (requireActivity() as MainActivity).supportFragmentManager.beginTransaction().addToBackStack(null)
             (requireActivity() as MainActivity).supportFragmentManager.beginTransaction()
                 .replace(R.id.navHostFragment, AdminnoticeFragment()).commit()
         }
