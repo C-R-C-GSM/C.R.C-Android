@@ -5,6 +5,7 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.asLiveData
+import androidx.navigation.fragment.findNavController
 import com.example.crc_android.MainActivity
 import com.example.crc_android.R
 import com.example.crc_android.base.UtilityBase
@@ -23,7 +24,7 @@ class HomeFragment : UtilityBase.BaseFragment<FragmentHomeBinding>(R.layout.frag
         observeToken()
         observeTotalFriend()
         refreshAdapter()
-
+        onClickView()
     }
 
     override fun FragmentHomeBinding.onViewCreated() {
@@ -53,6 +54,12 @@ class HomeFragment : UtilityBase.BaseFragment<FragmentHomeBinding>(R.layout.frag
     private fun refreshAdapter(){
         binding.refreshImg.setOnClickListener{
             observeToken()
+        }
+    }
+
+    private fun onClickView(){
+        binding.view.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_adminnoticeFragment)
         }
     }
 }

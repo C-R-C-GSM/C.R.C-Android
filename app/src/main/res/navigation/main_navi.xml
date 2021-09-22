@@ -14,6 +14,9 @@
         <action
             android:id="@+id/action_homeFragment_to_friendFragment"
             app:destination="@id/friendFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_adminnoticeFragment"
+            app:destination="@id/adminnoticeFragment" />
     </fragment>
 
 
@@ -70,7 +73,11 @@
         tools:layout="@layout/fragment_viewmore"
         android:name="com.example.crc_android.view.viewmore.ViewmoreFragment"
         android:label="공지사항" />
-
+    <fragment
+        android:id="@+id/adminnoticeFragment"
+        tools:layout="@layout/fragment_adminnotice"
+        android:name="com.example.crc_android.view.viewmore.AdminnoticeFragment"
+        android:label="AdminnoticeFragment" />
 
 
 </navigation>
