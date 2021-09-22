@@ -199,9 +199,14 @@ class FriendFragment : UtilityBase.BaseFragment<FragmentFriendBinding>(R.layout.
     // 입장,미입장 어뎁터가 변동사항이있으면 refresh 한다.
     private fun adapterRefresh(data: List<Data>, adapter: FriendAdapter) {
         when (adapter) {
-            friendEnterAdapter -> friendEnterAdapter.setData(data)
+            friendEnterAdapter -> {
+                refreshAdapter(data,adapter)
+                friendEnterAdapter.setData(data)
+            }
 
-            friendNoEnterAdapter -> friendNoEnterAdapter.setData(data)
+            friendNoEnterAdapter -> {
+                friendNoEnterAdapter.setData(data)
+            }
         }
 
     }
@@ -244,6 +249,12 @@ class FriendFragment : UtilityBase.BaseFragment<FragmentFriendBinding>(R.layout.
                     this.setHasFixedSize(false)
                 }
             }
+        }
+    }
+
+    private fun refreshAdapter(data: List<Data>, adapter: FriendAdapter) {
+        binding.refreshImg.setOnClickListener{
+            adapterRefresh(data,adapter)
         }
     }
 
