@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.example.crc_android.viewmodel.viewmore.MainViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".RegistractionActivity">
+
+
+        <Button
+            android:id="@+id/finish"
+            android:layout_width="50dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="52dp"
+            android:background="#00ff0000"
+            android:fontFamily="@font/nanumsquare_acb"
+            android:padding="0dp"
+            android:text="완료"
+            android:textColor="@color/main_color"
+            android:textSize="18dp"
+            app:layout_constraintHorizontal_bias="0.854"
+            app:layout_constraintLeft_toLeftOf="@+id/prevcontent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/leftarrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="65dp"
+            android:background="#00ff0000"
+            android:src="@drawable/ic_arrow_back"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/prevcontent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="56dp"
+            android:layout_marginTop="68dp"
+            android:background="#00ff0000"
+            android:fontFamily="@font/nanumsquare_acb"
+            android:padding="0dp"
+            android:text="급식 건의 게시판"
+            android:textColor="@color/black"
+            android:textSize="19sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="350dp"
+            android:layout_height="2px"
+            android:layout_marginTop="102dp"
+            android:background="@color/text_color"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="140dp"
+            android:layout_marginTop="162dp"
+            android:fontFamily="@font/nanumsquare_acb"
+            android:text="급식 건의 제목"
+            android:textColor="@color/black"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="164dp"
+            android:layout_marginTop="215dp"
+            android:fontFamily="@font/nanumsquare_acb"
+            android:text="2021-02-25"
+            android:textColor="@color/text_color"
+            android:textSize="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="190dp"
+            android:layout_marginTop="260dp"
+            android:fontFamily="@font/nanumsquare_acb"
+            android:text="닉네임"
+            android:textColor="@color/text_color"
+            android:textSize="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/suggestcontent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="350dp"
+            android:fontFamily="@font/nanumsquare_acb"
+            android:text="건의사항 내용"
+            android:textColor="@color/text_color"
+            android:textSize="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/line1"
+            android:layout_width="328dp"
+            android:layout_height="2px"
+            android:layout_marginTop="430dp"
+            android:background="@color/text_color"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="500dp"
+            android:fontFamily="@font/nanumsquare_acb"
+            android:text="건의사항 답글"
+            android:textColor="@color/text_color"
+            android:textSize="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
