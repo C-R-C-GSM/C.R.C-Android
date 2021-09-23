@@ -40,7 +40,7 @@ class AdminnoticeFragment :  UtilityBase.BaseFragment<FragmentAdminnoticeBinding
     override fun FragmentAdminnoticeBinding.onCreateView(
 
     ){
-        adapter = RegisterMyAdapter(mainViewModel, Data.dataList, requireActivity())
+        adapter = RegisterMyAdapter(mainViewModel, Data.dataList, this@AdminnoticeFragment)
         binding.recyclerviewAdminmain.adapter = adapter
         initialiseAdapter()
 
@@ -72,7 +72,7 @@ class AdminnoticeFragment :  UtilityBase.BaseFragment<FragmentAdminnoticeBinding
             Log.i("data", it.toString())
             if(it.notice_list != null) {
                 Data.dataList = it.notice_list
-                adapter.notifyDataSetChanged()
+                binding.recyclerviewAdminmain.adapter = RegisterMyAdapter(mainViewModel, Data.dataList, this)
             }
 
         })

@@ -3,6 +3,8 @@ package com.example.crc_android.adapter
 import android.app.Activity
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.crc_android.MainActivity
 import com.example.crc_android.R
@@ -21,7 +23,7 @@ import kotlin.collections.ArrayList
 class RegisterMyAdapter(
     val viewModel: MainViewModel,
     val arrayList :ArrayList<NoticeList>,
-    val context : Activity
+    val context : Fragment
 ): RecyclerView.Adapter<RegisterMyAdapter.ViewHolder>(){
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -38,17 +40,16 @@ class RegisterMyAdapter(
 
 
     inner class ViewHolder(val binding : CardNoticeBinding) : RecyclerView.ViewHolder(binding.root){
-        fun bind(note:NoticeList){
+        fun bind(note: NoticeList){
             binding.data = note
             binding.sampledate1.text = note.notice_time
 
-            (context as MainActivity)
             binding.arrow1.setOnClickListener {
                 App.title = binding.sampletext1.text.toString()
                 App.date = binding.sampledate1.text.toString()
                 App.content=note.notice_content
-                (context as MainActivity).supportFragmentManager.beginTransaction()
-                    .replace(R.id.navHostFragment, NoticecontentFragment()).commit()
+                context.findNavController().navigate(R.id.action_adminnoticeFragment_to_noticecontentFragment)
+
             }
         }
     }
