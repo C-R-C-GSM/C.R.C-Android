@@ -84,7 +84,7 @@ class NoticeregistFragment : Fragment() {
         val service = retrofit.create(NOTICE::class.java)
 
         val post : Call<RegistNotice> =
-        service.postnoticetoken("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXkiOjI3LCJyb2xlIjoxLCJpYXQiOjE2MzIyOTcwMjcsImV4cCI6MTYzMjMwMDYyNywiaXNzIjoiQy5SLkNfU0VSVkVSIn0.GzY30og-8rKAifp-NZnl6_aVe6lX0p9mxdpikl8ZVPQ",RegistNotice(title="String",content = "String"))
+        service.postNoticeToken("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXkiOjI3LCJyb2xlIjoxLCJpYXQiOjE2MzIyOTcwMjcsImV4cCI6MTYzMjMwMDYyNywiaXNzIjoiQy5SLkNfU0VSVkVSIn0.GzY30og-8rKAifp-NZnl6_aVe6lX0p9mxdpikl8ZVPQ",RegistNotice(title="String",content = "String"))
         post.enqueue(object :Callback<RegistNotice>{
             override fun onFailure(call: Call<RegistNotice>, t: Throwable) {
                 println("실패")
@@ -101,7 +101,7 @@ class NoticeregistFragment : Fragment() {
 
 
         val call: Call<NoticeToken> =
-            service.getnoticetoken("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXkiOjM3LCJyb2xlIjowLCJpYXQiOjE2MjkzNTI0NzUsImV4cCI6MTYyOTM1NjA3NSwiaXNzIjoiQy5SLkNfU0VSVkVSIn0.w78k_zbpqx14VwruONvOvbh3cmM_qZy35dZvu1cNXlI")
+            service.getNoticeToken("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXkiOjM3LCJyb2xlIjowLCJpYXQiOjE2MjkzNTI0NzUsImV4cCI6MTYyOTM1NjA3NSwiaXNzIjoiQy5SLkNfU0VSVkVSIn0.w78k_zbpqx14VwruONvOvbh3cmM_qZy35dZvu1cNXlI")
         call.enqueue(object : Callback<NoticeToken> {
             override fun onFailure(call: Call<NoticeToken>, t: Throwable) {
                 println("실패")

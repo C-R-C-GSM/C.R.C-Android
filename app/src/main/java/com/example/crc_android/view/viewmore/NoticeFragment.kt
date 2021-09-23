@@ -65,7 +65,7 @@ class NoticeFragment : Fragment() {
 
         val service = retrofit.create(NOTICE::class.java)
         val call: Call<NoticeToken> =
-            service.getnoticetoken("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXkiOjM3LCJyb2xlIjowLCJpYXQiOjE2Mjk4NDY4NTQsImV4cCI6MTYyOTg1MDQ1NCwiaXNzIjoiQy5SLkNfU0VSVkVSIn0.NsrgLDyvtiAuKeTvxTx3r7X9A4i94afveic2iBiXLMg")
+            service.getNoticeToken("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXkiOjM3LCJyb2xlIjowLCJpYXQiOjE2Mjk4NDY4NTQsImV4cCI6MTYyOTg1MDQ1NCwiaXNzIjoiQy5SLkNfU0VSVkVSIn0.NsrgLDyvtiAuKeTvxTx3r7X9A4i94afveic2iBiXLMg")
         call.enqueue(object : Callback<NoticeToken> {
             override fun onFailure(call: Call<NoticeToken>, t: Throwable) {
                 println("실패")

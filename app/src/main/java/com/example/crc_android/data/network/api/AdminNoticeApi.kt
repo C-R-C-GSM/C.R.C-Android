@@ -6,7 +6,7 @@ import retrofit2.http.*
 
 interface AdminNoticeApi   {
     @GET("notice/register")
-    fun getadminoticetoken(@Header("Authorization") token : String
+    fun getAdminNoticeToken(@Header("Authorization") token : String
     ): Call<NoticeToken>
 
    /* @POST("notice/register")

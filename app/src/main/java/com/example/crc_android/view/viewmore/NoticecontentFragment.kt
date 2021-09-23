@@ -55,7 +55,7 @@ class NoticecontentFragment : Fragment() {
         val retrofit = RetrofitHelper.getInstance()
 
         val service = retrofit.create(AdminNoticeApi::class.java)
-        val call: Call<NoticeToken> = service.getadminoticetoken("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXkiOjI3LCJyb2xlIjoxLCJpYXQiOjE2MzE3NjE0MzUsImV4cCI6MTYzMTc2NTAzNSwiaXNzIjoiQy5SLkNfU0VSVkVSIn0.NNv0w7jCWE6Dzh61VzmtSGJ5eb0wKc4WlRwPqwtClrU")
+        val call: Call<NoticeToken> = service.getAdminNoticeToken("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXkiOjI3LCJyb2xlIjoxLCJpYXQiOjE2MzE3NjE0MzUsImV4cCI6MTYzMTc2NTAzNSwiaXNzIjoiQy5SLkNfU0VSVkVSIn0.NNv0w7jCWE6Dzh61VzmtSGJ5eb0wKc4WlRwPqwtClrU")
         call.enqueue(object : Callback<NoticeToken> {
             override fun onFailure(call: Call<NoticeToken>, t: Throwable) {
                 println("실패")
