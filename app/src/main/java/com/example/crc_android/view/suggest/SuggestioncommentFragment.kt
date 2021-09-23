@@ -73,7 +73,7 @@ class SuggestioncommentFragment : Fragment() {
                 .replace(R.id.navHostFragment, SuggestionFragment()).commit()
         }
     }
-    //todo  pull안 받아와짐
+
 
 
 
