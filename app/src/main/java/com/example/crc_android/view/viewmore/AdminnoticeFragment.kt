@@ -7,92 +7,74 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.asLiveData
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.crc_android.MainActivity
 import com.example.crc_android.R
 import com.example.crc_android.adapter.RegisterMyAdapter
+import com.example.crc_android.base.UtilityBase
 import com.example.crc_android.data.Data
 import com.example.crc_android.data.network.api.AdminNoticeApi
 import com.example.crc_android.data.NoticeToken
 import com.example.crc_android.data.RetrofitHelper
 import com.example.crc_android.databinding.FragmentAdminnoticeBinding
+import com.example.crc_android.util.AES256
+import com.example.crc_android.viewmodel.login.LoginViewModel
 import com.example.crc_android.viewmodel.viewmore.MainViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+@AndroidEntryPoint
 
-class AdminnoticeFragment : Fragment() {
-    private lateinit var viewModel: MainViewModel
-    lateinit var binding: FragmentAdminnoticeBinding
+class AdminnoticeFragment :  UtilityBase.BaseFragment<FragmentAdminnoticeBinding>(R.layout.fragment_adminnotice) {
+    private val mainViewModel: MainViewModel by viewModels()
+    private val loginViewModel: LoginViewModel by viewModels()
     lateinit var adapter: RegisterMyAdapter
 
-    override fun onCreateView(
+    override fun FragmentAdminnoticeBinding.onCreateView(
 
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_adminnotice, container, false)
-        binding.admin = this
-        viewModel = ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
-        adapter = RegisterMyAdapter(viewModel, Data.dataList, requireActivity())
+    ){
+        adapter = RegisterMyAdapter(mainViewModel, Data.dataList, requireActivity())
         binding.recyclerviewAdminmain.adapter = adapter
-        setRetrofit()
         initialiseAdapter()
 
         (requireActivity() as MainActivity)
         binding.pluscontentBtn.setOnClickListener {
-            (requireActivity() as MainActivity).supportFragmentManager.beginTransaction().addToBackStack(null)
-            (requireActivity() as MainActivity).supportFragmentManager.beginTransaction().replace(R.id.navHostFragment, NoticeregistFragment()).commit()
+            findNavController().navigate(R.id.action_adminnoticeFragment_to_noticeregistFragment)
         }
 
 
         binding.backfragment.setOnClickListener {
-            (requireActivity() as MainActivity).supportFragmentManager.beginTransaction().addToBackStack(null)
-            (requireActivity() as MainActivity).supportFragmentManager.beginTransaction().replace(R.id.navHostFragment, ViewmoreFragment()).commit()
+            findNavController().navigate(R.id.action_adminnoticeFragment_to_viewmoreFragment)
         }
 
-        return binding.root
+
     }
 
 
     private fun initialiseAdapter() {
         binding.recyclerviewAdminmain.layoutManager = LinearLayoutManager(requireActivity())
         observeData()
-        viewModel.get()
+        loginViewModel.readToken.asLiveData().observe(viewLifecycleOwner) {
+            mainViewModel.getNotice(AES256.aesDecode(it.token).toString())
+        }
         adapter.notifyDataSetChanged()
     }
 
     fun observeData() {
-        viewModel.lst.observe(requireActivity(), Observer {
+        mainViewModel.dataList.observe(requireActivity(), Observer {
             Log.i("data", it.toString())
-            Data.dataList = it
-            adapter.notifyDataSetChanged()
-
-        })
-    }
-
-    private fun setRetrofit() {
-        val retrofit = RetrofitHelper.getInstance()
-
-        val service = retrofit.create(AdminNoticeApi::class.java)
-        val call: Call<NoticeToken> =
-            service.getadminoticetoken("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXkiOjM3LCJyb2xlIjowLCJpYXQiOjE2MjkzNTI0NzUsImV4cCI6MTYyOTM1NjA3NSwiaXNzIjoiQy5SLkNfU0VSVkVSIn0.w78k_zbpqx14VwruONvOvbh3cmM_qZy35dZvu1cNXlI")
-        call.enqueue(object : Callback<NoticeToken> {
-            override fun onFailure(call: Call<NoticeToken>, t: Throwable) {
-                println("실패")
-                Log.d("Test", t.toString())
+            if(it.notice_list != null) {
+                Data.dataList = it.notice_list
+                adapter.notifyDataSetChanged()
             }
 
-            override fun onResponse(call: Call<NoticeToken>, response: Response<NoticeToken>) {
-                if (response.body() != null) {
-                    println("성공")
-                }
-            }
         })
-
-
     }
 }

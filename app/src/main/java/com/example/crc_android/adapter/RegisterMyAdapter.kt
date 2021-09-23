@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.crc_android.MainActivity
 import com.example.crc_android.R
+import com.example.crc_android.data.NoticeList
 import com.example.crc_android.data.RegistNotice
 import com.example.crc_android.databinding.CardNoticeBinding
 import com.example.crc_android.util.App
@@ -19,7 +20,7 @@ import kotlin.collections.ArrayList
 
 class RegisterMyAdapter(
     val viewModel: MainViewModel,
-    val arrayList :ArrayList<RegistNotice>,
+    val arrayList :ArrayList<NoticeList>,
     val context : Activity
 ): RecyclerView.Adapter<RegisterMyAdapter.ViewHolder>(){
     override fun onCreateViewHolder(
@@ -37,16 +38,15 @@ class RegisterMyAdapter(
 
 
     inner class ViewHolder(val binding : CardNoticeBinding) : RecyclerView.ViewHolder(binding.root){
-        fun bind(note:RegistNotice){
+        fun bind(note:NoticeList){
             binding.data = note
-            val date = Date(note.time)
-            binding.sampledate1.text = SimpleDateFormat("yyyy-MM-dd").format(date)
+            binding.sampledate1.text = note.notice_time
 
             (context as MainActivity)
             binding.arrow1.setOnClickListener {
                 App.title = binding.sampletext1.text.toString()
                 App.date = binding.sampledate1.text.toString()
-                App.content=note.content
+                App.content=note.notice_content
                 (context as MainActivity).supportFragmentManager.beginTransaction()
                     .replace(R.id.navHostFragment, NoticecontentFragment()).commit()
             }

@@ -11,13 +11,15 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.crc_android.MainActivity
 import com.example.crc_android.R
+import com.example.crc_android.data.NoticeList
 import com.example.crc_android.data.RegistNotice
 import com.example.crc_android.view.viewmore.AdminnoticeFragment
 import com.example.crc_android.view.viewmore.ViewmoreFragment
 import java.text.SimpleDateFormat
 
 class MyAdapter(val context: Activity,
-                val arrayList :ArrayList<RegistNotice>):
+                val arrayList :ArrayList<NoticeList>
+):
 
     RecyclerView.Adapter<MyAdapter.MyViewHolder>(){
     class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
@@ -38,8 +40,8 @@ class MyAdapter(val context: Activity,
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
 
-        holder.itemtitle.setText(arrayList[position].title)
-        holder.itemdate.setText(SimpleDateFormat("yyyy-MM-dd").format(arrayList[position].time))
+        holder.itemtitle.setText(arrayList[position].notice_title)
+        holder.itemdate.setText(arrayList[position].notice_time)
 
         holder.arrow1.setOnClickListener {
             (context as MainActivity).supportFragmentManager.beginTransaction().replace(R.id.navHostFragment, ViewmoreFragment()).commit()

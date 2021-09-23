@@ -19,6 +19,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     lateinit var navi: BottomNavigationView
+    private lateinit var navController: NavController
     private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,34 +29,27 @@ class MainActivity : AppCompatActivity() {
         supportActionBar!!.hide()
 
         navi = binding.bottomNavigationView
+        navController = findNavController(R.id.navHostFragment)
+        //앱 바 구성성
+        val appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.homeFragment,
+                R.id.friendFragment,
+                R.id.reviewFragment,
+                R.id.viewmoreFragment
+            )
+        )
 
-        initView()
-        supportFragmentManager.beginTransaction().replace(R.id.navHostFragment, HomeFragment()).commit()
-        navi.selectedItemId = R.id.homeFragment
+        setupActionBarWithNavController(navController, appBarConfiguration)
+        navi.setupWithNavController(navController)
+
     }
 
-    fun initView(){
-        navi.setOnNavigationItemSelectedListener {
-            when(it.itemId){
-                R.id.homeFragment -> {
-                    supportFragmentManager.beginTransaction().replace(R.id.navHostFragment, HomeFragment()).commit()
-                    true
-                }
-                R.id.friendFragment -> {
-                    supportFragmentManager.beginTransaction().replace(R.id.navHostFragment, FriendFragment()).commit()
-                    true
-                }
-                R.id.reviewFragment -> {
-                    supportFragmentManager.beginTransaction().replace(R.id.navHostFragment, ReviewFragment()).commit()
-                    true
-                }
-                R.id.viewmoreFragment -> {
-                    supportFragmentManager.beginTransaction().replace(R.id.navHostFragment, ViewmoreFragment()).commit()
-                    true
-                }
-                else -> false
-            }
 
-        }
+
+    override fun onSupportNavigateUp(): Boolean {
+        return navController.navigateUp() || super.onSupportNavigateUp()
     }
+
+
 }

@@ -1,5 +1,6 @@
 package com.example.crc_android.di
 
+import com.example.crc_android.data.NOTICE
 import com.example.crc_android.data.network.api.AdminApi
 import com.example.crc_android.data.network.api.FriendApi
 import com.example.crc_android.data.network.api.ReviewApi
@@ -29,6 +30,11 @@ object ProvideModule {
     @Singleton
     fun provideApAdminService(retrofit: Retrofit): AdminApi {
         return retrofit.create(AdminApi::class.java)
+    }
+    @Provides
+    @Singleton
+    fun provideApiNoticeService(retrofit: Retrofit) : NOTICE {
+        return retrofit.create(NOTICE::class.java)
     }
 
 }

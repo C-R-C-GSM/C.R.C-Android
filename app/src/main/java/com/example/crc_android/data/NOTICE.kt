@@ -8,12 +8,12 @@ import retrofit2.http.*
 
 interface NOTICE{
     @GET("notice/check")
-    fun getNoticeToken(@Header("Authorization") token : String
-    ):Call<NoticeToken>
+    suspend fun getNoticeToken(@Header("Token") token : String
+    ):Response<NoticeToken>
 
 
     @POST("notice/register")
-     fun postNoticeToken( @Header("Token") token:String,
+    suspend fun postNoticeToken( @Header("Token") token:String,
         @Body registNotice: RegistNotice
-    ): Call<RegistNotice>
+    ): Response<NoticeToken>
 }
