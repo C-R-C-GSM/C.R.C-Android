@@ -14,8 +14,9 @@ class App : Application(){
         var title : String=""
         var date : String = ""
         var content : String = ""
-
-
+        var nickname : String = ""
+        var reply : String = ""
+        var id : Int = -1
     }
 
 

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".NoticeregistActivity">
+
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="54dp"
+            android:fontFamily="@font/nanumsquare_acb"
+            android:gravity="center_horizontal"
+            android:text="급식 건의 등록"
+            android:textColor="@color/black"
+            android:textSize="23sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <Button
+            android:id="@+id/update"
+            android:layout_width="50dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="64dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="54dp"
+            android:background="#00ff0000"
+            android:fontFamily="@font/nanumsquare_acb"
+            android:padding="0dp"
+            android:text="완료"
+            android:textColor="@color/main_color"
+            android:textSize="18dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toEndOf="@id/name"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <ImageButton
+            android:id="@+id/leftarrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="65dp"
+            android:background="#00ff0000"
+            android:src="@drawable/ic_arrow_back"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="53dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="66dp"
+            android:background="#00ff0000"
+            android:fontFamily="@font/nanumsquare_acb"
+            android:padding="0dp"
+            android:text="급식 건의"
+            android:textColor="@color/black"
+            android:textSize="19sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="350dp"
+            android:layout_height="2px"
+            android:layout_marginTop="102dp"
+            android:background="@color/text_color"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <EditText
+            android:id="@+id/nickname"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="250dp"
+            android:background="@drawable/registedit"
+            android:hint="    닉네임을 입력하세요"
+            android:textColorHint="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/title"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="310dp"
+            android:background="@drawable/registedit"
+            android:hint="    제목을 입력하세요"
+            android:textColorHint="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <EditText
+            android:id="@+id/content"
+            android:layout_width="300dp"
+            android:layout_height="108dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="370dp"
+            android:background="@drawable/registedit"
+            android:gravity="top"
+            android:hint="    내용을 입력하세요"
+            android:textColorHint="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -15,6 +15,11 @@
         android:title="급식리뷰" />
 
     <item
+        android:id="@+id/suggestionFragment"
+        android:icon="@drawable/leftarrow"
+        android:title="급식건의"/>
+
+    <item
         android:id="@+id/viewmoreFragment"
         android:icon="@drawable/leftarrow"
         android:title="공지사항"
