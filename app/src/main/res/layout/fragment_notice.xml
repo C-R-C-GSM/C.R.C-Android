@@ -68,7 +68,7 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:id="@+id/recyclerview_main"
         android:layout_width="match_parent"
-        android:layout_height="550dp"
+        android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="@+id/line"
         app:layout_constraintStart_toStartOf="parent"
         >
