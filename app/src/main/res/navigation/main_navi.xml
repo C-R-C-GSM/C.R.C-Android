@@ -16,7 +16,7 @@
             app:destination="@id/friendFragment" />
         <action
             android:id="@+id/action_homeFragment_to_adminnoticeFragment"
-            app:destination="@id/adminnoticeFragment" />
+            app:destination="@id/viewmoreFragment" />
     </fragment>
 
 
@@ -72,12 +72,63 @@
         android:id="@+id/viewmoreFragment"
         tools:layout="@layout/fragment_viewmore"
         android:name="com.example.crc_android.view.viewmore.ViewmoreFragment"
-        android:label="공지사항" />
+        android:label="공지사항" >
+        <action
+            android:id="@+id/action_viewmoreFragment_to_adminnoticeFragment"
+            app:destination="@id/adminnoticeFragment" />
+        <action
+            android:id="@+id/action_viewmoreFragment_to_noticeFragment2"
+            app:destination="@id/noticeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/adminnoticeFragment"
         tools:layout="@layout/fragment_adminnotice"
         android:name="com.example.crc_android.view.viewmore.AdminnoticeFragment"
-        android:label="AdminnoticeFragment" />
+        android:label="AdminnoticeFragment" >
+        <action
+            android:id="@+id/action_adminnoticeFragment_to_viewmoreFragment"
+            app:destination="@id/viewmoreFragment" />
+        <action
+            android:id="@+id/action_adminnoticeFragment_to_noticecontentFragment"
+            app:destination="@id/noticecontentFragment" />
+        <action
+            android:id="@+id/action_adminnoticeFragment_to_noticeregistFragment"
+            app:destination="@id/noticeregistFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/noticeFragment"
+        tools:layout="@layout/fragment_notice"
+        android:name="com.example.crc_android.view.viewmore.NoticeFragment"
+        android:label="NoticeFragment" >
+        <action
+            android:id="@+id/action_noticeFragment_to_noticecontentFragment"
+            app:destination="@id/noticecontentFragment" />
+        <action
+            android:id="@+id/action_noticeFragment_to_viewmoreFragment"
+            app:destination="@id/viewmoreFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/noticeregistFragment"
+        tools:layout="@layout/fragment_noticeregist"
+        android:name="com.example.crc_android.view.viewmore.NoticeregistFragment"
+        android:label="NoticeregistFragment" >
+        <action
+            android:id="@+id/action_noticeregistFragment_to_adminnoticeFragment"
+            app:destination="@id/adminnoticeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/noticecontentFragment"
+        tools:layout="@layout/fragment_noticecontent"
+        android:name="com.example.crc_android.view.viewmore.NoticecontentFragment"
+        android:label="NoticecontentFragment" >
+        <action
+            android:id="@+id/action_noticecontentFragment_to_adminnoticeFragment"
+            app:destination="@id/adminnoticeFragment" />
+        <action
+            android:id="@+id/action_noticecontentFragment_to_noticeFragment"
+            app:destination="@id/noticeFragment" />
+    </fragment>
+
 
 
 </navigation>

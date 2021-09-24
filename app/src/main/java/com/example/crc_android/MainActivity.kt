@@ -8,6 +8,10 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.crc_android.databinding.ActivityMainBinding
+import com.example.crc_android.view.friend.FriendFragment
+import com.example.crc_android.view.home.HomeFragment
+import com.example.crc_android.view.review.ReviewFragment
+import com.example.crc_android.view.viewmore.ViewmoreFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 
