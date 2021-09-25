@@ -8,16 +8,20 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.crc_android.MainActivity
 import com.example.crc_android.R
 import com.example.crc_android.data.NoticeList
 import com.example.crc_android.data.RegistNotice
+import com.example.crc_android.databinding.FragmentNoticeBinding
+import com.example.crc_android.util.App
 import com.example.crc_android.view.viewmore.AdminnoticeFragment
 import com.example.crc_android.view.viewmore.ViewmoreFragment
 import java.text.SimpleDateFormat
 
-class MyAdapter(val context: Activity,
+class MyAdapter(val context: Fragment,
                 val arrayList :ArrayList<NoticeList>
 ):
 
@@ -44,7 +48,10 @@ class MyAdapter(val context: Activity,
         holder.itemdate.setText(arrayList[position].notice_time)
 
         holder.arrow1.setOnClickListener {
-            (context as MainActivity).supportFragmentManager.beginTransaction().replace(R.id.navHostFragment, ViewmoreFragment()).commit()
+            App.title=arrayList[position].notice_title
+            App.content=arrayList[position].notice_content
+            App.date=arrayList[position].notice_time
+            context.findNavController().navigate(R.id.action_noticeFragment_to_noticecontentFragment)
         }
 
 
