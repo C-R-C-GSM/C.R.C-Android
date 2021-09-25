@@ -55,8 +55,9 @@ class SuggestioncontentFragment: UtilityBase.BaseFragment<FragmentSuggestioncont
                 else
                     Toast.makeText(requireContext(), "권한이 없습니다.", Toast.LENGTH_SHORT).show()
             }
-
         }
+
+
 
 
     }

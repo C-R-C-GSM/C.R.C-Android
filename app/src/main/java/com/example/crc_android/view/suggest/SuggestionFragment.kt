@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.asLiveData
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -20,9 +21,11 @@ import com.example.crc_android.base.UtilityBase
 import com.example.crc_android.data.Data
 import com.example.crc_android.databinding.FragmentSuggestionBinding
 import com.example.crc_android.util.AES256
+import com.example.crc_android.viewmodel.admin.AdminViewModel
 import com.example.crc_android.viewmodel.login.LoginViewModel
 import com.example.crc_android.viewmodel.suggest.SuggestViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class SuggestionFragment: UtilityBase.BaseFragment<FragmentSuggestionBinding>(R.layout.fragment_suggestion)
@@ -32,6 +35,7 @@ class SuggestionFragment: UtilityBase.BaseFragment<FragmentSuggestionBinding>(R.
     private lateinit var viewManager: RecyclerView.LayoutManager
     private val viewModel : SuggestViewModel by viewModels()
     private val loginViewModel : LoginViewModel by viewModels()
+     private val adminViewModel:AdminViewModel by viewModels()
 
     override fun FragmentSuggestionBinding.onCreateView(
 
@@ -39,6 +43,7 @@ class SuggestionFragment: UtilityBase.BaseFragment<FragmentSuggestionBinding>(R.
         // Inflate the layout for this fragment
         viewManager = LinearLayoutManager(requireActivity(), RecyclerView.VERTICAL, true)
         viewAdapter = SuggestAdapter(Data.suggestList,this@SuggestionFragment)
+
 
         binding.plus.setOnClickListener {
             findNavController().navigate(R.id.action_suggestionFragment_to_registractionFragment)
@@ -57,11 +62,24 @@ class SuggestionFragment: UtilityBase.BaseFragment<FragmentSuggestionBinding>(R.
                 binding.recyclerviewSuggest.adapter = SuggestAdapter(Data.suggestList,this@SuggestionFragment)
             }
         })
+        adminViewModel.adminSuccess.observe(requireActivity(),{
+            if(it){
+                binding.plus.visibility = View.GONE
+            }
+        })
 
         loginViewModel.readToken.asLiveData().observe(viewLifecycleOwner){
             viewModel.getsuggest(AES256.aesDecode(it.token).toString())
+            checkAdmin(AES256.aesDecode(it.token).toString())
         }
     }
+     private fun checkAdmin(token:String){
+         lifecycleScope.launch {
+             adminViewModel.getCheckRole(token)
+
+         }
+
+     }
 }
 
 
