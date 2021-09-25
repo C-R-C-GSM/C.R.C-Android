@@ -4,6 +4,7 @@ import com.example.crc_android.data.NOTICE
 import com.example.crc_android.data.network.api.AdminApi
 import com.example.crc_android.data.network.api.FriendApi
 import com.example.crc_android.data.network.api.ReviewApi
+import com.example.crc_android.data.network.api.SuggestApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -35,6 +36,12 @@ object ProvideModule {
     @Singleton
     fun provideApiNoticeService(retrofit: Retrofit) : NOTICE {
         return retrofit.create(NOTICE::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideApiSuggestService(retrofit: Retrofit) : SuggestApi {
+        return retrofit.create(SuggestApi::class.java)
     }
 
 }

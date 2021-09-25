@@ -36,7 +36,8 @@ class MainActivity : AppCompatActivity() {
                 R.id.homeFragment,
                 R.id.friendFragment,
                 R.id.reviewFragment,
-                R.id.viewmoreFragment
+                R.id.suggestionFragment,
+                R.id.viewmoreFragment,
             )
         )
 

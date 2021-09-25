@@ -43,8 +43,8 @@
             android:id="@+id/action_reviewFragment_to_replyFragment"
             app:destination="@id/replyFragment" />
         <action
-            android:id="@+id/action_reviewFragment_to_viewmoreFragment"
-            app:destination="@id/viewmoreFragment" />
+            android:id="@+id/action_reviewFragment_to_suggestionFragment"
+            app:destination="@id/suggestionFragment" />
     </fragment>
     <fragment
         android:id="@+id/reviewRegisterFragment"
@@ -127,6 +127,59 @@
         <action
             android:id="@+id/action_noticecontentFragment_to_noticeFragment"
             app:destination="@id/noticeFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/suggestionFragment"
+        tools:layout="@layout/fragment_suggestion"
+        android:name="com.example.crc_android.view.suggest.SuggestionFragment"
+        android:label="" >
+        <action
+            android:id="@+id/action_suggestionFragment_to_viewmoreFragment"
+            app:destination="@id/viewmoreFragment" />
+
+        <action
+            android:id="@+id/action_suggestionFragment_to_suggestcontentFragment"
+            app:destination="@id/suggestcontentFragment" />
+        <action
+            android:id="@+id/action_suggestionFragment_to_registractionFragment"
+            app:destination="@id/registractionFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/registractionFragment"
+        tools:layout="@layout/fragment_registraction"
+        android:name="com.example.crc_android.view.suggest.RegistractionFragment"
+        android:label="" >
+
+        <action
+            android:id="@+id/action_registractionFragment_to_suggestionFragment"
+            app:destination="@id/suggestionFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/suggestcontentFragment"
+        tools:layout="@layout/fragment_suggestioncontent"
+        android:name="com.example.crc_android.view.suggest.SuggestioncontentFragment"
+        android:label="" >
+
+        <action
+            android:id="@+id/action_suggestcontentFragment_to_suggestcommentFragment"
+            app:destination="@id/suggestcommentFragment" />
+        <action
+            android:id="@+id/action_suggestcontentFragment_to_suggestionFragment"
+            app:destination="@id/suggestionFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/suggestcommentFragment"
+        tools:layout="@layout/fragment_suggestioncomment"
+        android:name="com.example.crc_android.view.suggest.SuggestioncommentFragment"
+        android:label="" >
+
+        <action
+            android:id="@+id/action_suggestcommentFragment_to_suggestcontentFragment"
+            app:destination="@id/suggestcontentFragment" />
     </fragment>
 
 
