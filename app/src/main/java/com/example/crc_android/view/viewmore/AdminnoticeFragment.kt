@@ -59,7 +59,6 @@ class AdminnoticeFragment :  UtilityBase.BaseFragment<FragmentAdminnoticeBinding
 
 
     private fun initialiseAdapter() {
-        binding.recyclerviewAdminmain.layoutManager = LinearLayoutManager(requireActivity())
         observeData()
         loginViewModel.readToken.asLiveData().observe(viewLifecycleOwner) {
             mainViewModel.getNotice(AES256.aesDecode(it.token).toString())

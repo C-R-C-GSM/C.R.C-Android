@@ -18,9 +18,6 @@ class AdminViewModel @Inject constructor(
     private val _adminSuccess = MutableLiveData<Boolean>()
     val adminSuccess: LiveData<Boolean> get() = _adminSuccess
 
-    init {
-        _adminSuccess.value = false
-    }
 
     suspend fun getCheckRole(token: String) = viewModelScope.launch {
         repository.getCheckRole(token).let {
@@ -29,6 +26,7 @@ class AdminViewModel @Inject constructor(
                 600 -> _adminSuccess.value = false
                 0 -> _adminSuccess.value = true
                 404 -> _adminSuccess.value = false
+                else -> _adminSuccess.value = false
             }
         }
     }
